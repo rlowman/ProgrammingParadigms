@@ -1,0 +1,30 @@
+##### file backups
+*~
+*.*~
+*.bak
+##### latex files
+*.aux
+*.log
+*.synctex.gz
+##### beamer files
+*.nav
+*.snm
+*.synctex.gz
+*.vrb
+*.out
+*.toc
+##### eclipse files
+bin/
+.metadata/
+.recommenders/
+##### CS 315 tools
+*.ali
+*.o
+a.out
+lex.yy.c
+*.tab.h
+*.tab.c
+
+
+
+
