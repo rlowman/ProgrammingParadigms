@@ -1,0 +1,50 @@
+Script started on Thu 01 Sep 2016 06:31:14 PM EDT
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ cat circlearea.s cm
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; CircleArea.cpp
+;;; Computes the area of a circle.
+;;; 
+;;; Input: The radius of a circle.
+;;; Precondition: The radius is a positive number.
+;;; Output: The area of the circle.
+;;; 
+;;; Begun by Dr Jump for CS 315 at King's College
+;;; Completed by: Robert Lowman
+;;; Date: 9/1/16
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Define a constant
+(define PI 3.1415927) 
+
+;;; Function that computes the area of a circle.
+;;;
+;;; Parameter: r The radius of the circle.
+;;; Precondition: r > 0
+;;; Returns: The area of the circle.
+(define (computeArea r) ;Defining the name of the function with parameter r
+  (* PI r r)) ;Storing the value of the area equation
+
+;;; Starting point for running program
+(begin ;Call to start the execution of the program
+  (display "To compute the area of a circle, enter its radius: ") ;Print string
+  (let ((radius (read))) ;Creates variable 'radius', gets input from user and
+    ;;stores value into variable 'radius'
+    (display (computeArea radius)) ;prints out value of area after running the
+    ;;funtion and prints next to previously printed string
+    (newline) ;skips to next line
+    (quit))) ;ends execution
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ cat circlearea.sccm[A]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ ruby circlearea.rb[A]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ cat circlearea.scm[A]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ [K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscm cat[K[K[Kcirclearea.s cm
+To compute the area of a circle, enter its radius: To compute the area of a circle, enter its radius: 1
+3.1415927
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ scm circlearea.sccm
+To compute the area of a circle, enter its radius: To compute the area of a circle, enter its radius: 2
+12.5663708
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ scm circlearea.sccm
+To compute the area of a circle, enter its radius: To compute the area of a circle, enter its radius: 2.5
+19.634954375
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ scm circlearea.sccm
+To compute the area of a circle, enter its radius: To compute the area of a circle, enter its radius: 4.99999
+78.53950334104414
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ exit
+
+Script done on Thu 01 Sep 2016 06:32:05 PM EDT
