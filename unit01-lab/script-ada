@@ -1,0 +1,74 @@
+Script started on Thu 01 Sep 2016 05:59:00 PM EDT
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ cat circlearea.a li
+cat: circlearea.ali: No such file or directory
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ cat circlearea.alli[K[Kdb
+-------------------------------------------------------------
+-- CircleArea.adb
+-- Computes the area of a circle.
+--
+-- Input: The radius of a circle.
+-- Precondition: The radius is a positive number.
+-- Output: The area of the circle.
+-- 
+-- Begun by Dr Jump for CS 315 at King's College
+-- Completed by: Robert Lowman
+-- Date: 9/1/16
+-------------------------------------------------------------
+
+with Ada.Text_IO, Ada.Float_Text_IO; --Stating version of ada is being used.
+use Ada.Text_IO, Ada.Float_Text_IO;
+
+procedure CircleArea is -- starting the set-up of the program.
+   
+   Radius, Area : Float; -- creating the varibles neccesary for the program
+   
+   ----------------------------------------------------------
+   -- Function that computes the area of a circle.
+   --
+   -- Parameter: R The radius of the circle.
+   -- Precondition: R >= 0.0
+   -- Returns: The area of the circle.
+   ----------------------------------------------------------
+   function ComputeArea(R : in Float) return Float is 
+   -- Creating the function to use in the main portion of the program   
+      PI : constant := 3.1415927; --Creating varible necessary for this function
+   begin -- Start the process of the function
+      return PI * R ** 2; -- the actual calculation of the area being returned 
+   end ComputeArea; -- ending the process of the function
+   
+begin -- After setting up all the necessary helping functions, it is time to run
+   -- the actual program
+   Put_Line("To compute the area of a circle,"); -- Prints string to ask for r
+   -- skips line in the process similiar to println in java
+   Put("Enter its radius: "); -- Prints string to ask for r, stays on same line
+   Get(Radius); -- Gets the data entered into the keyboard by user
+   
+   Area := ComputeArea(Radius); -- Uses function set up earlier to set Area
+   
+   Put("The area is "); -- Prints string letting the user know what the area is
+   Put(Area); -- Prints the actual value of Area next to the previous string
+   New_Line; -- Moves to next line
+end CircleArea; -- Ends the program
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ gnatmake circlea rea
+gcc-5 -c circlearea.adb
+gnatbind-5 -x circlearea.ali
+gnatlink-5 circlearea.ali
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ ./circlearea
+To compute the area of a circle,
+Enter its radius: 1
+The area is  3.14159E+00
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ ./circlearea
+To compute the area of a circle,
+Enter its radius: 2
+The area is  1.25664E+01
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ ./circlearea
+To compute the area of a circle,
+Enter its radius: 2.5
+The area is  1.96350E+01
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ ./circlearea
+To compute the area of a circle,
+Enter its radius: 4.99999
+The area is  7.85395E+01
+]0;guest-ovsul9@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-ovsul9@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ exit
+
+Script done on Thu 01 Sep 2016 06:00:15 PM EDT
