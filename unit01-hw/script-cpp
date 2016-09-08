@@ -1,0 +1,62 @@
+Script started on Wed 07 Sep 2016 09:35:28 PM EDT
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ cat areatriangle.cpp
+/***************************************************************
+ * Computes the area of a triangle.
+ *
+ * Input: The radius of a triangle.
+ * Precondition: The height and width is a positive number.
+ * Output: The area of the triangle.
+ *
+ * Completed by: Robert Lowman
+ * Date: 9/7/16
+ ***************************************************************/
+
+#include <iostream>     // enables input and output
+using namespace std;
+
+/**
+ * Function that computes the area of a triangle.
+ *
+ * Parameter: height The height of the triangle.
+ * Parameter: width The width of the triangle.
+ * Precondition: height > 0
+ * Precondition: width > 0
+ * Returns: The area of the triangle.
+ */
+double computeArea(double height, double width)
+{
+  return .5 * height * width;            // return an expression
+}
+
+/**
+ * Main method.
+ */
+int main()
+{
+                                          // prompt for and input radius
+  cout << "To compute the area of a triangle, enter its height: ";
+  double height;                          // variable declaration
+  cin >> height;                          // read height from keyboard
+  cout << "To compute the area of a triangle, enter its width: ";
+  double width;                          // variable declaration
+  cin >> width;                          // read width from keyboard
+  double area = computeArea(height, width);      // compute area
+  cout << "The area is " << area << endl; // output area
+}
+
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ g++ c[Kareatriangle.cpp  -Wall -o cppAreaTriangle
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ ./cppAreaTrianl[Kgle
+To compute the area of a triangle, enter its height: 3
+To compute the area of a triangle, enter its width: 4
+The area is 6
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ ./cppAreaTriangle
+To compute the area of a triangle, enter its height: 1
+To compute the area of a triangle, enter its width: 2
+The area is 1
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ ./cppAreaTriangle
+To compute the area of a triangle, enter its height: 5
+To compute the area of a triangle, enter its width: 5
+The area is 12.5
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ exit
+
+Script done on Wed 07 Sep 2016 09:37:58 PM EDT
