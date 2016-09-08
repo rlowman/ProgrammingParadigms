@@ -1,0 +1,54 @@
+Script started on Wed 07 Sep 2016 10:59:14 PM EDT
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ cat areatrianl[Kgle.rb
+#! /usr/bin/ruby
+################################################################
+# CircleArea.rb
+# Computes the area of a triangle.
+#
+# Input: The height of a triangle.
+# Input: The width of a triangle.
+# Precondition: The height is a positive number.
+# Precondition: The width is a positive number.
+# Output: The area of the triangle.
+#
+# Completed by: Robert Lowman
+# Date: 9/7/16
+################################################################
+
+HALF = 0.5
+
+# Function that computes the area of a triangle.
+#
+# Parameter: height The height of the triangle.
+# Parameter: width The width of the triangle.
+# Precondition: h > 0.
+# Precondition: w > 0.
+# Returns: The area of the triangle.
+def computeArea(h, w) # define a function with 2 parameters
+  HALF * h * w # calculate area of triangle
+end # end function
+
+# Where execution begins
+if __FILE__ == $0 # If file can be read, continue
+  print "Enter the height: " # print string
+  height = gets.chomp.to_f # get data from keyboard and set to height
+  print "Enter the width: " # print string
+  width = gets.chomp.to_f # get data from keyboard and set to width
+  print "Area is: "  # print string
+  puts computeArea(height, width) # print return value from function
+end # end execution
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ ./[K[Kruby areatriable[K[K[Kngle.rb
+Enter the height: 2
+Enter the width: 5
+Area is: 5.0
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ ruby areatriangle.rb
+Enter the height: 3
+Enter the width: 5
+Area is: 7.5
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ ruby areatriangle.rb[1Pcat[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ruby[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Enter the height: 8
+Enter the width: 5
+Area is: 20.0
+]0;guest-ikbpay@ad425-linux21: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-ikbpay@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ exit
+
+Script done on Wed 07 Sep 2016 11:00:58 PM EDT
