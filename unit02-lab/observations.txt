@@ -1,0 +1,79 @@
+Robert Lowman
+Lab 2 Observations
+9/13/16
+CS 315 Programming Paradigms
+
+Example 1: I notice that there is a reallocation of the current pointer to the
+size and I noticed that this pointer returned from the realloc function that
+points to the newly allocated memory is casted to void *. I predict this is
+casted in such a way so that any type of value can be passed as a return value
+and it won't be an issue until it as casted after it is returned.
+
+Example 2: If you give the input of just an underscore, the only thing that is
+returned is an underscore however the cursor moves to the very next line instead
+of 2 lines down if you were to give it a letter it knows. When given with a
+number or a known letter, the program will print the letter or number correctly
+but will repeat the underscore respectively to its location in the input. This
+is because the underscore is not part of our grammer and therefore the program
+does not know how to handle it for output, so it resorts to simply repeating it
+in the output. 
+
+Example 3:
+KEYWORD: class
+IDENTIFIER: StudentInfo
+PUNCTUATION: {
+KEYWORD: public
+PUNCTUATION: :
+IDENTIFIER: StudentInfo
+PUNCTUATION: (
+PUNCTUATION: )
+PUNCTUATION: {
+IDENTIFIER: myGPA
+OPERATOR: =
+DOUBLE: 0.0 (0)
+PUNCTUATION: ;
+IDENTIFIER: myHours
+OPERATOR: =
+INTEGER: 0 (0)
+PUNCTUATION: ;
+PUNCTUATION: }
+IDENTIFIER: StudentInfo
+PUNCTUATION: (
+KEYWORD: double
+IDENTIFIER: gpa
+PUNCTUATION: ,
+KEYWORD: int
+IDENTIFIER: hours
+PUNCTUATION: )
+PUNCTUATION: {
+IDENTIFIER: myGPA
+OPERATOR: =
+IDENTIFIER: gpa
+PUNCTUATION: ;
+IDENTIFIER: myHours
+OPERATOR: =
+IDENTIFIER: hours
+PUNCTUATION: ;
+PUNCTUATION: }
+KEYWORD: private
+PUNCTUATION: :
+KEYWORD: double
+IDENTIFIER: myGPA
+PUNCTUATION: ;
+KEYWORD: int
+IDENTIFIER: myHours
+PUNCTUATION: ;
+PUNCTUATION: }
+PUNCTUATION: ;
+
+Example 4: 
+- The difference between a terminal and a non-terminal is that
+
+- One thing I noticed is that the program isn't really sure if the heat was
+turned off or on, it just knows that the state of the power has changed. I
+noticed this as the output for both inputs "Heat on" and "Heat off" is the same.
+Also, unlike the other programs in this lab so far, if the program does not
+recognize a syntax it crashes and ends the program, compared to the other
+programs that will simply reprint input it does not recognize. Having said that
+I also find it strange that our program crashes when we enter a lone integer,
+even though 0-9 is in our grammer as NUMBER. 
