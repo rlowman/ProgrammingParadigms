@@ -1,0 +1,95 @@
+Script started on Wed 14 Sep 2016 10:25:20 AM EDT
+]0;guest-hs4kmn@ad425-linux11: ~/CS315-F16-LowmanRobert/unit02-lab[01;32mguest-hs4kmn@ad425-linux11[00m:[01;34m~/CS315-F16-LowmanRobert/unit02-lab[00m$ cat example6.lex [A
+%{
+#include <stdio.h>
+#include "example6.tab.h"
+%}
+
+%%
+[0-9]+                  yylval = atoi(yytext); return NUMBER;
+heat                    return TOKHEAT;
+on|off                  yylval = !strcmp(yytext,"on"); return STATE;
+set                     return TOKSET;
+temperature             return TOKTEMPERATURE;
+humidity                return TOKHUMIDITY;
+to                      /* ignore to if it is added in input */
+\n                      /* ignore end of line */;
+[ \t]+                  /* ignore whitespace */;
+%%
+]0;guest-hs4kmn@ad425-linux11: ~/CS315-F16-LowmanRobert/unit02-lab[01;32mguest-hs4kmn@ad425-linux11[00m:[01;34m~/CS315-F16-LowmanRobert/unit02-lab[00m$ cat example6.y
+%{
+#include <stdio.h>
+#include <string.h>
+void yyerror(const char *str) {
+  fprintf(stderr,"error: %s\n",str);
+}
+int yywrap() {
+  return 1;
+}
+main() {
+  yyparse();
+}
+
+%}
+
+%token NUMBER TOKHEAT STATE TOKSET TOKTEMPERATURE TOKHUMIDITY
+%%
+
+commands: /* empty */
+        | commands command
+        ;
+command:
+        heat_switch
+        | temperature_set
+	| humidity_set
+        ;
+heat_switch:
+        TOKHEAT STATE
+        {
+	          if ($2) {  /* if STATE == 1 */
+		          printf("\tHeat turned on\n");
+		  } else {
+		       printf("\tHeat turned off\n");
+	     }
+	}
+        ;
+temperature_set:
+        TOKSET TOKTEMPERATURE NUMBER
+        {
+	  printf("\tTemperature set to %d\n", $3);
+        }
+        ;
+humidity_set :
+        TOKSET TOKHUMIDITY NUMBER
+	{
+	  printf("\tHumidity set to %d\n", $3);
+	}
+        ;
+]0;guest-hs4kmn@ad425-linux11: ~/CS315-F16-LowmanRobert/unit02-lab[01;32mguest-hs4kmn@ad425-linux11[00m:[01;34m~/CS315-F16-LowmanRobert/unit02-lab[00m$ make
+flex example6.lex
+bison -d example6.y
+gcc lex.yy.c example6.tab.c -o example6 -lfl
+[01m[Kexample6.y:10:1:[m[K [01;35m[Kwarning: [m[Kreturn type defaults to ‘[01m[Kint[m[K’ [-Wimplicit-int]
+ main() {
+[01;32m[K ^[m[K
+[01m[Kexample6.y:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kexample6.y:11:3:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyyparse[m[K’ [-Wimplicit-function-declaration]
+   yyparse();
+[01;32m[K   ^[m[K
+[01m[Kexample6.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kexample6.tab.c:1129:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [-Wimplicit-function-declaration]
+       yychar = yylex ();
+[01;32m[K                ^[m[K
+]0;guest-hs4kmn@ad425-linux11: ~/CS315-F16-LowmanRobert/unit02-lab[01;32mguest-hs4kmn@ad425-linux11[00m:[01;34m~/CS315-F16-LowmanRobert/unit02-lab[00m$ ./example6
+heat on
+	Heat turned on
+heat off
+	Heat turned off
+temperature           set temperature 67
+	Temperature set to 67
+set humidity to 56
+	Humidity set to 56
+]0;guest-hs4kmn@ad425-linux11: ~/CS315-F16-LowmanRobert/unit02-lab[01;32mguest-hs4kmn@ad425-linux11[00m:[01;34m~/CS315-F16-LowmanRobert/unit02-lab[00m$ ^C
+]0;guest-hs4kmn@ad425-linux11: ~/CS315-F16-LowmanRobert/unit02-lab[01;32mguest-hs4kmn@ad425-linux11[00m:[01;34m~/CS315-F16-LowmanRobert/unit02-lab[00m$ exit
+
+Script done on Wed 14 Sep 2016 10:26:24 AM EDT

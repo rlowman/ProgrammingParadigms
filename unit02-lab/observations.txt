@@ -67,7 +67,9 @@ PUNCTUATION: }
 PUNCTUATION: ;
 
 Example 4: 
-- The difference between a terminal and a non-terminal is that
+- The difference between a terminal and a non-terminal is that a terminal is a
+syntx that can be changed or altered by a grammer and a non-terminal cannot
+be changed by a grammer.
 
 - One thing I noticed is that the program isn't really sure if the heat was
 turned off or on, it just knows that the state of the power has changed. I
