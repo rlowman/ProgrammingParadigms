@@ -1,0 +1,52 @@
+Script started on Tue 20 Sep 2016 12:08:40 PM EDT
+]0;guest-qqyltf@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-qqyltf@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ car[Kt s[Kyearcodes.scm
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; yearcodes.scm
+;;; Returns the code for a givena cademic yar.
+;;;
+;;; Input: year, a string
+;;; Precondition: year is one of (freshman, sophomore, junior, or senior)
+;;; Output: the integer code corresponding to year (1, 2, 3, or 4)
+;;;
+;;; Begun by Dr Jump for CS 315 at King's College
+;;; Completed by: Robert Lowman
+;;; Date: 9/20/16
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Replace this line with the definition of function yearCode()
+(define (yearCode year)
+  (if (eqv? year 'freshman)
+      1
+      (if (eqv? year 'sophomore)
+	  2
+	  (if (eqv? year 'junior)
+	      3
+	      (if(eqv? year 'senior)
+		 4
+		 0))))) 
+
+;;; Starting point for running program
+(begin
+  (display "Enter your academic year: ")
+  (let ((year (read)))
+    (display (yearCode year))
+    (newline)
+    (quit)))
+]0;guest-qqyltf@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-qqyltf@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ cat yearcodes.scm[Kscm yearcose[K[Kdes.scm
+Enter your academic year: Enter your academic year: freshman
+1
+]0;guest-qqyltf@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-qqyltf@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ scm yearcodes.scm
+Enter your academic year: Enter your academic year: sophomore
+2
+]0;guest-qqyltf@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-qqyltf@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ scm yearcodes.scm
+Enter your academic year: Enter your academic year: junior
+3
+]0;guest-qqyltf@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-qqyltf@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ scm yearcodes.scm
+Enter your academic year: Enter your academic year: senior
+4
+]0;guest-qqyltf@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-qqyltf@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ scm yearcodes.scm
+Enter your academic year: Enter your academic year: fail
+0
+]0;guest-qqyltf@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-qqyltf@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ exit
+
+Script done on Tue 20 Sep 2016 12:09:33 PM EDT
