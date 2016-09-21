@@ -1,0 +1,63 @@
+Script started on Wed 21 Sep 2016 10:36:15 AM EDT
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ./yearcodes.adb[2Poadb[K.adb[2Poalignatmake yearcodes.addb
+gcc-5 -c yearcodes.adb
+gnatbind-5 -x yearcodes.ali
+gnatlink-5 yearcodes.ali
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ gnatmake yearcodes.addb[A]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ [9P./yearcodes
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Enter your academic year: freshman
+          1
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ./yearcodes
+Enter your academic year: sophomore
+          2
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ./yearcodes
+Enter your academic year: junior
+          3
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ./yearcodes
+Enter your academic year: senior
+          4
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ./yearcodes
+Enter your academic year: fail
+          0
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ cat yearcodes.adb
+-- yearcodes.adb converts academic year codes to corresponding years.
+--
+-- Begun by: Dr. Jump for CS 315 at King's College
+-- Finished by: Robert Lowman
+--
+-- Input: year, a string
+-- Precondition: year is one of "freshman", "sophomore", "junior", "senior"
+-- Output: The year code (1, 2, 3 or 4) corresponding to year.
+----------------------------------------------------
+with Ada.Text_IO, Ada.Integer_Text_IO;
+use  Ada.Text_IO, Ada.Integer_Text_IO;
+
+procedure YearCodes is
+
+   Year : String(1..9) := "         ";
+   CharsRead : Natural;
+
+   function GetYearCode(Year : String) return Integer is 
+   begin
+      if Year = "freshman " then
+	 return 1;
+      elsif Year = "sophomore" then
+	 return 2;
+      elsif Year = "junior   " then
+	 return 3;
+      elsif Year = "senior   " then
+	 return 4;
+      else 
+	 return 0;
+      end if;
+   end GetYearCode;
+
+begin
+   Put("Enter your academic year: ");           -- Prompt for input
+   Get_Line(Year, CharsRead);                   -- Input
+   Put( GetYearCode(Year) );                       -- Convert and output
+   New_Line;
+end YearCodes;
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ exit
+
+Script done on Wed 21 Sep 2016 10:37:05 AM EDT
