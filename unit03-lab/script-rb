@@ -1,0 +1,52 @@
+Script started on Wed 21 Sep 2016 10:00:30 AM EDT
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ cat yearcodes.rb
+#! /usr/bin/ruby
+# yearcodes.rb translates an academic year into a numeric code
+# Begun by: Dr. Jump for CS 315 at King's College
+# Finished by: Robert Lowman
+################################################################
+
+# Input:  The name of an academic year
+# Precondition: The academic year is a string with a value of freshman,
+#   sophomore, junior or senior
+# Output: The corresponding integer code for the given academic year
+
+def yearCode(year)
+  if year =~ /freshman/ then
+    1
+  elsif year =~ /sophomore/ then
+    2
+  elsif year =~ /junior/ then
+    3
+  elsif year =~ /senior/ then
+    4
+  else
+    0
+  end
+end
+    
+
+if __FILE__ == $0
+   print "Enter the year: "
+   year = gets
+   print "Numeric code is: "
+   puts yearCode(year)
+end
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ cat yearcodes.rb[Kruby yearcodes.rb
+Enter the year: freshman
+Numeric code is: 1
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ruby yearcodes.rb
+Enter the year: sophomore
+Numeric code is: 2
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ruby yearcodes.rb
+Enter the year: junior
+Numeric code is: 3
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ruby yearcodes.rb
+Enter the year: senior
+Numeric code is: 4
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ ruby yearcodes.rb
+Enter the year: fail
+Numeric code is: 0
+]0;guest-axhtvv@ad425-linux26: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-axhtvv@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ exit
+
+Script done on Wed 21 Sep 2016 10:01:13 AM EDT
