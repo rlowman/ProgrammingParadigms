@@ -8,7 +8,7 @@
 # Output: The corresponding letter grade for the given grade
 
 def yearCode(grade)
-  grade = grade / 10
+  grade /= 10
   case grade
   when 10, 9
     puts 'A'
@@ -26,7 +26,7 @@ end
 
 if __FILE__ == $0
    print "Enter the numeric grade (0-100): "
-   grade = gets
+   grade = gets.to_i
    print "Letter grade is: "
    puts yearCode(grade)
 end

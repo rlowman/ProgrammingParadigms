@@ -1,0 +1,80 @@
+Script started on Mon 26 Sep 2016 09:18:02 AM EDT
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ cat letterGrade.rb 
+#! /usr/bin/ruby
+# letterGrade.rb translates a 0-100 based numeric grade to letter grade
+# Author: Robert Lowman
+################################################################
+
+# Input:  numeric grade based on 0-100 scale
+# Precondition: The grade is bewteen 0-100
+# Output: The corresponding letter grade for the given grade
+
+def yearCode(grade)
+  grade /= 10
+  case grade
+  when 10, 9
+    puts 'A'
+  when 8
+    puts 'B'
+  when 7
+    puts 'C'
+  when 6
+    puts 'D'
+  else
+    puts 'F'
+  end
+end
+    
+
+if __FILE__ == $0
+   print "Enter the numeric grade (0-100): "
+   grade = gets.to_i
+   print "Letter grade is: "
+   puts yearCode(grade)
+end
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ cat letterGrade.rb [Krunb[K[Kby letterGrade.rb 
+Enter the numeric grade (0-100): 100
+Letter grade is: A
+
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ruby letterGrade.rb 
+Enter the numeric grade (0-100): 95
+Letter grade is: A
+
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ruby letterGrade.rb 
+Enter the numeric grade (0-100): 87
+Letter grade is: B
+
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ruby letterGrade.rb 
+Enter the numeric grade (0-100): 73
+Letter grade is: C
+
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ruby letterGrade.rb 6 2
+Enter the numeric grade (0-100): letterGrade.rb:29:in `gets': No such file or directory @ rb_sysopen - 62 (Errno::ENOENT)
+	from letterGrade.rb:29:in `gets'
+	from letterGrade.rb:29:in `<main>'
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ emacs
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ emacsruby letterGrade.rb 622
+Enter the numeric grade (0-100): letterGrade.rb:29:in `gets': No such file or directory @ rb_sysopen - 62 (Errno::ENOENT)
+	from letterGrade.rb:29:in `gets'
+	from letterGrade.rb:29:in `<main>'
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ruby letterGrade.rb 622[K4
+Enter the numeric grade (0-100): letterGrade.rb:29:in `gets': No such file or directory @ rb_sysopen - 64 (Errno::ENOENT)
+	from letterGrade.rb:29:in `gets'
+	from letterGrade.rb:29:in `<main>'
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ruby letterGrade.rb 644[C[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C7 8
+Enter the numeric grade (0-100): letterGrade.rb:29:in `gets': No such file or directory @ rb_sysopen - 78 (Errno::ENOENT)
+	from letterGrade.rb:29:in `gets'
+	from letterGrade.rb:29:in `<main>'
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ruby letterGrade.rb 788[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+Enter the numeric grade (0-100): 89
+Letter grade is: B
+
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ruby letterGrade.rb
+Enter the numeric grade (0-100): 64
+Letter grade is: D
+
+]0;guest-gt5teg@ad425-linux24: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-gt5teg@ad425-linux24[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ sctipt[K[K[K[Kr[K[K[Kexit
+
+Script done on Mon 26 Sep 2016 09:21:31 AM EDT
