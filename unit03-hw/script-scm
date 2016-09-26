@@ -1,0 +1,52 @@
+Script started on Mon 26 Sep 2016 07:56:49 PM EDT
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ cA[Kat letterGrade.s cm
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; letterGrade.scm
+;;; Returns the letter grade for the given numeric grade.
+;;;
+;;; Input: grade, a int
+;;; Precondition: grade is between 0-100
+;;; Output: the letter code for the corresponding grade (A, B, C, D, or E)
+;;;
+;;; Completed by: Robert Lowman
+;;; Date: 9/26/16
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (letterCode grade)
+  (cond
+   ((> grade 89) "A")
+   ((> grade 79) "B")
+   ((> grade 69) "C")
+   ((> grade 59) "D")
+   (t "F")
+  )
+) 
+
+;;; Starting point for running program
+(begin
+  (display "Enter your numeric grade (0-100): ")
+  (let ((grade (read)))
+    (display (letterCode grade))
+    (newline)
+(quit)))
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ scm letterGrade.s cm
+Enter your numeric grade (0-100): Enter your numeric grade (0-100): 100
+A
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ scm letterGrade.sccm
+Enter your numeric grade (0-100): Enter your numeric grade (0-100): 90
+A
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ scm letterGrade.sccm
+Enter your numeric grade (0-100): Enter your numeric grade (0-100): 87
+B
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ scm letterGrade.sccm
+Enter your numeric grade (0-100): Enter your numeric grade (0-100): 71
+C
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ scm letterGrade.sccm
+Enter your numeric grade (0-100): Enter your numeric grade (0-100): 65
+D
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ scm letterGrade.sccm
+Enter your numeric grade (0-100): Enter your numeric grade (0-100): 56
+F
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ exit
+
+Script done on Mon 26 Sep 2016 07:57:24 PM EDT
