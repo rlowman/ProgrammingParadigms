@@ -1,0 +1,77 @@
+Script started on Mon 26 Sep 2016 08:46:10 PM EDT
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ./letterGrade cat letterGrade.addb[A]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ [3P./letterGrade 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kg++ letterGrade.C PP -wAL;[K[K[K[Kw[KWa;;[1P -Wa;;[C[1P -Wa;;[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -[1PWa;;[A]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc -Wa;;p -Wa;;[Cp -Wa;;[C[C[C[C[C[C[C[C[K[Kll -o letterGrade
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ cat letterGrade.c pp
+/* letterGrade.cpp takes a numeric grade and returns the corresponding 
+ * letter grade
+ * Author: Robert Lowman
+ ****************************************************************/
+
+#include <iostream>                      // interactive I/O
+#include <string>                        // string class
+using namespace std;
+
+char letterCode(int grade);
+
+int main() {
+  cout << "\nEnter the numeric grade (0-100): "; // prompt
+  int grade;
+  cin >> grade;                            // read year
+  cout << letterCode(grade) << endl;         // display its code
+}
+
+
+/***************************************************************
+ * letterCode() converts a numeric grade into a letter grade. *
+ * Receive: grade, an int.
+ * PRE: grade is between 0-100.
+ * Return: the letter grade to the corresponding numeric grade.
+ */
+char letterCode(int grade) {
+  char result = '\0';
+  switch (grade / 10) {
+  case 10: case 9:
+    result = 'A';
+    break;
+  case 8:
+    result = 'B';
+    break;
+  case 7:
+    result = 'C';
+    break;
+  case 6:
+    result = 'D';
+    break;
+  default:
+    result = 'F';
+    break;
+  }
+  return result;
+}
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ./letterGrade 
+
+Enter the numeric grade (0-100): 100
+A
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ./letterGrade 
+
+Enter the numeric grade (0-100): 90
+A
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ./letterGrade 
+
+Enter the numeric grade (0-100): 86
+B
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ./letterGrade 
+
+Enter the numeric grade (0-100): 6 76
+C
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ./letterGrade 
+
+Enter the numeric grade (0-100): 62
+D
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ ./letterGrade 
+
+Enter the numeric grade (0-100): 54
+F
+]0;guest-aqkkfi@ad425-linux21: ~/CS315-F16-LowmanRobert/unit03-hw[01;32mguest-aqkkfi@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-hw[00m$ exit
+
+Script done on Mon 26 Sep 2016 08:47:17 PM EDT
