@@ -1,0 +1,85 @@
+Script started on Tue 27 Sep 2016 12:03:32 PM EDT
+]0;guest-52dyjj@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-lab[01;32mguest-52dyjj@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-lab[00m$ cat logtable.scm [A
+;;; logtable.scm displays a table of logarithms.
+;;;
+;;; Input: start, stop and increment, three reals.
+;;; PRE: start < stop and increment > 0.
+;;; Output: A table of logarithms from start to stop,
+;;;          with interval of increment.
+;;;
+;;; Begun by: Dr. Jump for CS 315 at King's College
+;;; Completed by: Robert Lowman
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (log10 n)
+  (/ (log n) (log 10)))
+
+(define (displayLogTable start stop increment)
+  (if (<= start stop)
+      (begin
+      (display "The logarithm of ")
+      (display start)
+      (display " is ")
+      (display (log10 start))
+      (display "\n")
+      (display "\n")
+      (displayLogTable (+ start increment) stop increment))
+    ))
+
+
+;;; Starting point for running program
+(begin
+  (display "Enter starting value: ")
+  (let ((start (read)))
+    (display "Enter stopping value: ")
+    (let ((stop (read)))
+      (display "Enter increment value: ")
+      (let ((increment (read)))
+        (begin
+          (displayLogTable start stop increment)
+          (quit))))))
+]0;guest-52dyjj@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-lab[01;32mguest-52dyjj@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-lab[00m$ scm logtable.scm [A
+Enter starting value: Enter starting value: 1
+Enter stopping value: Enter stopping value: 10
+Enter increment value: Enter increment value: 0.5
+The logarithm of 1 is 0.0
+
+The logarithm of 1.5 is 0.17609125905568124
+
+The logarithm of 2.0 is 0.30102999566398116
+
+The logarithm of 2.5 is 0.3979400086720376
+
+The logarithm of 3.0 is 0.4771212547196624
+
+The logarithm of 3.5 is 0.5440680443502756
+
+The logarithm of 4.0 is 0.6020599913279623
+
+The logarithm of 4.5 is 0.6532125137753436
+
+The logarithm of 5.0 is 0.6989700043360187
+
+The logarithm of 5.5 is 0.7403626894942438
+
+The logarithm of 6.0 is 0.7781512503836435
+
+The logarithm of 6.5 is 0.8129133566428555
+
+The logarithm of 7.0 is 0.8450980400142567
+
+The logarithm of 7.5 is 0.8750612633916999
+
+The logarithm of 8.0 is 0.9030899869919434
+
+The logarithm of 8.5 is 0.9294189257142927
+
+The logarithm of 9.0 is 0.9542425094393248
+
+The logarithm of 9.5 is 0.9777236052888478
+
+The logarithm of 10.0 is 1.0
+
+]0;guest-52dyjj@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-lab[01;32mguest-52dyjj@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-lab[00m$ [K]0;guest-52dyjj@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-lab[01;32mguest-52dyjj@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-lab[00m$ exit
+
+Script done on Tue 27 Sep 2016 12:04:04 PM EDT
