@@ -1,0 +1,74 @@
+Script started on Mon 03 Oct 2016 07:22:43 PM EDT
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ g[Kcat multiplicationtablle.adb 
+-- multiplicationtable.adb computes a table of multiples.
+--
+-- Input: start, stop, increment, three reals.
+-- Precondition: increment is positive.
+-- Output: A table of multiples
+--
+-- Author: Robert Lowman
+--------------------------------------------------------------
+
+with Ada.Text_IO, Ada.Integer_Text_IO;
+use  Ada.Text_IO, Ada.Integer_Text_IO;
+
+procedure MultiplicationTable is
+
+   Size, Value : Integer;
+   
+   procedure DisplayTable(Size : in Integer) is
+      
+   begin   
+      
+      for I in Integer range 1 .. Size loop
+	 for J in Integer range 1 .. Size loop
+	    Value := I * J;
+	    Put(Value);
+	    Put(" ");
+	 end loop;
+	 New_Line;
+      end loop;
+      
+   end DisplayTable;
+
+
+begin
+   -- prompt for input
+   Put_Line("To print a multiplication table, enter the value to stop at: ");
+   Get(Size); 
+   
+   DisplayTable(Size);
+     
+end MultiplicationTable;
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ gnatmake multiplicatioontable.adb 
+gcc-5 -c multiplicationtable.adb
+gnatbind-5 -x multiplicationtable.ali
+gnatlink-5 multiplicationtable.ali
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ ./multiplicationtable  
+To print a multiplication table, enter the value to stop at: 
+1
+          1 
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ ./multiplicationtable  
+To print a multiplication table, enter the value to stop at: 
+3
+          1           2           3 
+          2           4           6 
+          3           6           9 
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ ./multiplicationtable  
+To print a multiplication table, enter the value to stop at: 
+12
+          1           2           3           4           5           6           7           8           9          10          11          12 
+          2           4           6           8          10          12          14          16          18          20          22          24 
+          3           6           9          12          15          18          21          24          27          30          33          36 
+          4           8          12          16          20          24          28          32          36          40          44          48 
+          5          10          15          20          25          30          35          40          45          50          55          60 
+          6          12          18          24          30          36          42          48          54          60          66          72 
+          7          14          21          28          35          42          49          56          63          70          77          84 
+          8          16          24          32          40          48          56          64          72          80          88          96 
+          9          18          27          36          45          54          63          72          81          90          99         108 
+         10          20          30          40          50          60          70          80          90         100         110         120 
+         11          22          33          44          55          66          77          88          99         110         121         132 
+         12          24          36          48          60          72          84          96         108         120         132         144 
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ [K]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ exit
+
+Script done on Mon 03 Oct 2016 07:23:55 PM EDT
