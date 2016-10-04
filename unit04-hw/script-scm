@@ -1,0 +1,76 @@
+Script started on Mon 03 Oct 2016 09:31:34 PM EDT
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ cat multiplicaationtable.scm
+;;; multiplicationtable.scm displays a multiplication table of given size
+;;;
+;;; Input: size of the multiplication table.
+;;; PRE: size > 0.
+;;; Output: A multiplication table of the given size
+;;;
+;;; Author: Robert Lowman
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Functions that implements the inside of the loop algorithm
+;;;
+;;; Parameter: j The inner loop index
+;;; Parameter: i The outer loop index
+;;; Parameter: size The size of the table
+;;; Returns: void
+(define (innerLoop j i size)
+  (if (<= j size)
+      (begin
+      (display (* i j))
+      (display "\t")
+      (innerLoop (+ j 1) i size
+  ))))
+
+;;; Functions that implements the outside of the loop algorithm
+;;;
+;;; Parameter: i The outer loop index
+;;; Parameter: size The size of the table
+;;; Returns: void
+(define (displayMultiTable i size)
+  (if (<= i size)
+      (begin
+	(innerLoop 1 i size)
+	(newline)
+      (displayMultiTable (+ i 1) size
+    ))))
+
+
+;;; Starting point for running program
+(begin
+  (display "Enter the size of the table: ")
+  (let ((size (read)))
+    (displayMultiTable 1 size)
+    (quit)))
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ cat multiplicaationtable.scm[A]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ ruby multiplicationtable.rb[A]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ cat multiplicationtable.scm[A]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ [K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscm multiplicaationtable.scm
+Enter the size of the table: Enter the size of the table: 1
+1	
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ scm multiplicaationtable.scm
+Enter the size of the table: Enter the size of the table: 3
+1	2	3	
+2	4	6	
+3	6	9	
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ scm multiplicaationtable.scm
+Enter the size of the table: Enter the size of the table: 5
+1	2	3	4	5	
+2	4	6	8	10	
+3	6	9	12	15	
+4	8	12	16	20	
+5	10	15	20	25	
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ scm multiplicaationtable.scm
+Enter the size of the table: Enter the size of the table: 10
+1	2	3	4	5	6	7	8	9	10	
+2	4	6	8	10	12	14	16	18	20	
+3	6	9	12	15	18	21	24	27	30	
+4	8	12	16	20	24	28	32	36	40	
+5	10	15	20	25	30	35	40	45	50	
+6	12	18	24	30	36	42	48	54	60	
+7	14	21	28	35	42	49	56	63	70	
+8	16	24	32	40	48	56	64	72	80	
+9	18	27	36	45	54	63	72	81	90	
+10	20	30	40	50	60	70	80	90	100	
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ exit
+
+Script done on Mon 03 Oct 2016 09:32:12 PM EDT
