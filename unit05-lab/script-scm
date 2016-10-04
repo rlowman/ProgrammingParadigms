@@ -1,5 +1,5 @@
-Script started on Tue 04 Oct 2016 11:44:52 AM EDT
-]0;guest-qgvjn3@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-qgvjn3@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ cat sc[Kplit.scm
+Script started on Tue 04 Oct 2016 11:49:38 AM EDT
+]0;guest-qgvjn3@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-qgvjn3@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ cat split.scm
 ;;; split.el splits a string into two substrings.
 ;;;
 ;;; Input: aString, the string to be split,
@@ -42,21 +42,21 @@ Script started on Tue 04 Oct 2016 11:44:52 AM EDT
           (display (car (cdr result)))
           (display "\n")
           (quit))))))
-]0;guest-qgvjn3@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-qgvjn3@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ scm split.scm
-Enter the string to be split: Enter the string to be split: hello
+]0;guest-qgvjn3@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-qgvjn3@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ cat split.scmscm[C[C[C[C[C[C[C[C[C[C
+Enter the string to be split: Enter the string to be split: blackbeard
 Enter the split position: Enter the split position: 0
 The first part is 
-and the second part is hello
+and the second part is blackbeard
 ]0;guest-qgvjn3@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-qgvjn3@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ scm split.scm
-Enter the string to be split: Enter the string to be split: hello
-Enter the split position: Enter the split position: hello[K5[K3
-The first part is hel
-and the second part is lo
-]0;guest-qgvjn3@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-qgvjn3@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ scm split.scm
-Enter the string to be split: Enter the string to be split: hello
+Enter the string to be split: Enter the string to be split: blackbeard
 Enter the split position: Enter the split position: 5
-The first part is hello
-and the second part is 
+The first part is black
+and the second part is beard
+]0;guest-qgvjn3@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-qgvjn3@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ scm split.scm
+Enter the string to be split: Enter the string to be split: blackbeard
+Enter the split position: Enter the split position: 7
+The first part is blackbe
+and the second part is ard
 ]0;guest-qgvjn3@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-qgvjn3@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ exit
 
-Script done on Tue 04 Oct 2016 11:45:39 AM EDT
+Script done on Tue 04 Oct 2016 11:50:22 AM EDT
