@@ -1,0 +1,57 @@
+Script started on Mon 03 Oct 2016 08:18:57 PM EDT
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ cat mi[Kultiplicaationtable.rb
+#! /usr/bin/ruby
+# multiplicationtable.rb displays a table of logarithms
+#
+# Author: Robert Lowman
+#
+# Input:  The size of the multiplication table
+# Precondition: The size must be greater than 0
+# Output: A multiplication table of the given size
+
+
+# Funtion that creates the multiplication table
+# based on the given size
+#
+# Parameter: size The size of the multiplication table
+# Precondition: size > 0
+# Returns: void 
+def DisplayTable(size)
+  for i in 1..size
+    for j in 1..size
+      temp = i*j
+      print "#{temp}\t"
+    end
+    puts " "
+  end
+end
+
+# Where execution begins
+if __FILE__ == $0
+   print "Enter the size : "
+  size = gets.chomp.to_i
+  DisplayTable(size)
+end
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ ruby r[Kmultipliccationtable.ru[Kb
+Enter the size : 1
+1	 
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ ruby multipliccationtable.rb
+Enter the size : 3
+1	2	3	 
+2	4	6	 
+3	6	9	 
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ ruby multipliccationtable.rb
+Enter the size : 10
+1	2	3	4	5	6	7	8	9	10	 
+2	4	6	8	10	12	14	16	18	20	 
+3	6	9	12	15	18	21	24	27	30	 
+4	8	12	16	20	24	28	32	36	40	 
+5	10	15	20	25	30	35	40	45	50	 
+6	12	18	24	30	36	42	48	54	60	 
+7	14	21	28	35	42	49	56	63	70	 
+8	16	24	32	40	48	56	64	72	80	 
+9	18	27	36	45	54	63	72	81	90	 
+10	20	30	40	50	60	70	80	90	100	 
+]0;guest-7fsv6t@ad425-linux21: ~/CS315-F16-LowmanRobert/unit04-hw[01;32mguest-7fsv6t@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit04-hw[00m$ exit
+
+Script done on Mon 03 Oct 2016 08:19:30 PM EDT
