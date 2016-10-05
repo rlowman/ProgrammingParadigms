@@ -1,0 +1,57 @@
+Script started on Tue 04 Oct 2016 10:09:59 PM EDT
+]0;guest-wiixcr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-wiixcr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ s[Kcat split.rb
+# split.rb splits a string into two substrings.
+#
+# Input: A string and an integer string position to split the string by.
+# Precondition: The position integer is within the range of the string size.
+# Output: The substrings aString(0, position - 1) and
+#   aString(pos, length() - 1).
+#
+# Begun by: Dr Jump for CS 315 at King's College
+# Completed by: Robert Lowman
+# Date: 10/4/16
+#################################################################
+
+
+# split() splits a string into its two substrings.
+# Receive: aString, the string to be split,
+#        pos, the split position.
+# PRE: 0 <= pos < the length of aString.
+# Return: the substring of aString before pos, and
+#         the substring of aString from pos onwards.
+######################################################
+
+# Replace this with the implementation of your split function
+def split(aString, pos)
+  [aString[0, pos], aString[pos..aString.size]]
+end
+
+def main
+  print "To split a string, enter the string: ";
+  the_string = gets
+  print "Enter the split position: ";
+  position = gets.to_i
+  split_string = split(the_string, position)
+  puts "The first part is " << split_string[0]
+  puts "and the second part is " << split_string[1]
+end
+
+main
+]0;guest-wiixcr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-wiixcr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ ruby split.rb
+To split a string, enter the string: hello
+Enter the split position: 0
+The first part is 
+and the second part is hello
+]0;guest-wiixcr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-wiixcr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ ruby split.rb
+To split a string, enter the string: hello
+Enter the split position: 3
+The first part is hel
+and the second part is lo
+]0;guest-wiixcr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-wiixcr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ ruby split.rb
+To split a string, enter the string: hello
+Enter the split position: 5
+The first part is hello
+and the second part is 
+]0;guest-wiixcr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mguest-wiixcr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ exit
+
+Script done on Tue 04 Oct 2016 10:18:56 PM EDT
