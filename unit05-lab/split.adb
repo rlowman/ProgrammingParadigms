@@ -37,8 +37,8 @@ procedure Split is
 		   First_Part : out String; 
 		   Last_Part : out String) is
    begin
-      Move(The_String(The_String'First.. Position), First_Part);
-      Move(The_String(Position + 1..The_String'Last), Last_Part);
+      Move(The_String(The_String'First.. Position - 1), First_Part);
+      Move(The_String(Position..The_String'Last), Last_Part);
    end Split;
 
 begin                                           -- Prompt for input
