@@ -23,21 +23,35 @@
 
 
 (define (quadraticRoots a b c)
-  (if (!== a 0)
+  (if (= a 0)
       (begin
+	(display "\n*** quadraticRoots(): a is zero!")
+	(list 0 0))
+      (begin
+	(if (< (- (expt b 2) (* 4 a c)) 0)
+	    (begin
+	      (display "\n*** quadraticRoots(): b^2 - 4ac is negative!") 
+	      (list 0 0))
+	    (begin
+	      (list
+	       (/ (+ (* b -1) (sqrt (- (expt b 2) (* 4 a c)))) (* 2 a))
+	       (/ (- (* b -1) (sqrt (- (expt b 2) (* 4 a c)))) (* 2 a))
+	       )))
   )))
 
 ;;; Starting point for running program
 (begin
-  (display "Enter the string to be split: ")
-  (let ((aString (read)))
-    (display "Enter the split position: ")
-    (let ((pos (read)))
-      (let ((result (split (symbol->string aString) pos)))
-        (begin
-          (display "The first part is ")
-          (display (car result))
-          (display "\nand the second part is ")
-          (display (car (cdr result)))
-          (display "\n")
-(quit))))))
+  (display "Enter a: ")
+  (let ((a (read)))
+    (display "Enter b: ")
+    (let ((b (read)))
+       (display "Enter c: ")
+       (let ((c (read)))
+	 (let ((result (quadraticRoots a b c)))
+	   (begin
+	     (display "The first root is ")
+	     (display (car result))
+	     (display "\nand the second root is ")
+	     (display (car (cdr result)))
+	     (display "\n")
+(quit)))))))
