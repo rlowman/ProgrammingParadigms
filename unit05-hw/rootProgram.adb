@@ -12,6 +12,8 @@
 
 with Ada.Text_IO, Ada.Integer_Text_IO;
 use  Ada.Text_IO, Ada.Integer_Text_IO;
+with Ada.Text_IO, Ada.Float_Text_IO;
+use  Ada.Text_IO, Ada.Float_Text_IO;
 with Ada.Numerics.Elementary_Functions;
 use  Ada.Numerics.Elementary_Functions;
 
@@ -34,22 +36,22 @@ procedure QuadraticRoots is
 			   Root1 : out Float; 
 			   Root2 : out Float) return Integer is
    begin
-      if A /= 0 then
-	 Arg := (B ** 2) - (4 * A * C);
-	 if Arg < 0 then
+      if A /= 0.0 then
+	 Arg := (B ** 2.0) - (4.0 * A * C);
+	 if Arg < 0.0 then
 	    Put("\n*** quadraticRoots(): b^2 - 4ac is negative!\n");
-	    Root1 := 0;
-	    Root2 := 0;
+	    Root1 := 0.0;
+	    Root2 := 0.0;
 	    return 0;
 	 else 
-	    Root1 := ((B * (-1)) + Sqrt(Arg))/ (2*A);
-	    Root2 := ((B * (-1)) - Sqrt(Arg))/ (2*A);
+	    Root1 := ((B * (-1.0)) + Sqrt(Arg))/ (2.0*A);
+	    Root2 := ((B * (-1.0)) - Sqrt(Arg))/ (2.0*A);
 	    return 1;
 	 end if;
       else
 	   Put("\n*** quadraticRoots(): a is zero!");
-	   Root1 := 0;
-	   Root2 := 0;
+	   Root1 := 0.0;
+	   Root2 := 0.0;
 	   return 0;
       end if;
    end FindRoots;
@@ -66,9 +68,9 @@ begin                                           -- Prompt for input
    
    if Result = 1 then
       Put("The first part is ");
-      Put_Line(Root1);
-      Put("and the second part is ");
-      Put_Line(Root2);
+      Put(Root1);
+      Put(" and the second part is ");
+      Put(Root2);
    end if;
       
 end QuadraticRoots;
