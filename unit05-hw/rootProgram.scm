@@ -20,20 +20,18 @@
 ;;; Return: root1 - the value for the first root,     
 ;;;         root2 - the value for the second root
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
 (define (quadraticRoots a b c)
   (if (= a 0)
       (begin
-	(display "\n*** quadraticRoots(): a is zero!")
-	(list 0 0))
+	(display "\n*** quadraticRoots(): a is zero!\n")
+	(list 0 0 0))
       (begin
 	(if (< (- (expt b 2) (* 4 a c)) 0)
 	    (begin
-	      (display "\n*** quadraticRoots(): b^2 - 4ac is negative!") 
-	      (list 0 0))
+	      (display "\n*** quadraticRoots(): b^2 - 4ac is negative!\n") 
+	      (list 0 0 0))
 	    (begin
-	      (list
+	      (list 1
 	       (/ (+ (* b -1) (sqrt (- (expt b 2) (* 4 a c)))) (* 2 a))
 	       (/ (- (* b -1) (sqrt (- (expt b 2) (* 4 a c)))) (* 2 a))
 	       )))
@@ -49,9 +47,11 @@
        (let ((c (read)))
 	 (let ((result (quadraticRoots a b c)))
 	   (begin
-	     (display "The first root is ")
-	     (display (car result))
-	     (display "\nand the second root is ")
-	     (display (car (cdr result)))
-	     (display "\n")
+	     (if (= 1 (car result))
+		 (begin
+		   (display "The first root is ")
+		   (display (car (cdr result)))
+		   (display "\nand the second root is ")
+		   (display (car (cdr (cdr result))))
+		   (display "\n")))
 (quit)))))))
