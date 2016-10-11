@@ -1,0 +1,89 @@
+Script started on Mon 10 Oct 2016 08:42:57 PM EDT
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ cat rootProgram.scm 
+;;; rootProgram.scm gets a value from our equation
+;;;
+;;; Input: a, the value of a in the equation,
+;;;        b, the value of b in the equation,
+;;;        c, the value of c in the equation.
+;;; Output: the value of the equation
+;;;
+;;; Completed by: Robert Lowman
+;;; Date: 10/9/2016
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:;
+;;; quadraticRoots() determines if given variables are 
+;;; valid and then finds roots              
+;;;  
+;;; Receive: a, the value for a in the equation,    
+;;;          b, the value for b in the equation, 
+;;;          c, the value for c in the equation,
+;;;
+;;; Return: root1 - the value for the first root,     
+;;;         root2 - the value for the second root
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(define (quadraticRoots a b c)
+  (if (= a 0)
+      (begin
+	(display "\n*** quadraticRoots(): a is zero!")
+	(list 0 0))
+      (begin
+	(if (< (- (expt b 2) (* 4 a c)) 0)
+	    (begin
+	      (display "\n*** quadraticRoots(): b^2 - 4ac is negative!") 
+	      (list 0 0))
+	    (begin
+	      (list
+	       (/ (+ (* b -1) (sqrt (- (expt b 2) (* 4 a c)))) (* 2 a))
+	       (/ (- (* b -1) (sqrt (- (expt b 2) (* 4 a c)))) (* 2 a))
+	       )))
+  )))
+
+;;; Starting point for running program
+(begin
+  (display "Enter a: ")
+  (let ((a (read)))
+    (display "Enter b: ")
+    (let ((b (read)))
+       (display "Enter c: ")
+       (let ((c (read)))
+	 (let ((result (quadraticRoots a b c)))
+	   (begin
+	     (display "The first root is ")
+	     (display (car result))
+	     (display "\nand the second root is ")
+	     (display (car (cdr result)))
+	     (display "\n")
+(quit)))))))
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ scm rootProgram.scm
+Enter a: Enter a: 1
+Enter b: Enter b: 3
+Enter c: Enter c: 1
+The first root is -0.3819660112501051
+and the second root is -2.618033988749895
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ scm rootProgram.scm
+Enter a: Enter a: 1[K2
+Enter b: Enter b: 5
+Enter c: Enter c: 2
+The first root is -0.5
+and the second root is -2.0
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ scm rootProgram.scm
+Enter a: Enter a: 0
+Enter b: Enter b: 1
+Enter c: Enter c: 2
+
+*** quadraticRoots(): a is zero!The first root is 0
+and the second root is 0
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ scm rootProgram.scm
+Enter a: Enter a: 6
+Enter b: Enter b: 1
+Enter c: Enter c: 6
+
+*** quadraticRoots(): b^2 - 4ac is negative!The first root is 0
+and the second root is 0
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ ^C
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ exit
+
+Script done on Mon 10 Oct 2016 08:44:53 PM EDT

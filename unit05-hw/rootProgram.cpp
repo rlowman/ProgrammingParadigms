@@ -18,19 +18,23 @@ bool quadraticRoots(double a, double b, double c,
 		    double & root1, double & root2);
 
 int main() {
-  cout << "To split a string, enter the string: ";
-  string aString;
-  getline(cin, aString);
+  cout << "Enter a: ";
+  double a;
+  cin >> a;
 
-  cout << "Enter the split position: ";
-  int pos;
-  cin >> pos;
+  cout << "Enter b: ";
+  double b;
+  cin >> b;
 
-  string part1, part2;
-  split(aString, pos, part1, part2);
+  cout << "Enter c: ";
+  double c;
+  cin >> c;
 
-  cout << "The first part is " << part1
-       << " and the second part is " << part2 << endl;
+  double root1, root2;
+  quadraticRoots(a, b, c, root1, root2);
+
+  cout << "The first part is " << root1
+       << " and the second part is " << root2 << endl;
 }
 
 /**************************************************

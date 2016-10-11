@@ -1,0 +1,101 @@
+Script started on Mon 10 Oct 2016 08:56:09 PM EDT
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ cat s[KrootProgram.cpp
+/* rootProgram.cpp determines if two roots are valid.
+ *
+ * Input: aString, a string;
+ *        pos, an integer.
+ * PRE: 0 <= pos < aString.length().
+ * Output: The substrings aString(0, pos-1) and aString(pos, length()-1).
+ *
+ * Completed by: Robert Lowman
+ * Date: 10/4/2016
+ **********************************************************************/
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+bool quadraticRoots(double a, double b, double c,
+		    double & root1, double & root2);
+
+int main() {
+  cout << "Enter a: ";
+  double a;
+  cin >> a;
+
+  cout << "Enter b: ";
+  double b;
+  cin >> b;
+
+  cout << "Enter c: ";
+  double c;
+  cin >> c;
+
+  double root1, root2;
+  quadraticRoots(a, b, c, root1, root2);
+
+  cout << "The first part is " << root1
+       << " and the second part is " << root2 << endl;
+}
+
+/**************************************************
+ * quadraticRoots() determines if given variables are 
+ * valid and then finds roots              
+ * 
+ * Receive: a, the value for a in the equation,    
+ *          b, the value for b in the equation, 
+ *          c, the value for c in the equation,
+ *       
+ * Passback: root1 - the value for the first root,     
+ *           root2 - the value for the second root.     
+ **************************************************/
+bool quadraticRoots(double a, double b, double c,
+		    double & root1, double & root2) {
+  if (a != 0) {
+     double arg = pow(b, 2.0) - 4 * a * c;
+     if (arg >= 0) {
+        root1 = (-b + sqrt(arg))/(2*a);
+        root2 = (-b - sqrt(arg))/(2*a);
+        return true;
+     }
+     else {
+        cerr << "\n*** quadraticRoots(): b^2 - 4ac is negative!" << endl;
+        root1 = root2 = 0.0;
+        return false;
+     }
+  }
+  else {
+     cerr << "\n*** quadraticRoots(): a is zero!" << endl;
+     root1 = root2 = 0.0;
+     return false;
+  }
+}
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ cat rootProgram.cppscm rootProgram.scmcat rootProgram.scm [1Pscm rootProgram.scmcat rootProgram.cpp[Kg++ rootProgram.cpp - Wall -o cppCircleArea[K[K[K[K[K[K[K[K[K[K[K[K[KrootProgram[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CWa[1P[A]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-W[1@a
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ ./rootProgram 
+Enter a: 1
+Enter b: 3
+Enter c: 1
+The first part is -0.381966 and the second part is -2.61803
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ ./rootProgram 
+Enter a: 1
+Enter b: 6
+Enter c: 3
+The first part is -0.55051 and the second part is -5.44949
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ ./rootProgram 
+Enter a: 0
+Enter b: 1
+Enter c: 2
+
+*** quadraticRoots(): a is zero!
+The first part is 0 and the second part is 0
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ ./rootProgram 
+Enter a: 6
+Enter b: 1
+Enter c: 7
+
+*** quadraticRoots(): b^2 - 4ac is negative!
+The first part is 0 and the second part is 0
+]0;guest-hhn5qm@ad425-linux21: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mguest-hhn5qm@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ exit
+
+Script done on Mon 10 Oct 2016 08:57:35 PM EDT
