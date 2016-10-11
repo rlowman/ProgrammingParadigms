@@ -21,15 +21,16 @@ def quadraticRoots(a, b, c)
   if a != 0 then
     arg = b ** 2 - 4 * a * c
     if arg >= 0 then
-      [(((b * -1) + Math.sqrt(arg)) / (2*a)),
+      [1,
+       (((b * -1) + Math.sqrt(arg)) / (2*a)),
        (((b * -1) - Math.sqrt(arg)) / (2*a))]
     else
-      print "\n*** quadraticRoots(): b^2 -4ac is negative"
-      [0,0]
+      print "\n*** quadraticRoots(): b^2 -4ac is negative!\n"
+      [0,0,0]
     end
   else
-    print "\n*** quadraticRoots(): a is zero!"
-    [0,0]
+    print "\n*** quadraticRoots(): a is zero!\n"
+    [0,0,0]
   end  
 end
 
@@ -41,6 +42,8 @@ if __FILE__ == $0
   print "Enter a: "
   c = gets.to_f 
   split_string = quadraticRoots(a, b, c)
-  puts "The first part is #{split_string[0]}"
-  puts "and the second part is #{split_string[1]}"
+  if split_string[0] == 1 then
+    puts "The first part is #{split_string[1]}"
+    puts "and the second part is #{split_string[2]}"
+  end
 end
