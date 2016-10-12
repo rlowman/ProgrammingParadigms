@@ -13,9 +13,13 @@
 # Return: the sum of the values in anArray.
 ################################################
 def sum(anArray)
-  total = 0
-  anArray.each {|i| total = total + i}
-  return total
+  if anArray.empty? then
+    return 0.0
+  else
+    total = 0
+    anArray.each {|i| total = total + i}
+    return total
+  end
 end
   
 ################################################

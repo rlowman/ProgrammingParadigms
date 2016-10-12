@@ -1,5 +1,5 @@
-Script started on Tue 11 Oct 2016 09:57:45 PM EDT
-]0;guest-wdof9f@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-wdof9f@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ cat average.rb
+Script started on Tue 11 Oct 2016 10:01:11 PM EDT
+]0;guest-wdof9f@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-wdof9f@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ cat average.rb
 # average.rb averages the values of an array of doubles.
 # Precondition: theArray is an array of numbers
 # Output: the average of the values in theArray
@@ -15,9 +15,13 @@ Script started on Tue 11 Oct 2016 09:57:45 PM EDT
 # Return: the sum of the values in anArray.
 ################################################
 def sum(anArray)
-  total = 0
-  anArray.each {|i| total = total + i}
-  return total
+  if anArray.empty? then
+    return 0.0
+  else
+    total = 0
+    anArray.each {|i| total = total + i}
+    return total
+  end
 end
   
 ################################################
@@ -45,11 +49,11 @@ def main
 end
 
 main
-]0;guest-wdof9f@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-wdof9f@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ ruby average.rb
-first sum is: 0
+]0;guest-wdof9f@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-wdof9f@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ ruby average.rb
+first sum is: 0.0
 second sum is: 30.0
 first average is: 0.0
 second average is: 7.5
 ]0;guest-wdof9f@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-wdof9f@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ exit
 
-Script done on Tue 11 Oct 2016 09:58:01 PM EDT
+Script done on Tue 11 Oct 2016 10:01:25 PM EDT
