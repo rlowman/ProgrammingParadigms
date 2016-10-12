@@ -28,9 +28,10 @@ procedure Average is
    function Sum(AnArray : in Vector) return Float is
       Total : Float := 0.0;
    begin
-      --    for I in AnArray'Range
-    (AnArray'First..AnArray'Last).each do |I| 
-      Total := Total + AnArray(I);
+      for I in AnArray'First..AnArray'Last
+      loop
+	 Total := Total + AnArray(I);
+      end loop;
     return Total;
    end Sum;   
    

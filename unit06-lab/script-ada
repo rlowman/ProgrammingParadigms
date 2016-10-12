@@ -1,0 +1,72 @@
+Script started on Wed 12 Oct 2016 10:15:11 AM EDT
+]0;guest-ganodi@ad425-linux26: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-ganodi@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ gnatmake average.adb  
+gcc-5 -c average.adb
+gnatbind-5 -x average.ali
+gnatlink-5 average.ali
+]0;guest-ganodi@ad425-linux26: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-ganodi@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ cat average.adb
+-- average.adb "test-drives" function Average.
+-- Precondition: theArray is an array of numbers.
+-- Output: the average of the numbers.
+--
+-- Begun by: Dr Jump for CS 315 at King's College
+-- Completed by: Robert Lowman
+-- Date: 10/11/2016
+-----------------------------------------------
+
+with Ada.Text_IO; use Ada.Text_IO;             -- Put(String)
+with Ada.Float_Text_IO; use Ada.Float_Text_IO; -- Put(Float)
+
+procedure Average is
+
+-- Declare Vector type
+   type Vector is array ( Positive range <> ) of Float;
+
+-- Define array0 as an array containing no values
+   First : Vector := ( 0.0, 0.0 );
+   -- Define array1 as an array containing 9, 8, 7, 6
+   Second : Vector := ( 9.0, 8.0, 7.0, 6.0 );
+
+----------------------------------------------
+-- sum() sums the values in an array         -
+-- Receive: anArray, an array of numbers     -
+-- Return: the sum of the values in anArray. -
+----------------------------------------------
+   function Sum(AnArray : in Vector) return Float is
+      Total : Float := 0.0;
+   begin
+      for I in AnArray'First..AnArray'Last
+      loop
+	 Total := Total + AnArray(I);
+      end loop;
+    return Total;
+   end Sum;   
+   
+--------------------------------------------------
+-- average() averages the values in an array     -
+-- Receive: anArray, an array of numbers         -
+-- Return: the average of the values in anArray. -
+--------------------------------------------------
+   function Average(AnArray : in Vector) return Float is
+      
+   begin
+      if AnArray'Length <= 0 then
+	 return 0.0;
+      else
+	 return Sum(AnArray) / Float(AnArray'Length);
+      end if;
+   end Average;
+     
+begin
+   Put(" first average is ");
+   Put( Average(First) );
+   New_line;
+   Put(" second average is ");
+   Put( Average(second) );
+   New_line;
+end Average;
+]0;guest-ganodi@ad425-linux26: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-ganodi@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ ./average 
+ first average is  0.00000E+00
+ second average is  7.50000E+00
+]0;guest-ganodi@ad425-linux26: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mguest-ganodi@ad425-linux26[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ exit
+
+Script done on Wed 12 Oct 2016 10:16:01 AM EDT
