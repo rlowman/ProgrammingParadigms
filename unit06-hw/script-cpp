@@ -1,6 +1,11 @@
-Script started on Mon 17 Oct 2016 06:00:17 PM EDT
-]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ g++ hw06.c -Wall -o h w06
-]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ ./hw06[K[K[K[K[K[Kcat hw06.c
+Script started on Mon 17 Oct 2016 06:34:02 PM EDT
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ g++ hw06.cpp -Wall -w [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co  hw06
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ g++ hw06.cpp -Wall -o  hw06[A]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ ./hw06[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cg++ hw06.cpp -Wall -o  hw06[A]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ [K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat hw06.cpp
 /* average.cpp "test-drives" function Average.
  * Precondition: theArray is an array of numbers.
  * Output: the average of the values.
@@ -55,19 +60,17 @@ void read(double anArray[], int itsSize, istream & in) {
 }
 ]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ ./hw06
 Enter the size of the array: 
-5
+4
 Enter that many doubles seperatly: 
 1.2
-2.4
+2.3
 3.4
-6.7
-5.9
+4.5
 Results: 
 1.2
-2.4
+2.3
 3.4
-6.7
-5.9
-]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ exit
+4.5
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ g[Kexit
 
-Script done on Mon 17 Oct 2016 06:01:37 PM EDT
+Script done on Mon 17 Oct 2016 06:34:49 PM EDT
