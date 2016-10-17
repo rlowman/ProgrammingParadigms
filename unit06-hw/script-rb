@@ -1,0 +1,61 @@
+Script started on Mon 17 Oct 2016 07:21:51 PM EDT
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ cat hw06.rb
+# hw06.rb recieves the size to make an array and doubles
+#  to fill this array and then prints its contents
+# Precondition: size > 0
+# Output: the values in theArray
+#
+# Completed by: Robert Lowman
+# Date: 10/17/2016
+########################################################
+
+################################################
+# read() reads in an array of doubles
+# Receive: anArray, an array of correct size
+#          itsSize, the size of the given array
+################################################
+def read(anArray, itsSize)
+  for i in 1..itsSize
+    temp = gets.chomp.to_f
+    anArray[i] = temp
+  end 
+end
+  
+################################################
+# print() prints the given array it receives
+# Receive: anArray, an array of numbers
+#          itsSize, the size of the given array
+################################################
+def printArray(anArray, itsSize)
+  for i in 1..itsSize
+    puts "#{anArray[i]}\n"
+  end
+end
+
+def main
+  puts "Enter size of array"
+  size = gets.chomp.to_i
+  puts "Enter that many doubles"
+  first = Array.new(size)
+  read(first, size);
+  puts "Results: "
+  printArray(first, size);
+end
+
+main
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ ruby hw06.rb
+Enter size of array
+4
+Enter that many doubles
+1.2
+2.3
+4.5
+6.7
+Results: 
+1.2
+2.3
+4.5
+6.7
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ exit
+
+Script done on Mon 17 Oct 2016 07:22:16 PM EDT
