@@ -1,14 +1,9 @@
-Script started on Mon 17 Oct 2016 06:34:02 PM EDT
-]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ g++ hw06.cpp -Wall -w [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co  hw06
-]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ g++ hw06.cpp -Wall -o  hw06[A]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ ./hw06[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cg++ hw06.cpp -Wall -o  hw06[A]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ [K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat hw06.cpp
-/* average.cpp "test-drives" function Average.
- * Precondition: theArray is an array of numbers.
- * Output: the average of the values.
+Script started on Mon 17 Oct 2016 07:26:20 PM EDT
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ cat hw06.cpp
+/* hw06.cpp gets the size of an array and doubles to fill it then
+ *  prints its contents
+ * Precondition: size > 0.
+ * Output: the values of the given array.
  *
  * Completed by: Robert Lowman
  * Date: 10/17/2016
@@ -58,19 +53,24 @@ void read(double anArray[], int itsSize, istream & in) {
     in >> anArray[i];
   }
 }
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ g++ -W[K[Khw06.cpp -Wall -o  hw06
 ]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ ./hw06
 Enter the size of the array: 
-4
+6
 Enter that many doubles seperatly: 
 1.2
-2.3
-3.4
+2.4
+5.0
 4.5
+2.3
+5.6
 Results: 
 1.2
-2.3
-3.4
+2.4
+5
 4.5
-]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ g[Kexit
+2.3
+5.6
+]0;guest-3qt9ep@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-3qt9ep@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ exit
 
-Script done on Mon 17 Oct 2016 06:34:49 PM EDT
+Script done on Mon 17 Oct 2016 07:27:03 PM EDT

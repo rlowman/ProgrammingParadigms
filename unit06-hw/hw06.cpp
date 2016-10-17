@@ -1,6 +1,7 @@
-/* average.cpp "test-drives" function Average.
- * Precondition: theArray is an array of numbers.
- * Output: the average of the values.
+/* hw06.cpp gets the size of an array and doubles to fill it then
+ *  prints its contents
+ * Precondition: size > 0.
+ * Output: the values of the given array.
  *
  * Completed by: Robert Lowman
  * Date: 10/17/2016
