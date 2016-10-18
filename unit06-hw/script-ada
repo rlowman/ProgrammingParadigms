@@ -1,0 +1,84 @@
+Script started on Tue 18 Oct 2016 08:59:53 AM EDT
+]0;guest-32iomr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-32iomr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ cat hw06.adb 
+-- hw06.adb recieves a
+-- Precondition: size > 0.
+-- Output: the values of the array
+--
+-- Completed by: Robert Lowman
+-- Date: 10/17/2016
+-----------------------------------------------
+
+with Ada.Text_IO; 
+use Ada.Text_IO;             
+with Ada.Float_Text_IO; 
+use Ada.Float_Text_IO; 
+with Ada.Text_IO, Ada.Integer_Text_IO;
+use Ada.Text_IO, Ada.Integer_Text_IO;
+
+procedure PrintArray is
+
+
+   type Vector is array ( Positive range <> ) of Float;
+   
+   AnArray : Vector(1..6);
+
+----------------------------------------------
+-- read() reads in integers to an array      -
+-- Receive: anArray, an array to write to    -
+----------------------------------------------
+   procedure Read(AnArray : out Vector) is
+     Temp : Float;
+   begin
+      for I in AnArray'First..AnArray'Last
+      loop
+	 Get(Temp);
+	 AnArray(I) := Temp;
+      end loop;
+   end Read;   
+   
+--------------------------------------------------
+-- print() prints all the values in the given array     
+-- Receive: anArray, an array of numbers         
+--------------------------------------------------
+   procedure Print(AnArray : in Vector) is
+      
+   begin
+      for I in AnArray'First..AnArray'Last
+      loop
+	 Put(AnArray(I));
+	 New_Line;
+      end loop;
+   end Print;
+     
+begin
+   Put("Enter 6 doubles: ");
+   New_Line; 
+   Read(AnArray);
+   Put("Results: ");
+   New_Line;
+   Print(AnArray);
+end PrintArray;
+]0;guest-32iomr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-32iomr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ cat [K[K[K[Kgnatmake hw06.adb  
+gcc-5 -c hw06.adb
+hw06.adb:16:11: warning: file name does not match unit name, should be "printarray.adb"
+gnatbind-5 -x hw06.ali
+gnatlink-5 hw06.ali
+]0;guest-32iomr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-32iomr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ ./hw06 
+Enter 6 doubles: 
+1.2
+2.3
+3.4
+4.5
+5.6
+6.7
+Results: 
+ 1.20000E+00
+ 2.30000E+00
+ 3.40000E+00
+ 4.50000E+00
+ 5.60000E+00
+ 6.70000E+00
+]0;guest-32iomr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-32iomr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ ^C
+]0;guest-32iomr@ad425-linux21: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mguest-32iomr@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ exit
+
+Script done on Tue 18 Oct 2016 09:00:42 AM EDT

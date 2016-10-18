@@ -18,7 +18,7 @@ procedure PrintArray is
 
    type Vector is array ( Positive range <> ) of Float;
    
-   Size : Integer;
+   AnArray : Vector(1..6);
 
 ----------------------------------------------
 -- read() reads in integers to an array      -
@@ -49,16 +49,7 @@ procedure PrintArray is
    end Print;
      
 begin
-   Put("Enter the size of the array:  ");
-   Get(Size);
-   
-   declare 
-   begin
-      AnArray : Vector(0..Size);
-   end
-     
-   New_Line;
-   Put("Enter that many doubles: ");
+   Put("Enter 6 doubles: ");
    New_Line; 
    Read(AnArray);
    Put("Results: ");
