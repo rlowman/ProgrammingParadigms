@@ -1,0 +1,39 @@
+Script started on Fri 21 Oct 2016 07:16:53 PM EDT
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ cat areatrianngle.py
+## File Name: areatirangle.py
+## Finds the area of a triangle with given height and width
+##
+## Name: Robert Lowman
+## Date: 10/20/2016
+
+###############################################
+# computeArea() computes the area of the triangle 
+#          with the given height and width
+#
+# Param: height, the height of the triangle
+#        base, the length of the base of the triangle
+# Return: the value of the area
+def computeArea(height, base):
+  temp = (.5 * height * base) 
+  return temp
+
+# Begin of execution
+h = input('To compute the area of a triangle, enter its height: ')
+b = input('Enter the length of the base: ');
+result = computeArea(h, b)
+print "The area is ", result
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ python areatrriangle.py 
+To compute the area of a triangle, enter its height: 4
+Enter the length of the base: 1
+The area is  2.0
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ python areatrriangle.py 
+To compute the area of a triangle, enter its height: 7
+Enter the length of the base: 3
+The area is  10.5
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ python areatrriangle.py 
+To compute the area of a triangle, enter its height: 4.5
+Enter the length of the base: 1.4
+The area is  3.15
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-hw[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-hw[00m$ exit
+
+Script done on Fri 21 Oct 2016 07:17:36 PM EDT
