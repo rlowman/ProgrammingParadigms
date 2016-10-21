@@ -1,0 +1,53 @@
+Script started on Fri 21 Oct 2016 07:36:51 PM EDT
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ cat a[Kyeaarcodes.py
+## File Name: yearcodes.py
+## Calculates the given year code for the given grade
+##
+## Name: Robert Lowman
+## Date: 10/20/2016
+
+CONST_FRESH = "freshman"
+CONST_SOPH = "sophomore"
+CONST_JUN = "junior"
+CONST_SEN = "senior"
+
+###############################################
+# yearCode() converts an academic year into its
+#          corresponding year code
+#
+# Param: year the String value of the academic year
+# Return: the corresponding year code
+def yearCode(year):
+    if year == CONST_FRESH:
+        return 1
+    elif year == CONST_SOPH:
+        return 2
+    elif year == CONST_JUN:
+        return 3
+    elif year == CONST_SEN:
+        return 4
+    else:
+        return 0
+
+# Begin of execution
+y = raw_input('Enter the academic year: ')
+result = yearCode(y)
+print "Result:", result
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ python  yearcodes.py p[K
+Enter the academic year: freshman
+Result: 1
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ python  yearcodes.py 
+Enter the academic year: sophomore
+Result: 2
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ python  yearcodes.py [A]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ cat yea[4Prcodes.py[A]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ python yearcodes.py 
+Enter the academic year: junior
+Result: 3
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ python  yearcodes.py 
+Enter the academic year: senior
+Result: 4
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ python  yearcodes.py 
+Enter the academic year: fail
+Result: 0
+]0;guest-loxz2h@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit03-lab[01;32mguest-loxz2h@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit03-lab[00m$ exit
+
+Script done on Fri 21 Oct 2016 07:40:14 PM EDT
