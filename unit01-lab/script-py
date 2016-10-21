@@ -1,0 +1,37 @@
+Script started on Fri 21 Oct 2016 11:31:46 AM EDT
+]0;guest-tpjg5n@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-tpjg5n@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ cat circlearrea.py 
+## File Name: circlearea.py
+## Calculates the area of a circle
+## Name: Robert Lowman
+## Date: 10/20/2016
+
+###############################################
+# computeArea() computes the area of the circle 
+#          with the given radius
+#
+# Param: radius, the radius of the circle
+# Return: the value of the area
+def computeArea(radius):
+  PI = 3.1415927
+  temp = (PI * radius * radius) 
+  return temp
+
+# Begin of execution
+r = input('To compute the area of a circle, enter its radius: ')
+result = computeArea(r)
+print "The area is ", result
+]0;guest-tpjg5n@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-tpjg5n@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ python circllearea.py 
+To compute the area of a circle, enter its radius: 1
+The area is  3.1415927
+]0;guest-tpjg5n@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-tpjg5n@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ python circllearea.py 
+To compute the area of a circle, enter its radius: 2
+The area is  12.5663708
+]0;guest-tpjg5n@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-tpjg5n@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ python circllearea.py 
+To compute the area of a circle, enter its radius: 2.5
+The area is  19.634954375
+]0;guest-tpjg5n@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-tpjg5n@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ python circllearea.py 
+To compute the area of a circle, enter its radius: 4.99999
+The area is  78.539503341
+]0;guest-tpjg5n@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit01-lab[01;32mguest-tpjg5n@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit01-lab[00m$ exit
+
+Script done on Fri 21 Oct 2016 11:32:36 AM EDT
