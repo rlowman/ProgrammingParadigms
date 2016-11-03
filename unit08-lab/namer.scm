@@ -42,7 +42,7 @@
 ;;; Receive: theName, a Name.
 ;;; Return: the third string in theName.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define (getMiddle theName)
+(define (getLast theName)
     (car (cdr (cdr theName))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53,7 +53,9 @@
 (define (getFullName theName)
   (string-append
    (getFirst theName)
+   " "
    (getMiddle theName)
+   " "
    (getLast theName)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -62,7 +64,7 @@
 ;;; Output: the strings in theName                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define (printName theName)
-  (display (getFulleName theName)))
+  (display (getFullName theName)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -71,12 +73,12 @@
 (begin
   (let ((aName (Name "John" "Paul" "Jones"))) ; build a Name
     (begin
-;      (assert "first name wrong\n" (equal? (getFirst aName) "John"))  ; test it
-;      (assert "middle name wrong\n" (equal? (getMiddle aName) "Paul"))
-;      (assert "last name wrong\n" (equal? (getLast aName) "Jones"))
-;      (assert "full name wrong\n" (equal? (getFullName aName) "John Paul Jones"))
-;      (display "Printed as ")
-					;      (printName aName)                         ; output
+     (assert "first name wrong\n" (equal? (getFirst aName) "John"))  ; test it
+     (assert "middle name wrong\n" (equal? (getMiddle aName) "Paul"))
+     (assert "last name wrong\n" (equal? (getLast aName) "Jones"))
+     (assert "full name wrong\n" (equal? (getFullName aName) "John Paul Jones"))
+     (display "Printed as ")
+     (printName aName)                         ; output
       (display "\n")
       (display "All tests passed!\n")
       (quit))))

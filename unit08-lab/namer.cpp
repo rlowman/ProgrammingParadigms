@@ -96,11 +96,11 @@ int main()
 {
   Name aName("John", "Paul", "Jones");
 
-  //assert( aName.getFirst() == "John" );
-  //assert( aName.getMiddle() == "Paul" );
-  //assert( aName.getLast() == "Jones" );
-  //assert( aName.getFullName() == "John Paul Jones" );
+  assert( aName.getFirst() == "John" );
+  assert( aName.getMiddle() == "Paul" );
+  assert( aName.getLast() == "Jones" );
+  assert( aName.getFullName() == "John Paul Jones" );
 
-  //aName.print(cout);  cout << endl;
+  aName.print(cout);  cout << endl;
   cout << "\n\nAll tests passed! " << endl;
 }

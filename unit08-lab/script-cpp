@@ -1,4 +1,4 @@
-Script started on Thu 03 Nov 2016 11:08:12 AM EDT
+Script started on Thu 03 Nov 2016 11:30:49 AM EDT
 ]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ cat namer.cpp
 /* namer.cpp implements and tests class Name.
  *
@@ -98,20 +98,20 @@ int main()
 {
   Name aName("John", "Paul", "Jones");
 
-  //assert( aName.getFirst() == "John" );
-  //assert( aName.getMiddle() == "Paul" );
-  //assert( aName.getLast() == "Jones" );
-  //assert( aName.getFullName() == "John Paul Jones" );
+  assert( aName.getFirst() == "John" );
+  assert( aName.getMiddle() == "Paul" );
+  assert( aName.getLast() == "Jones" );
+  assert( aName.getFullName() == "John Paul Jones" );
 
-  //aName.print(cout);  cout << endl;
+  aName.print(cout);  cout << endl;
   cout << "\n\nAll tests passed! " << endl;
 }
-]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ g++ namer.cpp -Wall  -o namer
+]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ g++ namer.cpp -Wall  -o namer
 ]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ ./namer 
+John Paul Jones
 
 
 All tests passed! 
-]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ ^C
 ]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ exit
 
-Script done on Thu 03 Nov 2016 11:08:53 AM EDT
+Script done on Thu 03 Nov 2016 11:31:21 AM EDT

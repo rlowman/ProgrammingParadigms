@@ -1,4 +1,4 @@
-Script started on Thu 03 Nov 2016 11:23:29 AM EDT
+Script started on Thu 03 Nov 2016 11:58:21 AM EDT
 ]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ cat namer.scm
 ;;; namer.scm simulates and tests an Scheme Name type.
 ;;; Begun by: Dr. Jump, CS 315 at King's
@@ -44,7 +44,7 @@ Script started on Thu 03 Nov 2016 11:23:29 AM EDT
 ;;; Receive: theName, a Name.
 ;;; Return: the third string in theName.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define (getMiddle theName)
+(define (getLast theName)
     (car (cdr (cdr theName))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -55,7 +55,9 @@ Script started on Thu 03 Nov 2016 11:23:29 AM EDT
 (define (getFullName theName)
   (string-append
    (getFirst theName)
+   " "
    (getMiddle theName)
+   " "
    (getLast theName)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -64,7 +66,7 @@ Script started on Thu 03 Nov 2016 11:23:29 AM EDT
 ;;; Output: the strings in theName                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define (printName theName)
-  (display (getFulleName theName)))
+  (display (getFullName theName)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -73,18 +75,18 @@ Script started on Thu 03 Nov 2016 11:23:29 AM EDT
 (begin
   (let ((aName (Name "John" "Paul" "Jones"))) ; build a Name
     (begin
-;      (assert "first name wrong\n" (equal? (getFirst aName) "John"))  ; test it
-;      (assert "middle name wrong\n" (equal? (getMiddle aName) "Paul"))
-;      (assert "last name wrong\n" (equal? (getLast aName) "Jones"))
-;      (assert "full name wrong\n" (equal? (getFullName aName) "John Paul Jones"))
-;      (display "Printed as ")
-					;      (printName aName)                         ; output
+     (assert "first name wrong\n" (equal? (getFirst aName) "John"))  ; test it
+     (assert "middle name wrong\n" (equal? (getMiddle aName) "Paul"))
+     (assert "last name wrong\n" (equal? (getLast aName) "Jones"))
+     (assert "full name wrong\n" (equal? (getFullName aName) "John Paul Jones"))
+     (display "Printed as ")
+     (printName aName)                         ; output
       (display "\n")
       (display "All tests passed!\n")
       (quit))))
-]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ cat namer.scm[5P./namer cat namer.scm[Kscm namer.scm
-
+]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ cat namer.scm[5P./namer cat namer.scm[Kscm namer.scm
+Printed as John Paul Jones
 All tests passed!
 ]0;guest-57oakg@ad425-linux21: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mguest-57oakg@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ exit
 
-Script done on Thu 03 Nov 2016 11:23:49 AM EDT
+Script done on Thu 03 Nov 2016 11:58:52 AM EDT
