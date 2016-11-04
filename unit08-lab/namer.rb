@@ -22,6 +22,7 @@ class Name
 
      def print()
        puts fullName()
+       return fullName()
      end
       
 end
