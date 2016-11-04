@@ -5,6 +5,8 @@
 ----------------------------------------------
 
 with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Strings.Fixed;
+use Ada.Strings.Fixed;
 
 procedure Namer is
 
@@ -12,9 +14,7 @@ procedure Namer is
 
    type Name is
       record
-	 MyFirst : String := 1..NAME_SIZE;
-	 MyMiddle : String := 1..NAME_SIZE;
-	 MyLast : String := 1..NAME_SIZE;
+	 MyFirst, MyMiddle, MyLast : String(1..NAME_SIZE);
       end record;
    
    AName : Name ;
@@ -70,7 +70,7 @@ procedure Namer is
 
    function GetFullName(TheName : in Name) return String is
    begin
-      return GetFirst(TheName) & " " & GetMiddle(TheName) & " " & GetLast(TheName) 
+      return GetFirst(TheName) & " " & GetMiddle(TheName) & " " & GetLast(TheName); 
    end GetFullName;
 	
 	
@@ -81,18 +81,22 @@ procedure Namer is
   -- Output: theName, to the screen.           -
   ----------------------------------------------
 
-  -- replace this 
+      procedure Put(TheName : in Name) is
+      begin
+	 Put(GetFullName(TheName));
+      end Put;
+      
 
 begin
    Init(aName, "John    ", "Paul    ", "Jones   ");
 
---   pragma Assert( GetFirst(aName) = "John    ", "GetFirst() failed");
---   pragma Assert( GetMiddle(aName) = "Paul    ", "GetMiddle() failed");
---   pragma Assert( GetLast(aName) = "Jones   ", "GetLast() failed");
---   pragma Assert( GetFullName(aName) = "John     Paul     Jones   ",
---		  "GetFullName() failed");
+   pragma Assert( GetFirst(aName) = "John    ", "GetFirst() failed");
+   pragma Assert( GetMiddle(aName) = "Paul    ", "GetMiddle() failed");
+   pragma Assert( GetLast(aName) = "Jones   ", "GetLast() failed");
+   pragma Assert( GetFullName(aName) = "John     Paul     Jones   ",
+		  "GetFullName() failed");
 
---   Put(aName); New_line;
+   Put(aName); New_line;
    Put("All tests passed!"); New_line;
 
 end namer;
