@@ -3,7 +3,7 @@ Project 1 Proposal
 10/18/2016
 CORE 315: Programming Paradigms
 
-							Modified Proposal
+							Proposal
 
 
 	My plan for my project that I will be implementing in Python 3.5.2 is a program that gives a file a mature-content based rating, based on sexual, violent, and adult content and language.  This rating will be based off of an algorithm that includes how many words in the document could be considered sexual, violent, or adult-themed compared to how many total words are in the document. A database will be utilized to store three types of words that could be considered mature, which will be categorized as sexual words, violent words, or curse words. Before the document is processed, the user will be prompted to select from a list of options on whether they want to rate a file, add a word to the database, remove the word from the databse, or quit the program. This will allow the user to have a rating more individualised for their needs. When the algorithm calculates the maturity rating of the current file, it will be a number between 0-100 where 0 is a file with no mature content and 100 being a file with strong mature content.
