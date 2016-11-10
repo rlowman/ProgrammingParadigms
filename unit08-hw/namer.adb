@@ -18,6 +18,9 @@ procedure Namer is
       end record;
    
    AName : Name ;
+   
+   NameString : String(1..9) := "         ";
+   CharsRead : Natural;
 
 
   ----------------------------------------------
@@ -163,7 +166,10 @@ procedure Namer is
    
   procedure Read(TheName : out Name) is   
   begin
-     
+     Get_Line(TheName.MyFirst, CharsRead);
+     Get_Line(TheName.MyMiddle, CharsRead);
+     Get_Line(TheName.MyLast, CharsRead);
+  end Read;
    
   -- Start of execution 
 begin
@@ -176,7 +182,14 @@ begin
 		  "GetFullName() failed");
    
    pragma Assert( Lfmi(AName) = "Jones    , John   P.");
-
+   
+   Put("Enter the name:");
+   New_Line;
+   Read(AName);
+   
+   Put("The name read in:");
+   New_Line;
+   
    Put(aName); New_line;
    Put("All tests passed!"); New_line;
 
