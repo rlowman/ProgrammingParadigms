@@ -16,9 +16,9 @@ procedure Namer is
       record
 	 MyFirst, MyMiddle, MyLast : String(1..NAME_SIZE);
       end record;
-   
+
    AName : Name ;
-   
+
    NameString : String(1..9) := "         ";
    CharsRead : Natural;
 
@@ -53,7 +53,7 @@ procedure Namer is
    begin
       return TheName.MyFirst;
    end GetFirst;
-   
+
   ----------------------------------------------
   -- GetMiddle(Name) retrieves Name.myMiddle   -
   -- Receive: theName, a Name.                 -
@@ -65,7 +65,7 @@ procedure Namer is
    begin
       return TheName.MyMiddle;
    end GetMiddle;
-   
+
   ----------------------------------------------
   -- GetLast(Name) retrieves Name.myLast       -
   -- Receive: theName, a Name.                 -
@@ -87,10 +87,10 @@ procedure Namer is
 
    function GetFullName(TheName : in Name) return String is
    begin
-      return GetFirst(TheName) & " " & GetMiddle(TheName) & " " & GetLast(TheName); 
+      return GetFirst(TheName) & " " & GetMiddle(TheName) & " " & GetLast(TheName);
    end GetFullName;
-	
-	
+
+
   ----------------------------------------------
   -- Put(Name) displays a Name value.          -
   -- PRE: theName has been initialized.        -
@@ -102,46 +102,46 @@ procedure Namer is
    begin
        Put(GetFullName(TheName));
    end Put;
-   
+
   ----------------------------------------------
   -- SetFirst() sets the first name            -
-  -- PRE: theName has been initialized         - 
+  -- PRE: theName has been initialized         -
   -- Receive: aFirst, the new first name       -                 -
   -- Passback: TheName, a Name                 -
   ----------------------------------------------
-   
-   procedure SetFirst(AFirst : in String; 
+
+   procedure SetFirst(AFirst : in String;
 		      TheName : out Name) is
    begin
       TheName.MyFirst := AFirst;
    end SetFirst;
-   
+
   ----------------------------------------------
   -- SetMiddle() sets the middle name          -
-  -- PRE: theName has been initialized         - 
+  -- PRE: theName has been initialized         -
   -- Receive: aMiddle, the new middle name     -
   -- Passback: TheName, a Name                  -
   ----------------------------------------------
-   
-   procedure SetMiddle(AMiddle : in String; 
+
+   procedure SetMiddle(AMiddle : in String;
 		       TheName : out Name) is
    begin
       TheName.MyMiddle := AMiddle;
    end SetMiddle;
-   
+
   ----------------------------------------------
   -- SetLast() sets the last name              -
-  -- PRE: theName has been initialized         - 
+  -- PRE: theName has been initialized         -
   -- Receive: aLast, the new last name         -
   -- Passback: TheName, a Name                  -
   ----------------------------------------------
-   
-   procedure SetLast(ALast : in String; 
+
+   procedure SetLast(ALast : in String;
 		     TheName : out Name) is
    begin
       TheName.MyLast := ALast;
    end SetLast;
-   
+
   ------------------------------------------------
   -- lfmi() returns the name in form last, first -
   --       middle inital.                        -
@@ -149,7 +149,7 @@ procedure Namer is
   -- Receive: TheName, a Name                    -
   -- Output: a String in the proper form         -
   ------------------------------------------------
-   
+
    function Lfmi(TheName : in Name) return String is
       Middle : String := TheName.MyMiddle;
       Initial : String := Middle(Middle'First..1);
@@ -157,21 +157,21 @@ procedure Namer is
       return TheName.MyLast & ", " & TheName.MyFirst & " " &
 	Initial;
    end Lfmi;
-   
+
   -----------------------------------------------
   -- read() reads in a full name                -
   -- PRE: theName has been initialized          -
   -- Passback: theName, a Name                  -
   -----------------------------------------------
-   
-  procedure Read(TheName : out Name) is   
+
+  procedure Read(TheName : out Name) is
   begin
      Get_Line(TheName.MyFirst, CharsRead);
      Get_Line(TheName.MyMiddle, CharsRead);
      Get_Line(TheName.MyLast, CharsRead);
   end Read;
-   
-  -- Start of execution 
+
+  -- Start of execution
 begin
    Init(aName, "John    ", "Paul    ", "Jones   ");
 
@@ -180,16 +180,22 @@ begin
    pragma Assert( GetLast(aName) = "Jones   ", "GetLast() failed");
    pragma Assert( GetFullName(aName) = "John     Paul     Jones   ",
 		  "GetFullName() failed");
-   
-   pragma Assert( Lfmi(AName) = "Jones    , John   P.");
-   
+
+   pragma Assert( Lfmi(aName) = "Jones    , John   P.");
+
+   SetFirst("Robert  ", aName);
+   SetMiddle("Craig   ", aName);
+   setLast("Lowman  ", aName);
+
+   pragma Assert( GetFullName(aName) = "Robert  Craig   Lowman   ");
+
    Put("Enter the name:");
    New_Line;
    Read(AName);
-   
+
    Put("The name read in:");
    New_Line;
-   
+
    Put(aName); New_line;
    Put("All tests passed!"); New_line;
 

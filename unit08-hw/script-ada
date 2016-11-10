@@ -1,5 +1,5 @@
-Script started on Thu 10 Nov 2016 07:56:27 AM EST
-]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-hw[00m$ cat namer.adbb
+Script started on Thu 10 Nov 2016 10:30:07 AM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-hw[00m$ cat namer.ad b
 -- namer.adb "test-drives" the Name type.
 -- Begun by: Dr. Jump, CS 315 at King's College.
 -- Completed by: Robert Lowman
@@ -18,9 +18,9 @@ procedure Namer is
       record
 	 MyFirst, MyMiddle, MyLast : String(1..NAME_SIZE);
       end record;
-   
+
    AName : Name ;
-   
+
    NameString : String(1..9) := "         ";
    CharsRead : Natural;
 
@@ -55,7 +55,7 @@ procedure Namer is
    begin
       return TheName.MyFirst;
    end GetFirst;
-   
+
   ----------------------------------------------
   -- GetMiddle(Name) retrieves Name.myMiddle   -
   -- Receive: theName, a Name.                 -
@@ -67,7 +67,7 @@ procedure Namer is
    begin
       return TheName.MyMiddle;
    end GetMiddle;
-   
+
   ----------------------------------------------
   -- GetLast(Name) retrieves Name.myLast       -
   -- Receive: theName, a Name.                 -
@@ -89,10 +89,10 @@ procedure Namer is
 
    function GetFullName(TheName : in Name) return String is
    begin
-      return GetFirst(TheName) & " " & GetMiddle(TheName) & " " & GetLast(TheName); 
+      return GetFirst(TheName) & " " & GetMiddle(TheName) & " " & GetLast(TheName);
    end GetFullName;
-	
-	
+
+
   ----------------------------------------------
   -- Put(Name) displays a Name value.          -
   -- PRE: theName has been initialized.        -
@@ -104,46 +104,46 @@ procedure Namer is
    begin
        Put(GetFullName(TheName));
    end Put;
-   
+
   ----------------------------------------------
   -- SetFirst() sets the first name            -
-  -- PRE: theName has been initialized         - 
+  -- PRE: theName has been initialized         -
   -- Receive: aFirst, the new first name       -                 -
   -- Passback: TheName, a Name                 -
   ----------------------------------------------
-   
-   procedure SetFirst(AFirst : in String; 
+
+   procedure SetFirst(AFirst : in String;
 		      TheName : out Name) is
    begin
       TheName.MyFirst := AFirst;
    end SetFirst;
-   
+
   ----------------------------------------------
   -- SetMiddle() sets the middle name          -
-  -- PRE: theName has been initialized         - 
+  -- PRE: theName has been initialized         -
   -- Receive: aMiddle, the new middle name     -
   -- Passback: TheName, a Name                  -
   ----------------------------------------------
-   
-   procedure SetMiddle(AMiddle : in String; 
+
+   procedure SetMiddle(AMiddle : in String;
 		       TheName : out Name) is
    begin
       TheName.MyMiddle := AMiddle;
    end SetMiddle;
-   
+
   ----------------------------------------------
   -- SetLast() sets the last name              -
-  -- PRE: theName has been initialized         - 
+  -- PRE: theName has been initialized         -
   -- Receive: aLast, the new last name         -
   -- Passback: TheName, a Name                  -
   ----------------------------------------------
-   
-   procedure SetLast(ALast : in String; 
+
+   procedure SetLast(ALast : in String;
 		     TheName : out Name) is
    begin
       TheName.MyLast := ALast;
    end SetLast;
-   
+
   ------------------------------------------------
   -- lfmi() returns the name in form last, first -
   --       middle inital.                        -
@@ -151,7 +151,7 @@ procedure Namer is
   -- Receive: TheName, a Name                    -
   -- Output: a String in the proper form         -
   ------------------------------------------------
-   
+
    function Lfmi(TheName : in Name) return String is
       Middle : String := TheName.MyMiddle;
       Initial : String := Middle(Middle'First..1);
@@ -159,21 +159,21 @@ procedure Namer is
       return TheName.MyLast & ", " & TheName.MyFirst & " " &
 	Initial;
    end Lfmi;
-   
+
   -----------------------------------------------
   -- read() reads in a full name                -
   -- PRE: theName has been initialized          -
   -- Passback: theName, a Name                  -
   -----------------------------------------------
-   
-  procedure Read(TheName : out Name) is   
+
+  procedure Read(TheName : out Name) is
   begin
      Get_Line(TheName.MyFirst, CharsRead);
      Get_Line(TheName.MyMiddle, CharsRead);
      Get_Line(TheName.MyLast, CharsRead);
   end Read;
-   
-  -- Start of execution 
+
+  -- Start of execution
 begin
    Init(aName, "John    ", "Paul    ", "Jones   ");
 
@@ -182,16 +182,22 @@ begin
    pragma Assert( GetLast(aName) = "Jones   ", "GetLast() failed");
    pragma Assert( GetFullName(aName) = "John     Paul     Jones   ",
 		  "GetFullName() failed");
-   
-   pragma Assert( Lfmi(AName) = "Jones    , John   P.");
-   
+
+   pragma Assert( Lfmi(aName) = "Jones    , John   P.");
+
+   SetFirst("Robert  ", aName);
+   SetMiddle("Craig   ", aName);
+   setLast("Lowman  ", aName);
+
+   pragma Assert( GetFullName(aName) = "Robert  Craig   Lowman   ");
+
    Put("Enter the name:");
    New_Line;
    Read(AName);
-   
+
    Put("The name read in:");
    New_Line;
-   
+
    Put(aName); New_line;
    Put("All tests passed!"); New_line;
 
@@ -200,7 +206,7 @@ end namer;
 gcc-5 -c namer.adb
 gnatbind-5 -x namer.ali
 gnatlink-5 namer.ali
-]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-hw[00m$ ./namer 
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-hw[00m$ ./namer
 Enter the name:
 Robert
 Craig
@@ -208,6 +214,6 @@ Lowman
 The name read in:
 Robert   Craig    Lowman  
 All tests passed!
-]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-hw[00m$ exit
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-hw[00m$ exit
 
-Script done on Thu 10 Nov 2016 07:57:00 AM EST
+Script done on Thu 10 Nov 2016 10:31:24 AM EST
