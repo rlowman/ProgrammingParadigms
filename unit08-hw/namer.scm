@@ -36,7 +36,7 @@
 ;;; Return: the revised Name object.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define (setFirst theName aFirst)
-    (list aFirst getMiddle(theName) getLast(theName))
+    (list aFirst getMiddle(theName) getLast(theName)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; getMiddle extracts the middle name of a name object.
@@ -53,7 +53,7 @@
 ;;; Return: the revised Name object.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define (setMiddle theName aMiddle)
-    (list getFirst(theName) aMiddle  getLast(theName))
+    (list getFirst(theName) aMiddle  getLast(theName)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; getLast extracts the last name of a name object.
@@ -70,7 +70,7 @@
 ;;; Return: the revised Name object.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define (setLast theName aLast)
-    (list getFirst(theName) getMiddle(theName) aLast)
+    (list getFirst(theName) getMiddle(theName) aLast))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; getFullName returns a full name in F-M-L order.
@@ -97,8 +97,8 @@
    ", "
    (getFirst theName)
    " "
-   ()
-   "."
+   (make-string 1 (string-ref (getMiddle theName) 0))
+   "."))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; printName displays a name object.             ;;
@@ -119,8 +119,13 @@
      (assert "middle name wrong\n" (equal? (getMiddle aName) "Paul"))
      (assert "last name wrong\n" (equal? (getLast aName) "Jones"))
      (assert "full name wrong\n" (equal? (getFullName aName) "John Paul Jones"))
+     (assert "lfmi wrong\n" (equal? (lfmi aName) "Jones, John P."))
+     (setFirst aName "Robert")
+     (setMiddle aName "Craig")
+     (setLast aName "Lowman")
+     (assert "setters wrong wrong\n" (equal? (getFullName aName) "Robert Craig Lowman"))
      (display "Printed as ")
      (printName aName)                         ; output
       (display "\n")
-      (display "All tests passed!\n")
+      (display "All tests passed!(read() not implemented)\n")
       (quit))))
