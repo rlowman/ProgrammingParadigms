@@ -1,0 +1,56 @@
+Script started on Fri 11 Nov 2016 10:31:05 AM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ruby[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ruby[00m$ cat nammer.rb 
+# namer.rb tests class Name and its operations
+#
+# Begun by: Dr. Jump, for CS 315 at King's College.
+# Completed by: Robert Lowman
+# Date: 11/10/2016
+####################################################
+
+require 'test/unit/assertions'   # needed for assert
+include Test::Unit::Assertions
+require './Name.rb'
+
+def testName
+   name = Names::Name.new("John", "Paul", "Jones")
+
+   assert name.first == "John", "first failed"
+   assert name.middle == "Paul", "middle failed"
+   assert name.last == "Jones", "last failed"
+   assert name.fullName == "John Paul Jones", "fullName failed"
+   assert name.print == "John Paul Jones", "print failed"
+
+   print "All tests passed!\n"
+end
+
+testName
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ruby[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ruby[00m$ cat Namme.rb 
+# Name.rb Holds information about the Name class
+#
+# Completed by: Robert Lowman
+# Date: 11/10/2016
+#################################################
+
+module Names
+  class Name
+    def initialize(first, middle, last)
+      @first, @middle, @last = first, middle, last
+    end
+    attr_reader :first, :middle, :last
+
+    def fullName()
+      return first + " " + middle + " " + last
+    end
+
+    def print()
+      puts( fullName )
+      fullName()
+    end
+  end
+end
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ruby[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ruby[00m$ ruby n amer.rb
+John Paul Jones
+All tests passed!
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ruby[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ruby[00m$ exit
+
+Script done on Fri 11 Nov 2016 10:31:26 AM EST
