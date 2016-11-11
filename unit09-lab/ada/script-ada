@@ -1,0 +1,209 @@
+Script started on Fri 11 Nov 2016 10:28:45 AM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ada[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ada[00m$ cat nam e-[K_package.adb
+-- name_package.adb defines operations for the Name type.
+--
+-- Begun by: Dr. Jump, CS 315 at King's College.
+-- Completed by: Robert Lowman
+-- Date: 11/10/2016
+---------------------------------------------------------
+with Ada.Text_IO; use Ada.Text_IO;
+
+package body Name_Package is
+  ----------------------------------------------
+  -- Init initializes a Name variable          -
+  -- Receive: theName, the Name variable;      -
+  --          First, the first name;           -
+  --          Middle, the middle name;         -
+  --          Last, the last name.             -
+  -- Return: theName, its fields set to First, -
+  --               Middle, and Last.           -
+  ----------------------------------------------
+
+   -- replace this line with the definition of Init()
+   procedure Init(TheName : out Name; First, Middle, Last : in String) is
+
+   begin
+      TheName.MyFirst := First;
+      TheName.MyMiddle := Middle;
+      TheName.MyLast := Last;
+   end Init;
+
+
+  ----------------------------------------------
+  -- GetFirst(Name) retrieves Name.myFirst     -
+  -- Receive: theName, a Name.                 -
+  -- PRE: theName has been initialized.        -
+  -- Return: theName.myFirst.                  -
+  ----------------------------------------------
+
+   -- replace this line with the definition of GetFirst()
+   function GetFirst(TheName : in Name) return String is
+   begin
+      return TheName.MyFirst;
+   end GetFirst;
+
+
+   -- replace this line with the doc and def of GetMiddle()
+   function GetMiddle(TheName : in Name) return String is
+   begin
+      return TheName.MyMiddle;
+   end GetMiddle;
+
+
+   -- replace this line with the doc and def of GetLast()
+   function GetLast(TheName : in Name) return String is
+   begin
+      return TheName.MyLast;
+   end GetLast;
+
+
+  --------------------------------------------------
+  -- GetFullName(Name) retrieves Name as a String  -
+  -- Receive: theName, a Name.                     -
+  -- PRE: theName has been initialized.            -
+  -- Return: a String representation of theName    -
+  --------------------------------------------------
+
+   -- replace this line with the definition of GetFullName()
+   function GetFullName(TheName : in Name) return String is
+   begin
+      return TheName.MyFirst &  " " &
+      TheName.MyMiddle & " " &
+      TheName.MyLast;
+   end GetFullName;
+
+   ----------------------------------------------
+   -- Put(Name) displays a Name value.          -
+   -- PRE: theName has been initialized.        -
+   -- Receive: theName, a Name.                 -
+   -- Output: theName, to the screen.           -
+   ----------------------------------------------
+
+   -- replace this line with the definition of Put()
+    procedure Put(TheName : Name) is
+    begin
+       Put(TheName.MyFirst & " ");
+       Put(TheName.MyMiddle & " ");
+       Put(TheName.MyLast);
+    end Put;
+end Name_Package;
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ada[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ada[00m$ cat namee_package.adb[Ks
+-- name_package.ads declares the Name type and its operations.
+--
+-- Begun by: Dr. Jump, CS 315 at King's College.
+-- Completed by: Robert Lowman
+-- Date: 11/10/2016
+--------------------------------------------------------------
+
+package Name_Package is
+
+  type Name is private;
+
+  ----------------------------------------------
+  -- Init initializes a Name variable          -
+  -- Receive: theName, the Name variable;      -
+  --          First, the first name;           -
+  --          Middle, the middle name;         -
+  --          Last, the last name.             -
+  -- Return: theName, its fields set to First, -
+  --               Middle, and Last.           -
+  ----------------------------------------------
+
+   -- replace this line with the definition of Init()
+   procedure Init(TheName : out Name; First, Middle, Last : in String);
+
+ ----------------------------------------------
+ -- GetFirst(Name) retrieves Name.myFirst     -
+ -- Receive: theName, a Name.                 -
+ -- PRE: theName has been initialized.        -
+ -- Return: theName.myFirst.                  -
+ ----------------------------------------------
+
+  -- replace this line with the definition of GetFirst()
+  function GetFirst(TheName : in Name) return String;
+
+
+  -- replace this line with the doc and def of GetMiddle()
+  function GetMiddle(TheName : in Name) return String;
+
+
+  -- replace this line with the doc and def of GetLast()
+  function GetLast(TheName : in Name) return String;
+
+
+ --------------------------------------------------
+ -- GetFullName(Name) retrieves Name as a String  -
+ -- Receive: theName, a Name.                     -
+ -- PRE: theName has been initialized.            -
+ -- Return: a String representation of theName    -
+ --------------------------------------------------
+
+  -- replace this line with the definition of GetFullName()
+  function GetFullName(TheName : in Name) return String;
+
+  ----------------------------------------------
+  -- Put(Name) displays a Name value.          -
+  -- PRE: theName has been initialized.        -
+  -- Receive: theName, a Name.                 -
+  -- Output: theName, to the screen.           -
+  ----------------------------------------------
+
+  -- replace this line with the definition of Put()
+   procedure Put(TheName : Name);
+private
+
+  NAME_SIZE : constant Integer := 8;
+
+  type Name is
+     record
+  MyFirst : String( 1..NAME_SIZE );
+  MyMiddle : String( 1..NAME_SIZE );
+  MyLast : String( 1..NAME_SIZE );
+     end record;
+
+end Name_Package;
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ada[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ada[00m$ cat namee_package.ads[K[K[K[K[K[K[K[K[K[K[K[Kr.adb 
+-- namer.adb "test-drives" the Name type.
+-- Begun by: Dr. Jump, CS 315 at King's College.
+-- Completed by: Robert Lowman
+-- Date: 26/3/15
+----------------------------------------------
+
+with Ada.Text_IO; use Ada.Text_IO;
+with Name_Package;
+use Name_Package;
+
+
+procedure Namer is
+
+   AName : Name_Package.Name;
+
+
+begin
+   Init(aName, "John    ", "Paul    ", "Jones   ");
+
+   pragma Assert( GetFirst(aName) = "John    ", "GetFirst() failed");
+   pragma Assert( GetMiddle(aName) = "Paul    ", "GetMiddle() failed");
+   pragma Assert( GetLast(aName) = "Jones   ", "GetLast() failed");
+   pragma Assert( GetFullName(aName) = "John     Paul     Jones   ",
+		  "GetFullName() failed");
+
+   Put(aName); New_line;
+   Put("All tests passed!"); New_line;
+
+end namer;
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ada[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ada[00m$ make
+make: 'namer' is up to date.
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ada[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ada[00m$ make cl ean 
+rm -f namer *~ *# *.o *.ali *.c
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ada[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ada[00m$ make
+gcc -c -gnata namer.adb
+gcc -c -gnata name_package.adb
+gnatbind namer.ali
+gnatlink namer.ali
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ada[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ada[00m$ ./nm[Kamer [A
+John     Paul     Jones   
+All tests passed!
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/ada[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/ada[00m$ exit
+
+Script done on Fri 11 Nov 2016 10:30:00 AM EST
