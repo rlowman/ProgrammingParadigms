@@ -1,0 +1,88 @@
+Script started on Fri 11 Nov 2016 10:17:25 AM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/scheme[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/scheme[00m$ scm  namer.scm
+Printed as John Paul Jones
+All tests passed!
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/scheme[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/scheme[00m$ cat  namer.scm
+;;; namer.scm simulates and tests an Scheme Name type.
+;;; Begun by: Dr. Jump, CS 315 at King's
+;;; Completed by: Robert Lowman
+;;; Date: 2016 Fall
+
+(load "./name.scm")
+
+(define (assert msg b)
+ ( if ( not b) (reporterr msg)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; A simple driver for our Name functions. ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(begin
+  (let ((aName (Name "John" "Paul" "Jones"))) ; build a Name
+    (begin
+      (assert "first name wrong\n" (equal? (getFirst aName) "John"))  ; test it
+      (assert "middle name wrong\n" (equal? (getMiddle aName) "Paul"))
+      (assert "last name wrong\n" (equal? (getLast aName) "Jones"))
+      (assert "full name wrong\n" (equal? (getFullName aName) "John Paul Jones"))
+      (display "Printed as ")
+      (printName aName)                         ; output
+      (display "\n")
+      (display "All tests passed!\n")
+      (quit))))
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/scheme[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/scheme[00m$ cat  name.scm
+;;; name.scm creates a module for the name of a person.
+;;; Begun by: Dr. Jump, CS 315 at King's
+;;; Completed by: Robert Lowman
+;;; Date: 2016 Fall
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Name constructs a name from three strings.      ;;
+;;; Receive: first, middle and last, three strings. ;;
+;;; Return: the triplet (first middle last).        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (Name first middle last)
+  (list first middle last))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; getFirst extracts the first name of a name object.
+;;; Receive: theName, a Name.
+;;; Return: the first string in theName.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (getFirst theName)
+  (car theName))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; getMiddle extracts the middle name of a name object.
+;;; Receive: theName, a Name.
+;;; Return: the second string in theName.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (getMiddle theName)
+  (car (cdr theName)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; getLast extracts the last name of a name object.
+;;; Receive: theName, a Name.
+;;; Return: the third string in theName.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (getLast theName)
+  (car (cdr (cdr theName))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; getFullName returns a full name in F-M-L order.
+;;; Receive: theName, a Name.
+;;; Return: myFirst, myMiddle, myLast.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (getFullName theName)
+  (string-append (getFirst theName) " " (getMiddle theName) " " (getLast theName)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; printName displays a name object.
+;;; Receive: theName, a Name,
+;;;          buffer, the name of a buffer.
+;;; Output: the strings in theName to buffer. ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (printName theName)
+  (begin
+    (display (getFullName theName))))
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/scheme[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/scheme[00m$ exit
+
+Script done on Fri 11 Nov 2016 10:17:48 AM EST
