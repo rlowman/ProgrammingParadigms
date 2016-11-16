@@ -36,10 +36,10 @@ package body Temperature_Package is
 
 
   ----------------------------------------------
-  -- GetScale(Temperature) retrieves Temperature.myScale     -
-  -- Receive: theName, a Name.                 -
-  -- PRE: theTemperature has been initialized.        -
-  -- Return: theTemperature.myScale.                  -
+  -- GetScale(Temperature) retrieves Temperature.myScale
+  -- Receive: theName, a Name.
+  -- PRE: theTemperature has been initialized.
+  -- Return: theTemperature.myScale.
   ----------------------------------------------
    function GetDegrees(TheTemperature : in Temperature) return Float is
    begin
@@ -47,10 +47,11 @@ package body Temperature_Package is
    end GetDegrees;
 
   --------------------------------------------------
-  -- GetFullName(Name) retrieves Name as a String  -
-  -- Receive: theName, a Name.                     -
-  -- PRE: theName has been initialized.            -
-  -- Return: a String representation of theName    -
+  -- GetFahrenheit(Temperature) returns the given
+  --    Temperature as Fahrenheit
+  -- Receive: theTemperature, a Temperature.
+  -- PRE: theTemperature has been initialized.
+  -- Return: a corresponding Temperature as Fahrenheit
   --------------------------------------------------
    function GetFahrenheit(TheTemperature : in Temperature) return Temperature is
      Temp : Character := GetScale(TheTemperature);
@@ -58,9 +59,13 @@ package body Temperature_Package is
    begin
       case Temp is
         when 'F' | 'f' => return TheTemperature;
-        when 'C' | 'c' => return Init(ReturnValue, 'F', )
-   end GetFullName;
-
+        when 'C' | 'c' => return Init(ReturnValue, 'F',
+                                      ConvertCtoF(GetDegrees(TheTemperature)));
+        when 'K' | 'k' => return Init(ReturnValue, 'F'
+                                      ConvertKtoF(GetDegrees(TheTemperature)));
+        when others    => return null;
+      end case;
+   end GetFahrenheit;
    ----------------------------------------------
    -- Put(Name) displays a Name value.          -
    -- PRE: theName has been initialized.        -

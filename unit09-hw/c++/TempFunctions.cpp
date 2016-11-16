@@ -23,7 +23,7 @@
  *  current temperature                            *
  * Return: the identifying scale.                  *
  ***************************************************/
- char getScale::Temperature()
+ char Temperature::getScale()
  {
    return myScale;
  }
@@ -33,7 +33,7 @@
  *  current temperature                            *
  * Return: the degrees of the instance.            *
  ***************************************************/
- double getDegrees::Temperature()
+ double Temperature::getDegrees()
  {
    return myDegrees;
  }
@@ -43,20 +43,20 @@
  *  to Fehrenheit                                    *
  * Return: the equivalent Temperature in Fehrenheit. *                *
  *****************************************************/
- Temperature getFahrenheit::Temperature(Temperature & temp)
+ Temperature Temperature::getFahrenheit() const
  {
-   Temperature returnValue = temp;
-   if(temp.getScale() == 'C' || temp.getScale() == 'c') {
-     double newDegrees = (1.8 * temp.getDegrees()) + 32.0;
+   Temperature returnValue = this;
+   if(myScale == 'C' || myScale == 'c') {
+     double newDegrees = (1.8 * myDegrees) + 32.0;
      returnValue = Temperature('F', newDegrees);
    }
    else {
-     if(temp.getScale() == 'K' || temp.getScale() == 'k'){
-       double newDegrees = (1.8 * (temp.getDegrees() - 273) + 32);
+     if(myScale == 'K' || myScale == 'k'){
+       double newDegrees = (1.8 * (myDegrees - 273.0) + 32.0);
        returnValue = Temperature('F', newDegrees);
      }
    }
-    return returnValue;
+   return returnValue;
  }
 
  /*************************************************
@@ -64,20 +64,20 @@
  *  to Celsius                                    *
  * Return: the equivalent Temperature in Celsius. *                *
  **************************************************/
- Temperature getCelsius::Temperature(Temperature & temp)
+ Temperature getCelsius::Temperature() const
  {
-   Temperature returnValue = temp;
-   if(temp.getScale() == 'F' || temp.getScale() == 'f') {
-     double newDegrees = (5/9) * (temp.getDegrees() - 32.0);
+   Temperature turnValue = this;
+   if(myScale == 'F' || myScale == 'f') {
+     double newDegrees = (5/9) * (myDegrees - 32.0);
      returnValue = Temperature('C', newDegrees);
    }
    else {
-     if(temp.getScale() == 'K' || temp.getScale() == 'k'){
-       double newDegrees = temp.getDegrees() - 273.0;
+     if(myScale == 'K' || myScale == 'k'){
+       double newDegrees = myDegrees - 273.0;
        returnValue = Temperature('C', newDegrees);
      }
    }
-    return returnValue;
+   return returnValue;
  }
 
  /************************************************
@@ -85,23 +85,28 @@
  *  to Kelvin                                    *
  * Return: the equivalent Temperature in Kelvin. *                *
  *************************************************/
- Temperature getKelvin::Temperature(Temperature & temp)
+ Temperature Temperature::getKelvin() const
  {
    Temperature returnValue = temp;
-   if(temp.getScale() == 'C' || temp.getScale() == 'c') {
-     double newDegrees = temp.getDegrees() + 273.0;
+   if(myScale == 'C' || myScale == 'c') {
+     double newDegrees = myDegrees + 273.0;
      returnValue = Temperature('K', newDegrees);
    }
    else {
-     if(temp.getScale() == 'F' || temp.getScale() == 'f'){
-       double newDegrees = ((5/9) * (temp.getDegrees() - 32.0)) + 273;
+     if(myScale == 'F' || myScale == 'f'){
+       double newDegrees = ((5/9) * (myDegrees - 32.0)) + 273;
        returnValue = Temperature('K', newDegrees);
      }
    }
     return returnValue;
  }
 
- Temperature createTemperature::Temperature(string & entry)
+ Temperature Temperature::createTemperature(string & entry) const
  {
-   float 
+   char * split;
+   double deg = strod(entry, &split);
+   std::string scale(split);
+   return Temperature()
  }
+
+ 

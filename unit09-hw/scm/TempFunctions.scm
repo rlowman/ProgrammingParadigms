@@ -94,7 +94,7 @@
   (- theK 273.0))
 
 (define (convertCtoF theC)
-  (+ (* (/ 9.0 5.0) theC) 32))
+  (+ (* (/ 9.0 5.0) theC) 32.0))
 
 (define (convertCtoK theC)
   (+ theC 273.0))

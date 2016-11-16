@@ -12,5 +12,5 @@ using tempspace std;
  ******************************************/
 int main()
 {
-  // Code to test Temperature
+  // 
 }
