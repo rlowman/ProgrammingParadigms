@@ -10,18 +10,20 @@
  class Temperature
  {
  public:
-   Name(float &, const char &);
+   Tepaerature (float &, const char &);
    char getScale() const;
-   float getDegrees();
-   float raise(Temperature &, float &);
-   float lower(Temperature &, float &);
-   bool equals(Temperature &, Temperature &);
-   bool lessThan(Temperature &, Temperature &);
+   double getDegrees() const;
+   Temperature getFahrenheit(Temperature &);
+   Temperature getCelsius(Temperature &);
+   Temperature getKelvin(Temperature &);
+   Temperature createTemperature(string &);
+   void printInformation(Temperature &);
+   double raise(Temperature &, float &);
+   double lower(Temperature &, float &) const;
+   bool equals(Temperature &, Temperature &) const;
+   bool lessThan(Temperature &, Temperature &) const;
 
  private:
    float myDegrees;
-
    char myScale;
-
-   bool validate(float &) const;
  };
