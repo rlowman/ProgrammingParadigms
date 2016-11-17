@@ -10,7 +10,7 @@
  class Temperature
  {
  public:
-   Temperature (float &, const char &);
+   Temperature (double & degrees, const char &);
    char getScale() const;
    double getDegrees() const;
    Temperature getFahrenheit() const;
@@ -18,8 +18,8 @@
    Temperature getKelvin() const;
    Temperature createTemperature(string &) const;
    void printInformation() const;
-   double raise(double &);
-   double lower(double &);
+   Temperature raise(double &) const;
+   Temperature lower(double &) const;
    bool equals(const Temperature &) const;
    bool lessThan(const Temperature &) const;
 
@@ -31,6 +31,6 @@
    double convertKtoF(double &) const;
    double convertKtoC(double &) const;
 
-   float myDegrees;
+   double myDegrees;
    char myScale;
  };
