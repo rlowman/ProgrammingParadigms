@@ -6,18 +6,21 @@ use Temperature_Package;
 procedure Namer is
 
    ATemp : Temperature_Package.Temperature;
-
+   BaseTemp : Temperature_Package.Temperature;
+   EndingTemp : Temperature_Package.Temperature;
+   IncTemp : Temperature_Package.Temperature;
 
 begin
-   Init(aName, "John    ", "Paul    ", "Jones   ");
+   Init(ATemp, 'C', 0.0);
+   Put("Enter the starting Temperature: ");
+   New_Line;
+   BaseTemp := ATemp.createTemperature();
+   Put("Enter the ending Temperature: ");
+   New_Line;
+   EndingTemp := ATemp.createTemperature();
+   Put("Enter the incrementing Temperature: ");
+   New_Line;
+   IncTemp := ATemp.createTemperature();
 
-   pragma Assert( GetFirst(aName) = "John    ", "GetFirst() failed");
-   pragma Assert( GetMiddle(aName) = "Paul    ", "GetMiddle() failed");
-   pragma Assert( GetLast(aName) = "Jones   ", "GetLast() failed");
-   pragma Assert( GetFullName(aName) = "John     Paul     Jones   ",
-		  "GetFullName() failed");
-
-   Put(aName); New_line;
-   Put("All tests passed!"); New_line;
 
 end namer;
