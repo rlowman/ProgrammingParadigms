@@ -54,11 +54,11 @@
       (list 'C' (convertFtoC (getDegrees theTemperature))))
     ((or (eqv? (getScale theTemperature) 'K') (eqv? (getScale theTemperature) 'k'))
       (list 'C' (convertKtoC (getDegrees theTemperature))))
-    (t "Invalid Temperature")))
+    (else "Invalid Temperature")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; getLast extracts the last name of a name object.
-;;; Receive: theName, a Name.
+;;; getKelvin sets the given Temperature to Kelvin
+;;; Receive: theTemperature, a Temperature.
 ;;; Return: the third string in theName.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define (getKelvin theTemperature)
@@ -69,17 +69,27 @@
       (list 'K' (convertCtoK (getDegrees theTemperature))))
     ((or (eqv? (getScale theTemperature) 'F') (eqv? (getScale theTemperature) 'f'))
       (list 'K' (convertFtoK (getDegrees theTemperature))))
-    (t "Invalid Temperature")))
+    (else "Invalid Temperature")))
+
+(define (createTemperature)
+  (let ((degrees (read)))
+    (let ((scale (read)))
+      (list scale degrees))))
+
+(define (printInformation theTemperature)
+  (display (getDegrees theTemperature))
+  (display " ")
+  (display (getScale theTemperature)))
 
 (define (raise theTemperature raiser)
-  (cond
-    ((or (eqv? (getScale theTemperature) 'K') (eqv? (getScale theTemperature) 'k'))
-      )
-    ((or (eqv? (getScale theTemperature) 'C') (eqv? (getScale theTemperature) 'c'))
-      )
-    ((or (eqv? (getScale theTemperature) 'F') (eqv? (getScale theTemperature) 'f'))
-      )
-    (t "Invalid Temperature")))
+  (list
+    (getScale theTemperature)
+    (+ (getDegrees theTemperature) raiser)))
+
+(define (lower theTemperature deg)
+  (list
+    (getScale theTemperature)
+    (- (getDegrees theTemperature) deg)))
 
 (define (convertFtoC theF)
   (* (/ 5.0 9.0) (theF 32.0)))

@@ -2,7 +2,7 @@
 #     Temperature class
 #
 # Completed by: Robert Lowman
-# Date: 11/10/2016
+# Date: 11/14/2016
 #################################################
 
 module Temperatures
@@ -54,6 +54,17 @@ module Temperatures
 
     def lower(amount)
       @degrees = @degrees - amount
+    end
+
+    def printInformation()
+      puts "#{@degrees} "
+      putc @scale
+    end
+
+    def createTemperature()
+      degrees = gets.chomp.to_f
+      scale = gets
+      return Temperatures::Temperature.new(scale, degrees)
     end
 
     def equals(theTemp)

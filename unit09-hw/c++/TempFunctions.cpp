@@ -123,12 +123,12 @@
 
  Temperature Temperature::lower(double & theDeg) const
  {
-   return Temperature(myDegrees + theDeg, myScale);
+   return Temperature(myDegrees - theDeg, myScale);
  }
 
  bool equals(const Temperature & compare) const
  {
-   compare = compare.getFahrenheit();
+   Temperature comp = compare.getFahrenheit();
    Temperature original = this.getFahrenheit();
    returnValue = false;
    if(original.getDegrees() == compare.getDegrees()) {
@@ -139,7 +139,7 @@
 
  bool lessThan(const Temperature & compare) const
  {
-   ompare = compare.getFahrenheit();
+   Temperature comp = compare.getFahrenheit();
    Temperature original = this.getFahrenheit();
    returnValue = false;
    if(original.getDegrees() < compare.getDegrees()) {

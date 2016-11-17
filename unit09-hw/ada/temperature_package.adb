@@ -66,18 +66,135 @@ package body Temperature_Package is
         when others    => return null;
       end case;
    end GetFahrenheit;
-   ----------------------------------------------
-   -- Put(Name) displays a Name value.          -
-   -- PRE: theName has been initialized.        -
-   -- Receive: theName, a Name.                 -
-   -- Output: theName, to the screen.           -
-   ----------------------------------------------
 
-   -- replace this line with the definition of Put()
-    procedure Put(TheName : Name) is
+   --------------------------------------------------
+   -- GetCelsius(Temperature) returns the given
+   --    Temperature as Celsius
+   -- Receive: theTemperature, a Temperature.
+   -- PRE: theTemperature has been initialized.
+   -- Return: a corresponding Temperature as Celsius
+   --------------------------------------------------
+    function GetCelsius(TheTemperature : in Temperature) return Temperature is
+      Temp : Character := GetScale(TheTemperature);
+      ReturnValue : Temperature;
     begin
-       Put(TheName.MyFirst & " ");
-       Put(TheName.MyMiddle & " ");
-       Put(TheName.MyLast);
-    end Put;
-end Name_Package;
+       case Temp is
+         when 'C' | 'c' => return TheTemperature;
+         when 'F' | 'f' => return Init(ReturnValue, 'C',
+                                       ConvertCtoF(GetDegrees(TheTemperature)));
+         when 'K' | 'k' => return Init(ReturnValue, 'C'
+                                       ConvertKtoF(GetDegrees(TheTemperature)));
+         when others    => return null;
+       end case;
+    end GetCelsius;
+
+    --------------------------------------------------
+    -- GetKelvin(Temperature) returns the given
+    --    Temperature as Kelvin
+    -- Receive: theTemperature, a Temperature.
+    -- PRE: theTemperature has been initialized.
+    -- Return: a corresponding Temperature as Kelvin
+    --------------------------------------------------
+     function GetKelvin(TheTemperature : in Temperature) return Temperature is
+       Temp : Character := GetScale(TheTemperature);
+       ReturnValue : Temperature;
+     begin
+        case Temp is
+          when 'F' | 'f' => return TheTemperature;
+          when 'C' | 'c' => return Init(ReturnValue, 'F',
+                                        ConvertCtoF(GetDegrees(TheTemperature)));
+          when 'K' | 'k' => return Init(ReturnValue, 'F'
+                                        ConvertKtoF(GetDegrees(TheTemperature)));
+          when others    => return null;
+        end case;
+     end GetKelvin;
+
+     --------------------------------------------------
+     -- GetFahrenheit(Temperature) returns the given
+     --    Temperature as Fahrenheit
+     -- Receive: theTemperature, a Temperature.
+     -- PRE: theTemperature has been initialized.
+     -- Return: a corresponding Temperature as Fahrenheit
+     --------------------------------------------------
+      function CreateTemperature() return Temperature is
+        Degrees : Float;
+        Scale : Character;
+        ReturnValue : Temperature;
+      begin
+        Get(Degrees);
+        Get(Scale);
+        return Init(ReturnValue, Scale, Degrees);
+      end CreateTemperature;
+
+     ----------------------------------------------------
+     -- PrintInformation(Temperature) prints Temperature
+     -- Receive: theTemperature, a Temperature.
+     -- PRE: theTemperature has been initialized.
+     -- Return: a corresponding Temperature as Fahrenheit
+     --------------------------------------------------
+      procedure PrintInformation(TheTemperature : in Temperature) is
+      begin
+        Put(GetDegrees(TheTemperature));
+        Put(" ");
+        Put(GetScale(TheTemperature));
+      end PrintInformation;
+
+     function Equals(Left : in Temperature,
+                     Right : in Temperature) return Boolean is
+        Original : Temperature;
+        Compare : Temperature;
+     begin
+        Original := GetFahrenheit(Left);
+        Compare := GetFahrenheit(Right);
+        if GetDegrees(Original) = GetDegrees(Compare) then
+          return true;
+        else
+          return false;
+        end
+     end
+
+     function LessThan(Left : in Temperature,
+                     Right : in Temperature) return Boolean is
+        Original : Temperature;
+        Compare : Temperature;
+     begin
+        Original := GetFahrenheit(Left);
+        Compare := GetFahrenheit(Right);
+        if GetDegrees(Original) < GetDegrees(Compare) then
+          return true;
+        else
+          return false;
+        end
+     end
+
+     function ConvertFtoC(Deg : in Float) return Float is
+     begin
+       return (Deg - 32.0) * (5.0/9.0);
+     end
+
+     function ConvertFtoK(Deg : in Float) return Float is
+     begin
+      return ConvertFtoC(Deg) + 273.15;
+     end
+
+     function ConvertCtoF(Deg : in Float) return Float is
+     begin
+       return (Deg * (9.0/5.0)) + 32.0;
+     end
+
+     function ConvertCtoK(Deg : in Float) return Float is
+     begin
+       return Deg + 273.15;
+     end
+
+     function ConvertKtoF(Deg : in Float) return Float is
+     begin
+       return ConvertKtoC(Deg) * ((9.0/5.0) + 32.0);
+     end
+
+     function ConvertKtoC(Deg : in Float) return Float is
+     begin
+       return Deg - 273.15;
+     end
+   end
+end Temperature_Package;

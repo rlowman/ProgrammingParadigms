@@ -21,8 +21,9 @@ int main()
   Temperature endingTemp = aTemp.createTemperature();
   cout << "Enter the incrementing value: \n";
   Temperature incTemp = aTemp.createTemperature();
-  if(!(baseTemp.lessThan(endingTemp))) {
-
+  double fahrenheitInc = incTemp.getFahrenheit().getDegrees();
+  if(endingTemp.lessThan(baseTemp)) {
+    cout << "Invalid starting/ending values"
   }
   else {
     while(baseTemp.lessThan(endingTemp)) {
@@ -35,7 +36,7 @@ int main()
       cout << "\t";
       k.printInformation();
       count << "\n";
-      baseTemp = baseTemp.raise(incTemp);
+      baseTemp = f.raise(fahrenheitInc);
     }
   }
 }
