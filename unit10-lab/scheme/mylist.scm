@@ -1,8 +1,8 @@
 ;;; mylist.el is a "module" of list operations.
 ;;;
 ;;; Begun by: Dr. Jump, CS 315 at King's College
-;;; Completed by:
-;;; Date:
+;;; Completed by: Robert Lowman
+;;; Date: 11/17/2016
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; MaxOfTwo finds the maximum of two values.       ;;
@@ -20,3 +20,9 @@
 ;;; PRE: values in aList can be compared using <.  ;;
 ;;; Return: the maximum value in aList.            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (Max aList)
+  (if (list? aList)
+    (if (eqv? (length aList) 1)
+      (car aList)
+      (MaxOfTwo (car aList) (Max (cdr aList))))
+  ))

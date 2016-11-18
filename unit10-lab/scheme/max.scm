@@ -1,8 +1,8 @@
 ;;; max.el searches a list for its maximum value.
 ;;;
 ;;; Begun by: Dr. Jump, CS 315 at King's College
-;;; Completed by:
-;;; Date:
+;;; Completed by: Robert Lowman
+;;; Date: 11/17/2016
 
 (load "./mylist.scm")
 
