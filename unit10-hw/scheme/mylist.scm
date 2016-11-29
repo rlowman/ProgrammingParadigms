@@ -2,7 +2,7 @@
 ;;;
 ;;; Begun by: Dr. Jump, CS 315 at King's College
 ;;; Completed by: Robert Lowman
-;;; Date: 11/17/2016
+;;; Date: 11/29/2016
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; MaxOfTwo finds the maximum of two values.       ;;
@@ -26,3 +26,21 @@
       (car aList)
       (MaxOfTwo (car aList) (Max (cdr aList))))
   ))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Search finds the position of given value in a list.
+;;; Receive: aList, a list of values.
+;;;          value, a value to find
+;;; PRE: values in aList can be compared using =.
+;;; Return: the position of value in aList.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (search aList value)
+  (if (null? aList)
+    -1
+    (if (= (car aList) value)
+        0
+        (let ((result (search (cdr aList) value)))
+            (if (= result -1)
+                -1
+                (+ 1 result))))))
