@@ -1,8 +1,8 @@
 /* Owl.h
  *
  * Begun by: Dr. Jump for CS 315 at King's College
- * Completed by:
- * Date:
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
  */
 
 #ifndef OWL
@@ -10,7 +10,7 @@
 
 #include "Bird.h"
 
-class Owl {
+class Owl : public Bird {
  public:
    Owl(const string & name);
    string call() const;

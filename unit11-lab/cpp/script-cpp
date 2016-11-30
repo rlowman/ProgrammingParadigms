@@ -1,0 +1,176 @@
+Script started on Wed 30 Nov 2016 09:16:56 AM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-lab/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-lab/cpp[00m$ cat *.h [A
+/* Bird.h provides class Bird.
+ *
+ * Begun by: Dr. Jump for CS 315 at King's College
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
+ */
+
+#ifndef BIRD
+#define BIRD
+
+#include <string>
+using namespace std;
+
+class Bird {
+ public:           // interface
+  Bird(const string & name);
+      string name() const;
+      virtual string call() const;
+      void print(ostream & out = cout) const;
+      string className() const;
+      virtual ~Bird();
+
+ private:          // data
+  string myName;
+};
+
+inline Bird::Bird(const string & name) {
+     myName = name;
+}
+
+inline string Bird::name() const {
+    return myName;
+}
+
+inline string Bird::call() const {
+     return "Squaaaaaaawk!";
+}
+
+inline string Bird::className() const {
+     return "Bird";
+}
+
+inline void Bird::print(ostream & out) const {
+      out << name()
+          << ' '
+          << className()
+          << " says "
+          << call();
+}
+
+inline Bird::~Bird() {}
+
+#endif
+/* Duck.h
+ *
+ * Begun by: Dr. Jump for CS 315 at King's College
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
+ */
+
+#ifndef DUCK
+#define DUCK
+
+#include "Bird.h"
+
+class Duck : public Bird {
+ public:
+   Duck(const string & name);
+     string call() const;
+     string className() const;
+ private:
+
+};
+
+inline Duck::Duck(const string & name)
+    : Bird(name)
+{}
+
+inline string Duck::call() const
+{
+  return "Quack!";
+}
+
+inline string Duck::className() const
+{
+  return "Duck";
+}
+
+
+
+#endif
+/* Goose.h
+ * Begun by: Dr. Jump for CS 315 at King's College
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
+ */
+
+#ifndef GOOSE
+#define GOOSE
+
+#include "Bird.h"
+
+class Goose : public Bird {
+ public:
+    Goose(const string & name);
+    string call() const;
+    string className() const;
+ private:
+
+};
+
+inline Goose::Goose(const string & name)
+ : Bird(name)
+{}
+
+inline string Goose::call() const
+{
+  return "Honk!";
+}
+
+inline string Goose::className() const
+{
+  return "Goose";
+}
+
+
+#endif
+/* Owl.h
+ *
+ * Begun by: Dr. Jump for CS 315 at King's College
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
+ */
+
+#ifndef OWL
+#define OWL
+
+#include "Bird.h"
+
+class Owl : public Bird {
+ public:
+   Owl(const string & name);
+   string call() const;
+   string className() const;
+ private:
+
+};
+
+inline Owl::Owl(const string & name)
+ : Bird(name)
+{}
+
+inline string Owl::call() const
+{
+  return "Hoot!";
+}
+
+inline string Owl::className() const
+{
+  return "Owl";
+}
+
+
+#endif
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-lab/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-lab/cpp[00m$ make
+g++ -Wall birdtest.cpp -o birdtest
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-lab/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-lab/cpp[00m$ ./birdteest 
+Hawkeye Bird says Squaaaaaaawk!
+Donald Bird says Quack!
+Mother Goose Bird says Honk!
+Woodsey Bird says Hoot!
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-lab/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-lab/cpp[00m$ exit
+
+Script done on Wed 30 Nov 2016 09:17:27 AM EST

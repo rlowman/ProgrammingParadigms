@@ -1,7 +1,7 @@
 /* birdtest.cpp illustrates inheritance and polymorphism.
  *
  * Written by: Dr. Jump for CS 315 at King's College
- * Date:
+ * Date: 11/29/16
  */
 
 #include <iostream>       // cin, cout, <<, >>
