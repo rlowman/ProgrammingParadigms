@@ -2,11 +2,27 @@
 #   sub-classes.
 #
 # Begun by: Dr. Jump, for CS 315 at King's College.
-# Completed by:
-# Date:
+# Completed by: Robert Lowman
+# Date: 11/29/2016
 ####################################################
 
 class Bird
+  attr_reader :name
 
+  def initialize(name)
+    @name = name
+  end
+
+  def call
+    'Squaaaaaaawk!'
+  end
+
+  def className
+    self.class.to_s
+  end
+
+  def print
+    puts name + className + " says " + call
+  end
 
 end

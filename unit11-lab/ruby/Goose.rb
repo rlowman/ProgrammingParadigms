@@ -8,6 +8,10 @@
 
 require_relative 'Bird.rb'
 
-class Goose 
+class Goose < Bird
+
+  def call
+    'Whoo-hoo'
+  end
 
 end
