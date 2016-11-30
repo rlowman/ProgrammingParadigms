@@ -1,0 +1,111 @@
+Script started on Wed 30 Nov 2016 10:26:40 AM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-lab/ruby[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-lab/ruby[00m$ cat *.rrb
+# Bird.rb | Defines a Bird superclass to be extended by specific bird
+#   sub-classes.
+#
+# Begun by: Dr. Jump, for CS 315 at King's College.
+# Completed by: Robert Lowman
+# Date: 11/29/2016
+####################################################
+
+class Bird
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def call
+    'Squaaaaaaawk!'
+  end
+
+  def className
+    self.class.to_s
+  end
+
+  def print
+    puts name + className + " says " + call
+  end
+
+end
+# birdtest.rb | Tests out the menagerie of bird classes.
+#
+# Begun by: Dr. Jump for CS 315 at King's College.
+# Completed by: Robert Lowman
+# Date: 11/29/16
+######################################################
+
+require_relative 'Duck.rb'
+require_relative 'Goose.rb'
+require_relative 'Owl.rb'
+
+bird0 = Bird.new "Hawkeye"
+bird0.print
+
+bird1 = Duck.new "Donald"
+bird1.print
+
+bird2 = Goose.new "Mother"
+bird2.print
+
+bird3 = Owl.new "Woodsey"
+bird3.print
+# Duck.rb | Defines the Duck class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Begun by: Dr. Jump for CS 315 at King's College.
+# Completed by: Robert Lowman
+# Date: 11/29/16
+####################################################
+
+require_relative 'Bird.rb'
+
+class Duck < Bird
+
+  def call
+    'Quack!'
+  end
+
+end
+# Goose.rb | Defines the Goose class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Begun by: Dr. Jump for CS 315 at King's College.
+# Completed by: Robert Lowman
+# Date: 11/29/16
+####################################################
+
+require_relative 'Bird.rb'
+
+class Goose < Bird
+
+  def call
+    'Honk!'
+  end
+
+end
+# Owl.rb | Defines the Owl class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Begun by: Dr. Jump for CS 315 at King's College.
+# Completed by: Robert Lowman
+# Date: 11/29/16
+####################################################
+
+require_relative 'Bird.rb'
+
+class Owl < Bird
+
+  def call
+    'Whoo-hoo'
+  end
+
+end
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-lab/ruby[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-lab/ruby[00m$ ruby b irdtest.rb 
+HawkeyeBird says Squaaaaaaawk!
+DonaldDuck says Quack!
+MotherGoose says Honk!
+WoodseyOwl says Whoo-hoo
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-lab/ruby[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-lab/ruby[00m$ exit
+
+Script done on Wed 30 Nov 2016 10:26:52 AM EST

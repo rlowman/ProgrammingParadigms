@@ -1,8 +1,8 @@
 # birdtest.rb | Tests out the menagerie of bird classes.
 #
 # Begun by: Dr. Jump for CS 315 at King's College.
-# Completed by:
-# Date: 
+# Completed by: Robert Lowman
+# Date: 11/29/16
 ######################################################
 
 require_relative 'Duck.rb'
