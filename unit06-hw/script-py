@@ -1,0 +1,45 @@
+Script started on Thu 01 Dec 2016 10:42:01 PM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ p[Kcag[Kt hw06.py 
+## hw06.py recieves the size to make an array and doubles
+##  to fill this array and then prints its contents
+## Precondition: size > 0
+## Output: the values in theArray
+##
+## Completed by: Robert Lowman
+## Date: 12/1/2016
+
+## read() reads in an array of doubles
+## Receive: anArray, an array of correct size
+##          itsSize, the size of the given array
+def read(anArray, itsSize):
+  for i in range(itsSize):
+    temp = input('')
+    anArray.append(temp)
+
+## print() prints the given array it receives
+## Receive: anArray, an array of numbers
+def printArray(anArray):
+  for i in anArray:
+    print i
+
+anArray = []
+size = input('Enter size of the array: ')
+print 'Enter that many doubles: '
+read(anArray, size)
+print 'Result: '
+printArray(anArray)
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ python hw06.py 
+Enter size of the array: 4
+Enter that many doubles: 
+1.2
+2.3
+3.4
+4.5
+Result: 
+1.2
+2.3
+3.4
+4.5
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit06-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-hw[00m$ exit
+
+Script done on Thu 01 Dec 2016 10:42:29 PM EST
