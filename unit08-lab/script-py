@@ -1,0 +1,33 @@
+Script started on Thu 01 Dec 2016 11:10:08 PM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ cat namer.p y 
+## namer.py tests class Name and its operations
+##
+## Completed by: Robert Lowman
+## Date: 12/1/2016
+
+class Name:
+
+    def __init__(self, first, middle, last):
+        self.first = first
+        self.middle = middle
+        self.last = last
+
+    def fullName(self):
+        return self.first + " " + self.middle + " " + self.last
+
+    def printName(self):
+        print self.fullName()
+
+aName = Name("John", "Paul", "Jones")
+assert aName.first == "John", "Invalid first"
+assert aName.middle == "Paul", "Invalid middle"
+assert aName.last == "Jones", "Invalid last"
+assert aName.fullName() == "John Paul Jones", "Invalid full"
+aName.printName()
+print "All tests passed!"
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ python namerr.py 
+John Paul Jones
+All tests passed!
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit08-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit08-lab[00m$ exit
+
+Script done on Thu 01 Dec 2016 11:11:04 PM EST
