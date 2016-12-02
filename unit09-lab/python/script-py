@@ -1,0 +1,42 @@
+Script started on Thu 01 Dec 2016 11:52:55 PM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/python[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/python[00m$ cat  *.py
+## Name.py holds information about a first,
+##     middle, and last name
+##
+## Completed by: Robert Lowman
+## Date: 12/1/2016
+
+class Name:
+
+    def __init__(self, first, middle, last):
+        self.first = first
+        self.middle = middle
+        self.last = last
+
+    def fullName(self):
+        return self.first + " " + self.middle + " " + self.last
+
+    def printName(self):
+        print self.fullName()
+## Main class for the Name class
+## Tests methods and modularity
+##
+## Completed By: Robert Lowman
+## Date: 12/1/2016
+import Name
+
+aName = Name.Name("John", "Paul", "Jones")
+assert aName.first == "John", "Invalid first"
+assert aName.middle == "Paul", "Invalid middle"
+assert aName.last == "Jones", "Invalid last"
+assert aName.fullName() == "John Paul Jones", "Invalid full"
+aName.printName()
+print "All tests passed!"
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/python[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/python[00m$ ls
+Name.py  Name.pyc  pythonMain.py  script-py
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/python[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/python[00m$ pyth ong[K pythonMain.py 
+John Paul Jones
+All tests passed!
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit09-lab/python[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit09-lab/python[00m$ exit
+
+Script done on Thu 01 Dec 2016 11:53:53 PM EST
