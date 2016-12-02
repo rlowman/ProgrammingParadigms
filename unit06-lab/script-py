@@ -1,0 +1,33 @@
+Script started on Thu 01 Dec 2016 10:14:35 PM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ cat average.py 
+## average.py averages the values of an array of doubles.
+## Precondition: theArray is an array of numbers
+## Output: the average of the values in theArray
+##
+## Robert Lowman
+## Date: 12/1/2016
+
+## average() averages the values in an array
+## Receive: anArray, an array of numbers
+## Return: the average of the values in anArray.
+def average(anArray):
+  if not anArray:
+    return 0
+  else:
+    return sum(anArray) / len(anArray)
+
+first = []
+second = [9.0, 8.0, 7.0, 6.0]
+
+print 'The first array sum:', sum(first)
+print 'The second array sum:', sum(second)
+print 'The first array average:', average(first)
+print 'The second array average:', average(second)
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ python average.pyy 
+The first array sum: 0
+The second array sum: 30.0
+The first array average: 0
+The second array average: 7.5
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit06-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit06-lab[00m$ exit
+
+Script done on Thu 01 Dec 2016 10:15:55 PM EST
