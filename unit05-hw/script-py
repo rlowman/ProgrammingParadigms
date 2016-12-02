@@ -1,0 +1,70 @@
+Script started on Thu 01 Dec 2016 09:24:20 PM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ cat rootProgram.p y 
+## rootProgram.py finds the roots of an equation.
+##
+## Input: a b c values for the quadratic formula
+## Output: The roots of the equation
+##
+## Completed by: Robert Lowman
+## Date: 12/1/16
+#################################################################
+import math
+
+firstRoot = 0
+secondRoot = 0
+
+## quadraticRoots() finds the roots from the given values
+## Receive: a The a value in the quadratic formula
+##          b The b value in the quadratic formula
+##          c The c value in the quadratic formula
+## Return: the two roots of the equation
+def quadraticRoots(a, b, c):
+    if a != 0:
+        arg = pow(b, 2) - 4 * a * c
+        if arg >= 0:
+            global firstRoot
+            global secondRoot
+            firstRoot = (-b + math.sqrt(arg))/(2*a)
+            secondRoot = (-b - math.sqrt(arg))/(2*a)
+            return True
+        else:
+            print '\n*** quadraticRoots(): b^2 - 4ac is negative!'
+            return False
+    else:
+        print '\n*** quadraticRoots(): a is zero!'
+        return False
+
+a = input('Enter a: ')
+b = input('Enter b: ')
+c = input('Enter c: ')
+
+if quadraticRoots(a, b, c):
+    print 'The first root is: ', firstRoot
+    print 'The second root is ', secondRoot
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ pythin[K[Kon rootProgramm.py 
+Enter a: 1
+Enter b: 5
+Enter c: 1 3
+The first root is:  -0.697224362268
+The second root is  -4.30277563773
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ python rootProgramm.py 
+Enter a: -2
+Enter b: 1
+Enter c: 5
+The first root is:  -1.35078105936
+The second root is  1.85078105936
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ python rootProgramm.py 
+Enter a: 1 5
+Enter b: 1
+Enter c: 2
+
+*** quadraticRoots(): b^2 - 4ac is negative!
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ python rootProgramm.py 
+Enter a: 0
+Enter b: 1
+Enter c: 2
+
+*** quadraticRoots(): a is zero!
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-hw[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-hw[00m$ exit
+
+Script done on Thu 01 Dec 2016 09:25:21 PM EST
