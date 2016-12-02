@@ -1,0 +1,37 @@
+Script started on Thu 01 Dec 2016 07:14:24 PM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ cat split.py 
+## split.py recives a string and splits it at
+##       given position
+##
+## Input: aString, string to split
+##        pos, the position to split at
+## Preconditions: pos < length of aString
+## Output: the given string split
+##
+## Author: Robert Lowman
+## Date: 12/1/2016
+
+aString = raw_input('Enter the string to split: ')
+pos = input('Enter the splitting position: ')
+
+print 'The first part is ', aString[0:pos]
+length = len(aString)
+print 'The second part is ', aString[pos:length]
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ python split.py  [A
+Enter the string to split: hello
+Enter the splitting position: 3
+The first part is  hel
+The second part is  lo
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ python split.py  [A
+Enter the string to split: hello
+Enter the splitting position: 0
+The first part is  
+The second part is  hello
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ python split.py  [A
+Enter the string to split: hello
+Enter the splitting position: 5
+The first part is  hello
+The second part is  
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit05-lab[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit05-lab[00m$ exit
+
+Script done on Thu 01 Dec 2016 07:15:09 PM EST
