@@ -9,7 +9,7 @@ with Bird_Package; use Bird_Package;
 
 package Ostrich_Package is
 
-  type Ostrich_Type is new Bird_Type with private;
+  type Ostrich_Type is new WalkingBird_Type with private;
 
  ----------------------------------------------------
  -- A Ostrich's Call (Over-rides Bird.Call())           -
@@ -27,7 +27,7 @@ package Ostrich_Package is
  function Type_Name(An_Ostrich : in Ostrich_Type) return String;
 
 private
-  type Ostrich_Type is new Bird_Type with
+  type Ostrich_Type is new WalkingBird_Type with
     record
       null;
     end record;

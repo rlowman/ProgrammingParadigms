@@ -1,8 +1,8 @@
 -- birdtest.adb tests our Birds type
 --
 -- Begun by: Dr. Jump for CS 315 at King's College
--- Completed by:
--- Date:
+-- Completed by: Robert Lowman
+-- Date: 11/29/16
 -----------------------------------------------------
 
 with Ada.Text_IO, Bird_Package, Duck_Package, Goose_Package, Owl_Package;

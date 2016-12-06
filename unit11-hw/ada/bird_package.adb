@@ -52,6 +52,16 @@ package body Bird_Package is
  end Type_Name;
 
  ----------------------------------------------------
+ -- A Bird's movement                               -
+ -- Receive: A_Bird, a Bird_Type.                   -
+ -- Return: "bird-things".                          -
+ ----------------------------------------------------
+ function Movement(A_Bird : in Bird_Type) return String is
+ begin
+   return "bird-things";
+ end Movement;
+
+ ----------------------------------------------------
  -- Output a Bird                                   -
  -- Receive: A_Bird, a Bird or subclass of Bird.    -
  -- Output: Everything known about A_Bird           -
@@ -61,7 +71,9 @@ package body Bird_Package is
    Put( Name(A_Bird) );
    Put( ' ' );
    Put( Type_Name(A_Bird) );
-   Put( " says " );
+   Put( " just ");
+   Put( Movement(A_Bird))
+   Put( " and said " );
    Put( Call(A_Bird) );
  end Put;
 

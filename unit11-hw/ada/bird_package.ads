@@ -42,6 +42,14 @@ package Bird_Package is
 
 
  ----------------------------------------------------
+ -- A Bird's movement                               -
+ -- Receive: A_Bird, a Bird_Type.                   -
+ -- Return: "bird-things".                          -
+ ----------------------------------------------------
+ function Movement(A_Bird : in Bird_Type) return String;
+
+
+ ----------------------------------------------------
  -- Output a Bird                                   -
  -- Receive: A_Bird, a Bird or subclass of Bird.    -
  -- Output: Everything known about A_Bird           -

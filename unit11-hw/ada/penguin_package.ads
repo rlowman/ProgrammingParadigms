@@ -9,7 +9,7 @@ with Bird_Package; use Bird_Package;
 
 package Penguin_Package is
 
-  type Penguin_Type is new Bird_Type with private;
+  type Penguin_Type is new WalkingBird_Type with private;
 
  ----------------------------------------------------
  -- A Penguin's Call (Over-rides Bird.Call())           -
@@ -27,7 +27,7 @@ package Penguin_Package is
  function Type_Name(A_Penguin : in Penguin_Type) return String;
 
 private
-  type Penguin_Type is new Bird_Type with
+  type Penguin_Type is new WalkingBird_Type with
     record
       null;
     end record;

@@ -6,29 +6,29 @@
 -- Date: 11/29/2016
 ---------------------------------------------------
 
-with Bird_Package; use Bird_Package;
+with FlyingBird_Package; use FlyingBird_Package;
 
-package Owl_Package is
+package Kiwi_Package is
 
-  type Owl_Type is new Bird_Type with private;
+  type Kiwi_Type is new WalkingBird_Type with private;
 
  ----------------------------------------------------
- -- A Owl's Call (Over-rides Bird.Call())           -
- -- Receive: An_Owl, an Owl_Type.                   -
- -- Return: "Whoo!"                                 -
+ -- A Kiwi's Call (Over-rides Bird.Call())           -
+ -- Receive: A_Kiwi, a Kiwi_Type.                   -
+ -- Return: "twee-do"                               -
  ----------------------------------------------------
- function Call(A_Owl : in Owl_Type) return String;
+ function Call(A_Kiwi : in Kiwi_Type) return String;
 
  -----------------------------------------------------
- -- Determine type of a Owl                          -
+ -- Determine type of a Kiwi                          -
  -- (Over-rides Bird.Type_Name())                    -
- -- Receive: An_Owl, an Owl_Type.                    -
- -- Return: "Owl".                                   -
+ -- Receive: A_Kiwi, a Kiwi_Type.                    -
+ -- Return: "Kiwi".                                   -
  -----------------------------------------------------
- function Type_Name(A_Owl : in Owl_Type) return String;
+ function Type_Name(A_Kiwi : in Kiwi_Type) return String;
 
 private
-  type Owl_Type is new Bird_Type with
+  type Owl_Type is new WalkingBird_Type with
     record
       null;
     end record;
