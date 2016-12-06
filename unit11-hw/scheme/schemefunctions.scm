@@ -34,3 +34,8 @@
         't
         (mem value (cdr aList))
         )))
+
+;; (mem '(a b) '((a b) (e (f g))))
+;; Returns: t
+;; (mem 'a '((a b) (e f g)))
+;; Returns: nil
