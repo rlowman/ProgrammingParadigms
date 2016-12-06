@@ -7,4 +7,5 @@
 (define (my-reverse aList)
     (if (eqv? (length aList) 1)
       (car aList)
-      (cons my-reverse (cdr aList) cdr aList)))
+      (cons (my-reverse (cdr aList)) (car aList))
+      ))
