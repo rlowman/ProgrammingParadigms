@@ -6,9 +6,9 @@
 # Date: 11/29/16
 ####################################################
 
-require_relative 'Bird.rb'
+require_relative 'FlyingBird.rb'
 
-class Goose < Bird
+class Goose < FlyingBird
 
   def call
     'Honk!'

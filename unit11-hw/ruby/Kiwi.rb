@@ -1,4 +1,4 @@
-# Owl.rb | Defines the Owl class which inherits attributes and methods
+# Kiwi.rb | Defines the Kiwi class which inherits attributes and methods
 #   from the Bird superclass.
 #
 # Begun by: Dr. Jump for CS 315 at King's College.
@@ -6,12 +6,12 @@
 # Date: 11/29/16
 ####################################################
 
-require_relative 'FlyingBird.rb'
+require_relative 'WalkingBird.rb'
 
-class Owl < FlyingBird
+class Kiwi < WalkingBird
 
   def call
-    'Whoo-hoo'
+    'Twee-Do'
   end
 
 end

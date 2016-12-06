@@ -21,8 +21,12 @@ class Bird
     self.class.to_s
   end
 
+  def movement
+    'did bird-things'
+  end
+
   def print
-    puts name + className + " says " + call
+    puts name + className + " just " + movement + " and said " + call
   end
 
 end
