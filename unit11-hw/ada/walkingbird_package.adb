@@ -17,6 +17,6 @@ package body WalkingBird_Package is
  function Movement(A_WalkingBird : in WalkingBird_Type) return String is
    begin
     return "walked past";
-   end Call;
+  end Movement;
 
 end WalkingBird_Package;

@@ -5,7 +5,7 @@
 -- Date: 12/5/2016
 ---------------------------------------------------
 
-with Bird_Package; use Bird_Package;
+with WalkingBird_Package; use WalkingBird_Package;
 
 package Ostrich_Package is
 

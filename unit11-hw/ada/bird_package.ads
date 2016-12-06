@@ -15,7 +15,7 @@ package Bird_Package is
  --          Name, a String                         -
  -- Return: a Bird_Type whose My_Name = Name.       -
  ----------------------------------------------------
- procedure Init(A_Bird : out Bird_Type; Name : in String);
+ procedure Init(A_Bird : out Bird_Type'Class; Name : in String);
 
  ----------------------------------------------------
  -- Name accessor                                   -

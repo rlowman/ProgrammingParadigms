@@ -17,6 +17,6 @@ package body FlyingBird_Package is
  function Movement(A_FlyingBird : in FlyingBird_Type) return String is
    begin
     return "flew past";
-   end Call;
+  end Movement;
 
 end FlyingBird_Package;

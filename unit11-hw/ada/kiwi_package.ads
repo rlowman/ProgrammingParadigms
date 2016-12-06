@@ -1,12 +1,11 @@
--- owl_package.ads gives Owl-related declarations,
+-- kiwi_package.ads gives Kiwi-related declarations,
 --  and derives Owl from Bird.
 --
--- Begun by: Dr. Jump for CS 315 at King's College
 -- Completed by: Robert Lowman
--- Date: 11/29/2016
+-- Date: 12/5/2016
 ---------------------------------------------------
 
-with FlyingBird_Package; use FlyingBird_Package;
+with WalkingBird_Package; use WalkingBird_Package;
 
 package Kiwi_Package is
 
@@ -28,9 +27,9 @@ package Kiwi_Package is
  function Type_Name(A_Kiwi : in Kiwi_Type) return String;
 
 private
-  type Owl_Type is new WalkingBird_Type with
+  type Kiwi_Type is new WalkingBird_Type with
     record
       null;
     end record;
 
-end Owl_Package;
+end Kiwi_Package;

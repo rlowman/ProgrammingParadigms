@@ -13,7 +13,7 @@ package WalkingBird_Package is
   ----------------------------------------------------
   -- A WalkingBirds's movement                       -
   -- Receive: A_WalkingBird, a WalkingBird_Type.     -
-  -- Return: "flew past"                             -
+  -- Return: "walked past"                             -
   ----------------------------------------------------
   function Movement(A_WalkingBird : in WalkingBird_Type) return String;
 

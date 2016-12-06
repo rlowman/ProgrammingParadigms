@@ -5,8 +5,8 @@
 -- Date: 11/29/16
 -----------------------------------------------------
 
-with Ada.Text_IO, Bird_Package, Duck_Package, Goose_Package, Owl_Package;
-use Ada.Text_IO, Bird_Package, Duck_Package, Goose_Package, Owl_Package;
+with Ada.Text_IO, Bird_Package, Duck_Package, Goose_Package, Owl_Package, Kiwi_Package, Ostrich_Package, Penguin_Package;
+use Ada.Text_IO, Bird_Package, Duck_Package, Goose_Package, Owl_Package, Kiwi_Package, Ostrich_Package, Penguin_Package;
 
 
 procedure BirdTest is
@@ -15,6 +15,9 @@ procedure BirdTest is
  Bird2 : Duck_Type;       -- derived class 1
  Bird3 : Goose_Type;      -- derived class 2
  Bird4 : Owl_Type;        -- derived class 3
+ Bird5 : Penguin_Type;
+ Bird6 : Kiwi_Type;
+ Bird7 : Ostrich_Type;
 
 begin
    Init(Bird1, "Tweety");
@@ -28,6 +31,15 @@ begin
 
    Init(Bird4, "Woodsy");
    Put(Bird4); New_Line;
+
+   Init(Bird5, "Petery");
+   Put(Bird5); New_Line;
+
+   Init(Bird6, "Kennys");
+   Put(Bird6); New_Line;
+
+   Init(Bird7, "Orvile");
+   Put(Bird7); New_Line;
 
  New_Line;
 end BirdTest;

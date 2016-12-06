@@ -16,7 +16,7 @@ package body Bird_Package is
  --          Name, a String                         -
  -- Return: a Bird_Type in which My_Name = Name.    -
  ----------------------------------------------------
- procedure Init(A_Bird : out Bird_Type; Name : in String) is
+ procedure Init(A_Bird : out Bird_Type'Class; Name : in String) is
  begin
    A_Bird.My_Name := Name;
  end Init;
@@ -72,7 +72,7 @@ package body Bird_Package is
    Put( ' ' );
    Put( Type_Name(A_Bird) );
    Put( " just ");
-   Put( Movement(A_Bird))
+   Put( Movement(A_Bird));
    Put( " and said " );
    Put( Call(A_Bird) );
  end Put;
