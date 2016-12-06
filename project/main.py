@@ -1,4 +1,4 @@
-import mySQLdb
+import psycopg2
 import dbModule
 import fileHandler
 
@@ -9,7 +9,7 @@ print "4: Close program"
 option = input('Enter an options number: ')
 checker = True
 
-connection = mySQLdb.connect(host = 'vps.kings-cs.com', user = 'robertlowman'
+connection = psycopg2.connect(host = 'vps.kings-cs.com', user = 'robertlowman',
     passwd = 'patriots8', db = "robertlowman")
 db = dbModule(connection)
 

@@ -4,7 +4,7 @@
 ##
 ## Name: Robert Lowman
 ## Due Date: 12/20/2016
-import mysql.connector
+import psycopg2
 
 class dbHandler:
 
