@@ -1,0 +1,564 @@
+Script started on Mon 05 Dec 2016 10:53:36 PM EST
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-hw/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-hw/cpp[00m$ cat *.h
+/* Bird.h provides class Bird.
+ *
+ * Begun by: Dr. Jump for CS 315 at King's College
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
+ */
+
+#ifndef BIRD
+#define BIRD
+
+#include <string>
+using namespace std;
+
+class Bird {
+ public:           // interface
+  Bird(const string & name);
+      string name() const;
+      virtual string call() const;
+      void print(ostream & out = cout) const;
+      virtual string className() const;
+      virtual string movement() const;
+      virtual ~Bird();
+
+ private:          // data
+  string myName;
+};
+
+/**
+ * Constructor method for class Bird
+ *
+ * Receive: name, name of the Bird
+ * Output: new Bird instance
+ */
+inline Bird::Bird(const string & name) {
+     myName = name;
+}
+
+/**
+ * name() returns the name of the Bird
+ *
+ * Return: the name of the Bird
+ */
+inline string Bird::name() const {
+    return myName;
+}
+
+/**
+ * call() returns the call of the Bird
+ *
+ * Return: the call of the Bird
+ */
+inline string Bird::call() const {
+     return "Squaaaaaaawk!";
+}
+
+/**
+ * className() returns the class name of the Bird
+ *
+ * Return: the type of Bird
+ */
+inline string Bird::className() const {
+     return "Bird";
+}
+
+/**
+ * movement() returns the movement of the Bird
+ *
+ * Return: the movement of the Bird
+ */
+inline string Bird::movement() const {
+  return "did bird-things";
+}
+
+/**
+ * print() prints information about the Bird
+ *
+ * Receive: out the output to print to
+ */
+inline void Bird::print(ostream & out) const {
+      out << name()
+          << ' '
+          << className()
+          << " just "
+          << movement()
+          << " and said "
+          << call();
+}
+
+/**
+ * Deconstuctor for Bird
+ */
+inline Bird::~Bird() {}
+
+#endif
+/* Duck.h
+ *
+ * Begun by: Dr. Jump for CS 315 at King's College
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
+ */
+
+#ifndef DUCK
+#define DUCK
+
+#include "Bird.h"
+#include "FlyingBird.h"
+
+class Duck : public FlyingBird {
+ public:
+   Duck(const string & name);
+     string call() const;
+     string className() const;
+ private:
+
+};
+
+/**
+ * Constructor method for class Duck
+ *
+ * Receive: name, a reference to the name of the Duck
+ * Return: new instance of Goose
+ */
+inline Duck::Duck(const string & name)
+    : FlyingBird(name)
+{}
+
+/**
+ * call() returns the sound the Duck makes
+ *
+ * Return: string of the call a Duck makes
+ */
+inline string Duck::call() const
+{
+  return "Quack!";
+}
+
+/**
+ * className() returns the name of the class
+ *
+ * Return: the string of the name of the class
+ */
+inline string Duck::className() const
+{
+  return "Duck";
+}
+
+#endif
+/* FlyingBird.h
+ *
+ * Completed by: Robert Lowman
+ * Date: 12/5/16
+ */
+
+#ifndef FLYINGBIRD
+#define FLYINGBIRD
+
+#include "Bird.h"
+
+class FlyingBird : public Bird {
+ public:
+   FlyingBird(const string & name);
+     string movement() const;
+ private:
+
+};
+
+/**
+ * Constructor method for class FlyingBird
+ *
+ * Receive: name, a reference to the name of the FlyingBird
+ * Return: new instance of Goose
+ */
+inline FlyingBird::FlyingBird(const string & name)
+    : Bird(name)
+{}
+
+/**
+ * movement() returns the movement the Bird makes
+ *
+ * Return: string of the movement this Bird makes
+ */
+inline string FlyingBird::movement() const
+{
+  return "flew past";
+}
+
+#endif
+/* Goose.h
+ * Begun by: Dr. Jump for CS 315 at King's College
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
+ */
+
+#ifndef GOOSE
+#define GOOSE
+
+#include "Bird.h"
+#include "FlyingBird.h"
+
+class Goose : public FlyingBird {
+ public:
+    Goose(const string & name);
+    string call() const;
+    string className() const;
+ private:
+
+};
+
+/**
+ * Constructor method for class Goose
+ *
+ * Receive: name, a reference to the name of the Goose
+ * Return: new instance of Goose
+ */
+inline Goose::Goose(const string & name)
+ : FlyingBird(name)
+{}
+
+/**
+ * call() returns the sound the Goose makes
+ *
+ * Return: string of the call a Goose makes
+ */
+inline string Goose::call() const
+{
+  return "Honk!";
+}
+
+/**
+ * className() returns the name of the class
+ *
+ * Return: the string of the name of the class
+ */
+inline string Goose::className() const
+{
+  return "Goose";
+}
+
+
+#endif
+/* Kiwi.h
+ *
+ * Completed by: Robert Lowman
+ * Date: 12/4/16
+ */
+
+#ifndef KIWI
+#define KIWI
+
+#include "Bird.h"
+#include "WalkingBird.h"
+
+class Kiwi : public WalkingBird {
+ public:
+   Kiwi(const string & name);
+   string call() const;
+   string className() const;
+ private:
+
+};
+
+/**
+ * Constructor method for class Kiwi
+ *
+ * Receive: name, a reference to the name of the Kiwi
+ * Return: new instance of Ostrich
+ */
+inline Kiwi::Kiwi(const string & name)
+ : WalkingBird(name)
+{}
+
+/**
+ * call() returns the sound the Kiwi makes
+ *
+ * Return: string of the call a Kiwi makes
+ */
+inline string Kiwi::call() const
+{
+  return "Twee-do";
+}
+
+/**
+ * className() returns the name of the class
+ *
+ * Return: the string of the name of the class
+ */
+inline string Kiwi::className() const
+{
+  return "Kiwi";
+}
+
+
+#endif
+/* Ostrich.h
+ *
+ * Completed by: Robert Lowman
+ * Date: 12/4/16
+ */
+
+#ifndef OSTRICH
+#define OSTRICH
+
+#include "Bird.h"
+#include "WalkingBird.h"
+
+class Ostrich : public WalkingBird {
+ public:
+   Ostrich(const string & name);
+   string call() const;
+   string className() const;
+ private:
+
+};
+
+/**
+ * Constructor method for class Ostrich
+ *
+ * Receive: name, a reference to the name of the Ostrich
+ * Return: new instance of Ostrich
+ */
+inline Ostrich::Ostrich(const string & name)
+ : WalkingBird(name)
+{}
+
+/**
+ * call() returns the sound the Ostrich makes
+ *
+ * Return: string of the call a Ostrich makes
+ */
+inline string Ostrich::call() const
+{
+  return "Snork";
+}
+
+/**
+ * className() returns the name of the class
+ *
+ * Return: the string of the name of the class
+ */
+inline string Ostrich::className() const
+{
+  return "Ostrich";
+}
+
+
+#endif
+/* Owl.h
+ *
+ * Begun by: Dr. Jump for CS 315 at King's College
+ * Completed by: Robert Lowman
+ * Date: 11/29/16
+ */
+
+#ifndef OWL
+#define OWL
+
+#include "Bird.h"
+#include "FlyingBird.h"
+
+class Owl : public FlyingBird {
+ public:
+   Owl(const string & name);
+   string call() const;
+   string className() const;
+ private:
+
+};
+
+/**
+ * Constructor method for class Owl
+ *
+ * Receive: name, a reference to the name of the Owl
+ * Return: new instance of Owl
+ */
+inline Owl::Owl(const string & name)
+ : FlyingBird(name)
+{}
+
+/**
+ * call() returns the sound the Goose makes
+ *
+ * Return: string of the call a Goose makes
+ */
+inline string Owl::call() const
+{
+  return "Hoot!";
+}
+
+/**
+ * className() returns the name of the class
+ *
+ * Return: the string of the name of the class
+ */
+inline string Owl::className() const
+{
+  return "Owl";
+}
+
+
+#endif
+/* Penguin.h
+ *
+ * Completed by: Robert Lowman
+ * Date: 12/4/16
+ */
+
+#ifndef PENGUIN
+#define PENGUIN
+
+#include "Bird.h"
+#include "WalkingBird.h"
+
+class Penguin : public WalkingBird {
+ public:
+   Penguin(const string & name);
+   string call() const;
+   string className() const;
+ private:
+
+};
+
+/**
+ * Constructor method for class Penguin
+ *
+ * Receive: name, a reference to the name of the Penguin
+ * Return: new instance of Penguin
+ */
+inline Penguin::Penguin(const string & name)
+ : WalkingBird(name)
+{}
+
+/**
+ * call() returns the sound the Penguin makes
+ *
+ * Return: string of the call a Penguin makes
+ */
+inline string Penguin::call() const
+{
+  return "Huh-huh-huh-huuuuh";
+}
+
+/**
+ * className() returns the name of the class
+ *
+ * Return: the string of the name of the class
+ */
+inline string Penguin::className() const
+{
+  return "Penguin";
+}
+
+
+#endif
+/* WalkingBird.h
+ *
+ * Completed by: Robert Lowman
+ * Date: 12/5/16
+ */
+
+#ifndef WALKINGBIRD
+#define WALKINGBIRD
+
+#include "Bird.h"
+
+class WalkingBird : public Bird {
+ public:
+   WalkingBird(const string & name);
+     string movement() const;
+ private:
+
+};
+
+/**
+ * Constructor method for class Duck
+ *
+ * Receive: name, a reference to the name of the Duck
+ * Return: new instance of Goose
+ */
+inline WalkingBird::WalkingBird(const string & name)
+    : Bird(name)
+{}
+
+/**
+ * movement() returns the movement the Bird makes
+ *
+ * Return: string of the movement this Bird makes
+ */
+inline string WalkingBird::movement() const
+{
+  return "walked past";
+}
+
+#endif
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-hw/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-hw/cpp[00m$ cat birdttest.cpp 
+/* birdtest.cpp illustrates inheritance and polymorphism.
+ *
+ * Written by: Dr. Jump for CS 315 at King's College
+ * Date: 11/29/16
+ */
+
+#include <iostream>       // cin, cout, <<, >>
+using namespace std;
+
+#include "Bird.h"         // Bird
+#include "Owl.h"          // Owl
+#include "Duck.h"         // Duck
+#include "Goose.h"        // Goose
+#include "Penguin.h"        // Penguin
+#include "Kiwi.h"           // Kiwi
+#include "Ostrich.h"        // Ostrich
+
+int main() {
+  Bird * birdPtr0 = NULL,
+       * birdPtr1 = NULL,
+       * birdPtr2 = NULL,
+       * birdPtr3 = NULL,
+       * birdPtr4 = NULL,
+       * birdPtr5 = NULL,
+       * birdPtr6 = NULL;
+
+  birdPtr0 = new Bird("Hawkeye");
+  birdPtr0->print(); cout << endl;
+
+  birdPtr1 = new Duck("Donald");
+  birdPtr1->print(); cout << endl;
+
+  birdPtr2 = new Goose("Mother Goose");
+  birdPtr2->print(); cout << endl;
+
+  birdPtr3 = new Owl("Woodsey");
+  birdPtr3->print(); cout << endl;
+
+  birdPtr4 = new Penguin("Peter");
+  birdPtr4->print(); cout << endl;
+
+  birdPtr5 = new Kiwi("Kenny");
+  birdPtr5->print(); cout << endl;
+
+  birdPtr6 = new Ostrich("Orville");
+  birdPtr6->print(); cout << endl;
+
+  delete birdPtr0;
+  delete birdPtr1;
+  delete birdPtr2;
+  delete birdPtr3;
+  delete birdPtr4;
+  delete birdPtr5;
+  delete birdPtr6;
+}
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-hw/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-hw/cpp[00m$ make
+g++ -Wall birdtest.cpp -o birdtest
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-hw/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-hw/cpp[00m$ ./birdtesst 
+Hawkeye Bird just did bird-things and said Squaaaaaaawk!
+Donald Duck just flew past and said Quack!
+Mother Goose Goose just flew past and said Honk!
+Woodsey Owl just flew past and said Hoot!
+Peter Penguin just walked past and said Huh-huh-huh-huuuuh
+Kenny Kiwi just walked past and said Twee-do
+Orville Ostrich just walked past and said Snork
+]0;csadmin@csadmin-VirtualBox: ~/CS315-F16-LowmanRobert/unit11-hw/cpp[01;32mcsadmin@csadmin-VirtualBox[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-hw/cpp[00m$ exit
+
+Script done on Mon 05 Dec 2016 10:54:09 PM EST

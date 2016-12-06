@@ -9,8 +9,9 @@
 #define OWL
 
 #include "Bird.h"
+#include "FlyingBird.h"
 
-class Owl : public Bird {
+class Owl : public FlyingBird {
  public:
    Owl(const string & name);
    string call() const;
@@ -26,7 +27,7 @@ class Owl : public Bird {
  * Return: new instance of Owl
  */
 inline Owl::Owl(const string & name)
- : Bird(name)
+ : FlyingBird(name)
 {}
 
 /**

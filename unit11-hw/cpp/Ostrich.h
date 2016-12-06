@@ -8,10 +8,11 @@
 #define OSTRICH
 
 #include "Bird.h"
+#include "WalkingBird.h"
 
-class Ostrich : public Bird {
+class Ostrich : public WalkingBird {
  public:
-   Owl(const string & name);
+   Ostrich(const string & name);
    string call() const;
    string className() const;
  private:
@@ -25,7 +26,7 @@ class Ostrich : public Bird {
  * Return: new instance of Ostrich
  */
 inline Ostrich::Ostrich(const string & name)
- : Bird(name)
+ : WalkingBird(name)
 {}
 
 /**

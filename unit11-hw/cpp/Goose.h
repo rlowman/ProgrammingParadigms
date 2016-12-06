@@ -8,8 +8,9 @@
 #define GOOSE
 
 #include "Bird.h"
+#include "FlyingBird.h"
 
-class Goose : public Bird {
+class Goose : public FlyingBird {
  public:
     Goose(const string & name);
     string call() const;
@@ -25,7 +26,7 @@ class Goose : public Bird {
  * Return: new instance of Goose
  */
 inline Goose::Goose(const string & name)
- : Bird(name)
+ : FlyingBird(name)
 {}
 
 /**

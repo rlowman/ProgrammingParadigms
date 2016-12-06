@@ -8,10 +8,11 @@
 #define KIWI
 
 #include "Bird.h"
+#include "WalkingBird.h"
 
-class Kiwi : public Bird {
+class Kiwi : public WalkingBird {
  public:
-   Owl(const string & name);
+   Kiwi(const string & name);
    string call() const;
    string className() const;
  private:
@@ -25,7 +26,7 @@ class Kiwi : public Bird {
  * Return: new instance of Ostrich
  */
 inline Kiwi::Kiwi(const string & name)
- : Bird(name)
+ : WalkingBird(name)
 {}
 
 /**
