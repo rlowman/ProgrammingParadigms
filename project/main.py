@@ -9,9 +9,8 @@ print "4: Close program"
 option = input('Enter an options number: ')
 checker = True
 
-connection = psycopg2.connect(host = 'vps.kings-cs.com', user = 'robertlowman',
-    passwd = 'patriots8', db = "robertlowman")
-db = dbModule(connection)
+connection = psycopg2.connect("host = 'vps.kings-cs.com' user = 'robertlowman' password = 'patriots8' dbname = 'robertlowman'")
+db = dbModule.dbHandler(connection)
 
 while checker:
     if option == 1:
@@ -40,7 +39,8 @@ while checker:
         print "3: Adult Content"
         addOption = input('Enter the number of the type of word you wish to add: ')
         if addOption == 1:
-            db.addSexualWord(addWord)
+            if not db.addSexualWord(addWord):
+                print "Word is already in database"
         elif addOption == 2:
             db.addViolentWord(addWord)
         elif addOption == 3:
