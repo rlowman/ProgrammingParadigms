@@ -3,6 +3,7 @@
 ##
 ## Name: Robert Lowman
 ## Due Date: 12/8/2016
+import porterStemmer
 
 class FileRater:
 
@@ -26,17 +27,19 @@ class FileRater:
         self.sexualWords = 0
         self.violentWords = 0
         self.adultContentWords = 0
+        self.stemmer = porterStemmer.PorterStemmer()
 
     def setWords(self):
         for line in f:
             temp = line.split()
             for word in temp:
                 totalWords = totalWords + 1
-                if sList.count(word) > 0:
+                stem = stemmer.stripWord(word)
+                if sList.count(stem) > 0:
                     sexualWords = sexualWords + 1
-                if vList.count(word) > 0:
+                if vList.count(stem) > 0:
                     violentWords = violentWords + 1
-                if aList.count(word) > 0:
+                if aList.count(stem) > 0:
                     adultContentWords = adultContentWords + 1
 
     def calculateRating(self):
