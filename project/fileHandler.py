@@ -6,10 +6,6 @@
 
 class FileRater:
 
-    totalWords = 0
-    sexualWords = 0
-    curseWords = 0
-    adultContentWords = 0
 
     # __init__() Constructor method for this class
     #
@@ -22,19 +18,26 @@ class FileRater:
     #                   retrived from database
     def __init__(f, sexualList, violentList, adultList):
         self.sList = sexualList
-        self.cList = curseList
+        self.vList = violentList
         self.aList = adultList
         self.theFile = f
         self.setWords(self)
+        self.totalWords = 0
+        self.sexualWords = 0
+        self.violentWords = 0
+        self.adultContentWords = 0
 
     def setWords(self):
-        filler = 0
-        # Read all words in file, and increment each category
-        # depending if that word was found in database or not
-        # filler is not used, just there to avoid indentation error
+        for line in f:
+            temp = line.split()
+            for word in temp:
+                totalWords = totalWords + 1
+                if sList.count(word) > 0:
+                    sexualWords = sexualWords + 1
+                if vList.count(word) > 0:
+                    violentWords = violentWords + 1
+                if aList.count(word) > 0:
+                    adultContentWords = adultContentWords + 1
 
     def calculateRating(self):
-        fill = 0
-        # With everything calculated, return the value of the
-        # algorithm that gives the file a rating
-        # fill is unused, just there to avoid indentation error
+        return (sexualWords/totalWords) + (violentWords/totalWords) + (adultContentWords/totalWords)

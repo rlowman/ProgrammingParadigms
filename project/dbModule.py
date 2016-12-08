@@ -23,7 +23,8 @@ class dbHandler:
         return theId
 
     def addSexualWord(self, theWord):
-        self.cur.execute("SELECT * FROM sexual_word WHERE string = ''" % theWord)
+        executeString = "SELECT * FROM sexual_word WHERE string = " + "'" + theWord + "'"
+        self.cur.execute()
         data = self.cur.fetchall()
         if not data:
             wordId = self.inWordTable(theWord)
