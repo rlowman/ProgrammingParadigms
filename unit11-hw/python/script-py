@@ -1,0 +1,220 @@
+Script started on Thu 08 Dec 2016 09:24:22 AM EST
+]0;guest-2nikin@ad425-linux21: ~/CS315-F16-LowmanRobert/unit11-hw/python[01;32mguest-2nikin@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-hw/python[00m$ cat *.py
+# Bird.py | Defines a Bird superclass to be extended by specific bird
+#   sub-classes.
+#
+# Completed by: Robert Lowman
+# Date: 12/6/2016
+####################################################
+
+class Bird:
+
+  def __init__(self, theName):
+    self.name = theName
+
+  def call(self):
+    return 'Squaaaaaaawk!'
+
+  def getName(self):
+      return self.name
+
+  def className(self):
+    return 'Bird'
+
+  def movement(self):
+    return 'did bird-things'
+
+  def printBird(self):
+    print self.getName() + self.className() + " just " + self.movement() + " and said " + self.call()
+# birdtest.rb | Tests out the menagerie of bird classes.
+#
+# Begun by: Dr. Jump for CS 315 at King's College.
+# Completed by: Robert Lowman
+# Date: 11/29/16
+######################################################
+
+import Duck
+import Goose
+import Owl
+import Ostrich
+import Kiwi
+import Penguin
+import Bird
+
+bird0 = Bird.Bird('Hawkeye ')
+bird0.printBird()
+
+bird1 = Duck.Duck('Donald ')
+bird1.printBird()
+
+bird2 = Goose.Goose("Mother ")
+bird2.printBird()
+
+bird3 = Owl.Owl("Woodsey ")
+bird3.printBird()
+
+bird4 = Ostrich.Ostrich("Orville ")
+bird4.printBird()
+
+bird5 = Penguin.Penguin("Petey ")
+bird5.printBird()
+
+bird6 = Kiwi.Kiwi("Kenny ")
+bird6.printBird()
+# Duck.py | Defines the Duck class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Completed by: Robert Lowman
+# Date: 12/6/16
+####################################################
+import FlyingBird
+
+class Duck(FlyingBird.FlyingBird):
+
+    def __init__(self, name):
+        FlyingBird.__init__(name)
+        self.name = name
+
+    def call(self):
+        return 'Quack!'
+
+    def className(self):
+        return 'Duck'
+# FlyingBird.py | Defines the FlyingBird class which inherits attributes and
+#   methods from the Bird superclass.
+#
+# Completed by: Robert Lowman
+# Date: 12/6/16
+####################################################
+
+import Bird
+
+class FlyingBird(Bird.Bird):
+
+    def __init__(self, name):
+        super().__init__(name)
+
+    def movement(self):
+        return 'flew past'
+# Goose.rb | Defines the Goose class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Completed by: Robert Lowman
+# Date: 12/6/16
+####################################################
+import FlyingBird
+
+class Goose(FlyingBird.FlyingBird):
+
+    def __init__(self, name):
+        FlyingBird.__init__(name)
+        self.name = name
+        
+    def call(self):
+        return 'Honk!'
+
+    def className(self):
+        return 'Goose'
+# Kiwi.py | Defines the Kiwi class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Completed by: Robert Lowman
+# Date: 12/6/16
+####################################################
+import WalkingBird
+
+class Kiwi(WalkingBird.WalkingBird):
+
+    def __init__(self, name):
+        WalkingBird.__init__(name)
+        self.name = name
+        
+    def call(self):
+        return 'Twee-do!'
+
+    def className(self):
+        return 'Kiwi'
+# Ostrich.py | Defines the Ostrich class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Completed by: Robert Lowman
+# Date: 12/5/16
+####################################################
+import WalkingBird
+
+class Ostrich(WalkingBird.WalkingBird):
+
+    def __init__(self, name):
+        WalkingBird.__init__(name)
+        self.name = name
+
+    def call(self):
+        return 'Snork!'
+
+    def className(self):
+        return 'Ostrich'
+# Owl.py | Defines the Owl class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Completed by: Robert Lowman
+# Date: 12/7/16
+####################################################
+import FlyingBird
+
+class Owl(FlyingBird.FlyingBird):
+
+    def __init__(self, name):
+        FlyingBird.__init__(name)
+        self.name = name
+
+    def call(self):
+        return 'Hoot!'
+
+    def className(self):
+        return 'Owl'
+# Penguin.py | Defines the Penguin class which inherits attributes and methods
+#   from the Bird superclass.
+#
+# Completed by: Robert Lowman
+# Date: 12/7/16
+####################################################
+import WalkingBird
+
+class Penguin(WalkingBird.WalkingBird):
+
+    def __init__(self, name):
+        WalkingBird.__init__(name)
+        self.name = name
+
+    def call(self):
+        return 'Huh-huh-huh-huuuuh'
+
+    def className(self):
+        return 'Penguin'
+# WalkingBird.py | Defines the WalkingBird class which inherits attributes and
+#   methods from the Bird superclass.
+#
+# Completed by: Robert Lowman
+# Date: 12/7/16
+####################################################
+
+import Bird
+
+class WalkingBird(Bird.Bird):
+
+    def __init__(self, name):
+        super().__init__(name)
+
+    def movement(self):
+        return 'walked past'
+]0;guest-2nikin@ad425-linux21: ~/CS315-F16-LowmanRobert/unit11-hw/python[01;32mguest-2nikin@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-hw/python[00m$ python br[Kirdtestt.py 
+Hawkeye Bird just did bird-things and said Squaaaaaaawk!
+Donald Duck just flew past and said Quack!
+Mother Goose just flew past and said Honk!
+Woodsey Owl just flew past and said Hoot!
+Orville Ostrich just walked past and said Snork!
+Petey Penguin just walked past and said Huh-huh-huh-huuuuh
+Kenny Kiwi just walked past and said Twee-do!
+]0;guest-2nikin@ad425-linux21: ~/CS315-F16-LowmanRobert/unit11-hw/python[01;32mguest-2nikin@ad425-linux21[00m:[01;34m~/CS315-F16-LowmanRobert/unit11-hw/python[00m$ exit
+
+Script done on Thu 08 Dec 2016 09:24:38 AM EST
