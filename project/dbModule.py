@@ -9,13 +9,13 @@ import psycopg2
 class dbHandler:
 
     def __init__(self, theConn):
-        self.conn = theConn
+        self.cur = theConn.cursor()
+        self.cur.execute("SET search_path TO filerater")
 
     def inWordTable(self, theWord):
-        cur = self.conn.cursor()
-        selectQuery = ("SELECT word_id FROM word WHERE string = %s")
-        cur.execute(selectQuery, theWord)
-        data = cur.fetchall()
+        executeString = "SELECT word_id FROM word WHERE string = " + "'" + theWord + "'"
+        self.cur.execute(executeString)
+        data = self.cur.fetchall()
         theId = -1
         if data:
             for row in data:
@@ -23,22 +23,20 @@ class dbHandler:
         return theId
 
     def addSexualWord(self, theWord):
-        cur = self.conn.cursor()
-        cur.execute("SELECT * FROM sexual_word WHERE string = %s" % theWord)
-        data = cur.fetchall()
+        self.cur.execute("SELECT * FROM sexual_word WHERE string = ''" % theWord)
+        data = self.cur.fetchall()
         if not data:
-            wordId = inWordTable(theWord)
+            wordId = self.inWordTable(theWord)
             if wordId < 0:
-                query = ('INSERT INTO word VALUES (DEFAULT, %s)')
-                cur.execute(query, wordId)
+                query = ("INSERT INTO word VALUES (DEFAULT, '%s')")
+                self.cur.execute(query, '%s' % wordId)
             query = ('INSERT INTO sexual_word VALUES (%s, %s)')
-            cur.execute(query, (wordId, theWord))
+            self.cur.execute(query, (wordId, theWord))
             return True
         else:
             return False
 
     def getSexualWords(self):
-        cur = self.conn.curser()
         cur.execute("SELECT string FROM sexual_word")
         data = cur.fetchall()
         wordList = []
