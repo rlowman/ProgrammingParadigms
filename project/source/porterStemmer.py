@@ -2,21 +2,21 @@ class PorterStemmer:
 
     def stripWord(word):
         filler = 0
-        # word = step1a(word)
-        # if len(word) > 2:
-        #     if len(word) >= 1:
-		# 		word = self.step1b(word)
-		# 	if len(word) >= 1:
-		# 		word = self.step1c(word)
-		# 	if len(word) >= 1:
-		# 		word = self.step2(word)
-		# 	if len(word) >= 1;
-		# 		word = self.step3(word)
-		# 	if len(word) >= 1:
-		# 		word = self.step4(word)
-		# 	if len(word) >= 1:
-		# 		word = self.step5(word)
-        #     return word
+        word = step1a(word)
+        if len(word) > 2:
+            if len(word) >= 1:
+                word = self.step1b(word)
+            if len(word) >= 1:
+				word = self.step1c(word)
+            if len(word) >= 1:
+				word = self.step2(word)
+            if len(word) >= 1:
+                word = self.step3(word)
+            if len(word) >= 1:
+                word = self.step4(word)
+            if len(word) >= 1:
+                word = self.step5(word)
+            return word
 
     def isVowel(letter, previous):
         returnValue = False
@@ -90,17 +90,17 @@ class PorterStemmer:
 
             foundVowel = False
             currentIsCon = False
-            # while i < length and not foundVowel:
-            #     if i > 0:
-	    	# 	    if self.isVowel(word[i], word[i-1]):
-	    	# 		    foundVowel = true
-            #     elif self.isVowel(word[i],' '):
-	    	# 	    foundVowel = True
-	    	#     if not foundVowel:
-	    	# 	    currentIsCon = True
-            #     i = i + 1
-            # if foundCon and (foundVowel or currentIsCon):
-            #     m = m + 1
+            while i < length and not foundVowel:
+                if i > 0:
+	    		    if self.isVowel(word[i], word[i-1]):
+	    			    foundVowel = true
+                elif self.isVowel(word[i],' '):
+	    		    foundVowel = True
+                if not foundVowel:
+                    currentIsCon = True
+                i = i + 1
+            if foundCon and (foundVowel or currentIsCon):
+                m = m + 1
         return m
 
     def containsVowel(stem, suffixLength):
@@ -260,19 +260,19 @@ class PorterStemmer:
 				word.endsWith("ment")):
 			if self.getMeasure(word, 4) > 1:
 				returnValue = word[:length-4]
-		# elif word.endswith("tion") or word.endswith("sion"):
-		# 	if self.getMeasure(word, 3) > 1 {
-		# 		returnValue = word.[:length-3]
-		# elif(word.endswith("ism") or word.endswith("ant") or
-		# 		word.endswith("ent") or word.endswith("ate") or
-		# 		word.endswith("iti") or word.endswith("ous") or
-		# 		word.endswith("ive") or word.endswith("ize")):
-		# 	if self.getMeasure(word, 3) > 1:
-		# 		returnValue = word[:length - 3]
-        # elif (word.endswith("al") or word.endswith("er") or word.endswith("ic")
-		# 		or word.endswith("ou")):
-		# 	if self.getMeasure(word, 2) > 1:
-		# 		returnValue = word[:length - 2]
+        elif word.endswith("tion") or word.endswith("sion"):
+			if self.getMeasure(word, 3) > 1:
+				returnValue = word[:length-3]
+        elif(word.endswith("ism") or word.endswith("ant") or
+				word.endswith("ent") or word.endswith("ate") or
+				word.endswith("iti") or word.endswith("ous") or
+				word.endswith("ive") or word.endswith("ize")):
+			if self.getMeasure(word, 3) > 1:
+				returnValue = word[:length - 3]
+        elif (word.endswith("al") or word.endswith("er") or word.endswith("ic")
+				or word.endswith("ou")):
+			if self.getMeasure(word, 2) > 1:
+				returnValue = word[:length - 2]
         return returnValue
 
     ## Step5 of the algorithm
@@ -282,15 +282,15 @@ class PorterStemmer:
     def step5(word):
         length = len(word)
         returnValue = word
-		# if word.endswith("e"):
-		# 	if self.getMeasure(word, 1) > 1:
-		# 		returnValue = word[:length - 1]
-		# 		length = length - 1
-		# 	elif self.getMeasure(word, 1) == 1:
-		# 		if not self.isCvc(word, 1):
-		# 			returnValue = word[:length - 1]
-		# 			length = length - 1
-		# if (self.getMeasure(word, 0) > 1 and word.endsWith("l") and
-        #     self.doubleConstant(word, 0)):
-		# 	returnValue = word[:length - 1]
+        if word.endswith("e"):
+			if self.getMeasure(word, 1) > 1:
+				returnValue = word[:length - 1]
+				length = length - 1
+			elif self.getMeasure(word, 1) == 1:
+				if not self.isCvc(word, 1):
+					returnValue = word[:length - 1]
+					length = length - 1
+        if (self.getMeasure(word, 0) > 1 and word.endsWith("l") and
+            self.doubleConstant(word, 0)):
+			returnValue = word[:length - 1]
         return returnValue
