@@ -30,11 +30,20 @@ def addWord():
                     print "3: Adult Content"
                     addOption = input('Enter the number of the type of word you wish to add:')
                     if addOption == 1:
-                        db.addSexualWord(addWord)
+                        if db.addSexualWord(addWord):
+                            print addWord + " successfully added as a sexual word."
+                        else:
+                            print addWord + " is already in the database as a sexual word."
                     elif addOption == 2:
-                        db.addViolentWord(addWord)
+                        if db.addViolentWord(addWord):
+                            print addWord + " successfully added as a violent word."
+                        else:
+                            print addWord + " is already in the database as a violent word."
                     elif addOption == 3:
-                        db.addAdultWord(addWord)
+                        if db.addAdultWord(addWord):
+                            print addWord + " successfully added as an adult word."
+                        else:
+                            print addWord + " is already in the database as an adult word."
                     else:
                         print "Command not recognized."
         ## Saving changes
@@ -57,16 +66,16 @@ def addWord():
         else:
             print "Command not recognized."
 
-def removeWord(self):
+def removeWord():
     rem = False
-    while not a:
+    while not rem:
         print "1: Remove words"
         print "2: Save changes"
         print "3: Delete changes"
         print "4: Save changes and exit to main menu"
         print "5: Delete changes and exit to main menu"
         op = input('Select an option: ')
-        ##  words functionality
+        ## Removing words functionality
         if op == 1:
             remBool = False
             while not remBool:
@@ -77,13 +86,22 @@ def removeWord(self):
                     print "1: Sexual Word"
                     print "2: Violent Word"
                     print "3: Adult Content"
-                    removeOption = input('Enter the number of the type of word you wish to remove:')
+                    removeOption = input('Enter the number of the type of word you wish to remove: ')
                     if removeOption == 1:
-                        db.deleteSexualWord(removeWord)
+                        if db.deleteSexualWord(removeWord):
+                            print removeWord + " removed as a sexual word."
+                        else:
+                            print removeWord + " not found in database."
                     elif removeOption == 2:
-                        db.deleteViolentWord(removeWord)
+                        if db.deleteViolentWord(removeWord):
+                            print removeWord + " removed as a violent word."
+                        else:
+                            print removeWord + " not found in database."
                     elif removeOption == 3:
-                        db.deleteAdultWord(removeWord)
+                        if db.deleteAdultWord(removeWord):
+                            print removeWord + " removed as an adult word."
+                        else:
+                            print removeWord + " not found in database."
                     else:
                         print "Command not recognized."
         ## Saving changes
