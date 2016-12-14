@@ -1,35 +1,37 @@
 class PorterStemmer:
 
-    def stripWord(word):
-        filler = 0
-        word = step1a(word)
-        if len(word) > 2:
-            if len(word) >= 1:
-                word = self.step1b(word)
-            if len(word) >= 1:
-				word = self.step1c(word)
-            if len(word) >= 1:
-				word = self.step2(word)
-            if len(word) >= 1:
-                word = self.step3(word)
-            if len(word) >= 1:
-                word = self.step4(word)
-            if len(word) >= 1:
-                word = self.step5(word)
-            return word
+    def __init__(self):
+        pass
 
-    def isVowel(letter, previous):
+    def stripWord(self, word):
+        temp = self.step1a(word)
+        if len(temp) > 2:
+            if len(temp) >= 1:
+                temp = self.step1b(temp)
+            if len(temp) >= 1:
+                temp = self.step1c(temp)
+            if len(temp) >= 1:
+                temp = self.step2(temp)
+            if len(temp) >= 1:
+                temp = self.step3(temp)
+            if len(temp) >= 1:
+                temp = self.step4(temp)
+            if len(temp) >= 1:
+                temp = self.step5(temp)
+        return temp
+
+    def isVowel(self, letter, previous):
         returnValue = False
         if (letter == 'a' or letter == 'e' or letter == 'i' or
                 letter == 'o' or letter == 'u'):
             returnValue = True
-        elif (letter == 'y' and previous != 'a' and previous != 'e' and \
+        elif (letter == 'y' and previous != 'a' and previous != 'e' and
                 previous != 'i' and previous != 'o' and previous != 'u' and
                 previous != ' '):
             returnValue = True
         return returnValue
 
-    def isCvc(word, suffixLength):
+    def isCvc(self, word, suffixLength):
         length = len(word) - suffixLength
         returnValue = False
         if length >= 3:
@@ -39,7 +41,7 @@ class PorterStemmer:
                     word[length-1] != 'y' and
                     self.isVowel(word[length-2], word[length-3])):
                 if length == 3:
-                    if not isVowel(word[0], ' '):
+                    if not self.isVowel(word[0], ' '):
                         returnValue = True
                 elif not self.isVowel(word[length-3], word[length-4]):
                     returnValue = True
@@ -93,7 +95,7 @@ class PorterStemmer:
             while i < length and not foundVowel:
                 if i > 0:
 	    		    if self.isVowel(word[i], word[i-1]):
-	    			    foundVowel = true
+	    			    foundVowel = True
                 elif self.isVowel(word[i],' '):
 	    		    foundVowel = True
                 if not foundVowel:
@@ -103,7 +105,7 @@ class PorterStemmer:
                 m = m + 1
         return m
 
-    def containsVowel(stem, suffixLength):
+    def containsVowel(self, stem, suffixLength):
         length = len(stem) - suffixLength
         returnValue = False
         index = 0;
@@ -114,18 +116,19 @@ class PorterStemmer:
             if self.isVowel(stem[index], previous):
                 returnValue = True
             index = index + 1
+        return returnValue
 
-    def step1a(word):
+    def step1a(self, word):
         length = len(word)
         returnValue = word
         if word.endswith("s"):
             if word.endswith("sses") or word.endswith("ies"):
-                returnValue = word[:length-2]
+                returnValue = word[:-2]
             elif not word.endswith("ss"):
-                returnValue = word[:length-1]
+                returnValue = word[:-1]
         return returnValue
 
-    def step1b(word):
+    def step1b(self, word):
         length = len(word)
         returnValue = word
         if word.endswith("eed"):
@@ -134,16 +137,16 @@ class PorterStemmer:
         elif word.endswith("ing"):
             if self.containsVowel(word, 3):
                 returnValue = self.step1Fixer(word[:length-3])
-        elif word.enswith("ed"):
+        elif word.endswith("ed"):
             if self.containsVowel(word, 2):
-                returnValue = self.step1Fixer(word[:length-2])
+                returnValue = self.step1Fixer(word[:-2])
         return returnValue
 
     ## Helps step1 of the algorithm
     ##
     ## Receive: word, the word to strip
     ## Return: the revised word
-    def step1Fixer(word):
+    def step1Fixer(self, word):
         length = len(word)
         returnValue = word
         if word.endswith("at") or word.endswith("bl") or word.endswith("iz"):
@@ -160,7 +163,7 @@ class PorterStemmer:
     ##
     ## Receive: word, the word to strip
     ## Return: the revised word
-    def step1c(word):
+    def step1c(self, word):
         length = len(word)
         returnValue = word
         if self.containsVowel(word, 1) and word.endswith("y"):
@@ -172,7 +175,7 @@ class PorterStemmer:
     ##
     ## Receive: word, the word to strip
     ## Return: the revised word
-    def step2(word):
+    def step2(self, word):
         length = len(word)
         returnValue = word
         if word.endswith("ational") or word.endswith("ization"):
@@ -224,7 +227,7 @@ class PorterStemmer:
     ##
     ## Receive: word, the word to strip
     ## Return: the revised word
-    def step3(word):
+    def step3(self, word):
         length = len(word)
         returnValue = word
         if (word.endswith("icate") or word.endswith("alize")
@@ -249,15 +252,15 @@ class PorterStemmer:
     ##
     ## Receive: word, the word to strip
     ## Return: the revised word
-    def step4(word):
+    def step4(self, word):
         length = len(word)
         returnValue = word
         if word.endswith("ement"):
             if self.getMeasure(word, 5) > 1:
                 returnValue = word[:length-5]
-        elif(word.endsWith("ance") or word.endswith("ence") or
-				word.endsWith("able") or word.endswith("ible") or
-				word.endsWith("ment")):
+        elif(word.endswith("ance") or word.endswith("ence") or
+				word.endswith("able") or word.endswith("ible") or
+				word.endswith("ment")):
 			if self.getMeasure(word, 4) > 1:
 				returnValue = word[:length-4]
         elif word.endswith("tion") or word.endswith("sion"):
@@ -279,7 +282,7 @@ class PorterStemmer:
     ##
     ## Receive: word, the word to strip
     ## Return: the final word
-    def step5(word):
+    def step5(self, word):
         length = len(word)
         returnValue = word
         if word.endswith("e"):
@@ -288,9 +291,9 @@ class PorterStemmer:
 				length = length - 1
 			elif self.getMeasure(word, 1) == 1:
 				if not self.isCvc(word, 1):
-					returnValue = word[:length - 1]
+					returnValue = returnValue[:length - 1]
 					length = length - 1
-        if (self.getMeasure(word, 0) > 1 and word.endsWith("l") and
-            self.doubleConstant(word, 0)):
-			returnValue = word[:length - 1]
+        if (self.getMeasure(returnValue, 0) > 1 and returnValue.endswith('l') and
+            self.doubleConstant(returnValue, 0)):
+			returnValue = returnValue[:length - 1]
         return returnValue
