@@ -169,20 +169,18 @@ while checker:
     if option == 1:             # File Rating Functionality
         name = raw_input('Enter the file name: ')
         theFile = open(name, 'r')
-        # try:
-        #
-        sexualList = db.getSexualWords()
-        violentList = db.getViolentWords()
-        adultList = db.getAdultWords()
-        rater = fileHandler.FileRater(theFile, sexualList, violentList, adultList, sexualBase, violentBase, adultBase)
-        rating = rater.calculateRating()
-        print "File Rating: %.3f\n" % rating
-        #
-        # except IOError:
-        #     print "Could not read file"
-        #     sys.exit()
-        # except:
-        #     print "Unexpected error: ", sys.exc_info()[0]
+        try:
+            sexualList = db.getSexualWords()
+            violentList = db.getViolentWords()
+            adultList = db.getAdultWords()
+            rater = fileHandler.FileRater(theFile, sexualList, violentList, adultList, sexualBase, violentBase, adultBase)
+            rating = rater.calculateRating()
+            print "File Rating: %.3f\n" % rating
+
+        except IOError:
+             print "Could not read file"
+             connection.close()
+             sys.exit()
 
     elif option == 2:           # Adding Word functionality
         addWord()
@@ -206,6 +204,7 @@ while checker:
         print "Adjustments Set.\n"
 
     elif option == 5:           # Exiting
+        connection.close()
         print "Have a nice day!"
         checker = False
     else:
