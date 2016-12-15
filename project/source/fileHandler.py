@@ -5,6 +5,7 @@
 ## Due Date: 12/8/2016
 import porterStemmer
 import math
+import re
 
 class FileRater:
 
@@ -34,12 +35,16 @@ class FileRater:
         self.stemmer = porterStemmer.PorterStemmer()
         self.setWords()
 
+    ## Helper method for the constructor class to set fields
+    ##      based off of given file
     def setWords(self):
         for line in self.theFile:
             temp = line.split()
             for word in temp:
+                theWord = re.sub("[^a-zA-Z]+", "", word)
+                theWord = theWord.lower()
                 self.totalWords = self.totalWords + 1.0
-                stem = self.stemmer.stripWord(word)
+                stem = self.stemmer.stripWord(theWord)
                 if stem in self.sList:
                     self.sexualWords = self.sexualWords + 1.0
                 if stem in self.vList:
@@ -47,17 +52,12 @@ class FileRater:
                 if stem in self.aList:
                     self.adultContentWords = self.adultContentWords + 1.0
 
+    ## Calculates the rating of the file
     def calculateRating(self):
         s = self.sexualWords / self.totalWords
         v = self.violentWords / self.totalWords
         a = self.adultContentWords / self.totalWords
-        print s
-        print v
-        print a
         first = math.pow(1 + s, self.sBase + s)
-        print first
         second = math.pow(1 + v, self.vBase + v)
-        print second
         third = math.pow(1 + a, self.aBase + a)
-        print third
         return first + second + third
