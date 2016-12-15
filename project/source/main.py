@@ -4,6 +4,7 @@
 ## directory or the program will not be able to find it.
 ##
 ## Author: Robert Lowman
+## Date: 12/3/16
 import psycopg2
 import dbModule
 import fileHandler
@@ -152,13 +153,17 @@ def removeWord():
 ################  BEGIN OF EXECUTION  ################
 ######################################################
 checker = True
+sexualBase = 5
+adultBase = 5
+violentBase = 5
 while checker:
     print "********************* Main Menu *********************"
     print "Select an option by entering the corresponding number:"
     print "1: Rate a file"
     print "2: Add a word to the database"
     print "3: Remove a word from the database"
-    print "4: Close program"
+    print "4: Adjust Category Weight"
+    print "5: Close program"
     option = input('> ')
     print ""
     if option == 1:             # File Rating Functionality
@@ -169,7 +174,7 @@ while checker:
         sexualList = db.getSexualWords()
         violentList = db.getViolentWords()
         adultList = db.getAdultWords()
-        rater = fileHandler.FileRater(theFile, sexualList, violentList, adultList, 5, 5, 5)
+        rater = fileHandler.FileRater(theFile, sexualList, violentList, adultList, sexualBase, violentBase, adultBase)
         rating = rater.calculateRating()
         print "File Rating: %.3f\n" % rating
         #
@@ -185,7 +190,22 @@ while checker:
     elif option == 3:           # Removing Word functionality
         removeWord()
 
-    elif option == 4:           # Exiting
+    elif option == 4:           # Adjusting functionality
+        print "******************** Adjust Menu ********************"
+        print "For each category, the higher the degree, the higher"
+        print "the file rating will be when finding those types of words\n"
+        print "Enter the degree for Sexual Words (1-10):"
+        sexualBase = input('> ')
+        print ""
+        print "Enter the degree for Violent Words (1-10):"
+        violentBase = input('> ')
+        print ""
+        print "Enter the degree for Adult Words (1-10):"
+        adultBase = input('> ')
+        print ""
+        print "Adjustments Set.\n"
+
+    elif option == 5:           # Exiting
         print "Have a nice day!"
         checker = False
     else:
