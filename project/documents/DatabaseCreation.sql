@@ -11,15 +11,15 @@ CREATE TABLE word (
 
 CREATE TABLE sexual_word (
        word_id INTEGER PRIMARY KEY REFERENCES word,
+       stem VARCHAR(255) NOT NULL,
        string VARCHAR(255) NOT NULL);
 
 CREATE TABLE violent_word (
        word_id INTEGER PRIMARY KEY REFERENCES word,
+       stem VARCHAR(255) NOT NULL,
        string VARCHAR(255) NOT NULL);
 
 CREATE TABLE adult_content (
        word_id INTEGER PRIMARY KEY REFERENCES word,
+       stem VARCHAR(255) NOT NULL,
        string VARCHAR(255) NOT NULL);
-
-
-       
