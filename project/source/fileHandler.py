@@ -57,7 +57,7 @@ class FileRater:
         s = self.sexualWords / self.totalWords
         v = self.violentWords / self.totalWords
         a = self.adultContentWords / self.totalWords
-        first = math.pow(1 + s, self.sBase + s)
-        second = math.pow(1 + v, self.vBase + v)
-        third = math.pow(1 + a, self.aBase + a)
+        first = math.pow(1 + (s * self.sBase), 10 + (s * self.sBase))
+        second = math.pow(1 + (v * self.vBase), 10 + (v * self.vBase))
+        third = math.pow(1 + (a * self.aBase), 10 + (a * self.aBase))
         return first + second + third

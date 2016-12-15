@@ -168,8 +168,8 @@ while checker:
     print ""
     if option == 1:             # File Rating Functionality
         name = raw_input('Enter the file name: ')
-        theFile = open(name, 'r')
         try:
+            theFile = open(name, 'r')
             sexualList = db.getSexualWords()
             violentList = db.getViolentWords()
             adultList = db.getAdultWords()
