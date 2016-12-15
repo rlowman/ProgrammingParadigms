@@ -4,6 +4,7 @@
 ## Name: Robert Lowman
 ## Due Date: 12/8/2016
 import porterStemmer
+import math
 
 class FileRater:
 
@@ -17,30 +18,46 @@ class FileRater:
     #                   retrived from database
     # Param: adultList, list of words considered adult content
     #                   retrived from database
-    def __init__(f, sexualList, violentList, adultList):
+    def __init__(self, f, sexualList, violentList, adultList,
+                    sexualBase, violentBase, adultBase):
         self.sList = sexualList
         self.vList = violentList
         self.aList = adultList
         self.theFile = f
-        self.setWords(self)
-        self.totalWords = 0
-        self.sexualWords = 0
-        self.violentWords = 0
-        self.adultContentWords = 0
+        self.totalWords = 0.0
+        self.sexualWords = 0.0
+        self.violentWords = 0.0
+        self.adultContentWords = 0.0
+        self.sBase = sexualBase
+        self.vBase = violentBase
+        self.aBase = adultBase
         self.stemmer = porterStemmer.PorterStemmer()
+        self.setWords()
 
     def setWords(self):
-        for line in f:
+        for line in self.theFile:
             temp = line.split()
             for word in temp:
-                totalWords = totalWords + 1
-                stem = stemmer.stripWord(word)
-                if sList.count(stem) > 0:
-                    sexualWords = sexualWords + 1
-                if vList.count(stem) > 0:
-                    violentWords = violentWords + 1
-                if aList.count(stem) > 0:
-                    adultContentWords = adultContentWords + 1
+                self.totalWords = self.totalWords + 1.0
+                stem = self.stemmer.stripWord(word)
+                if stem in self.sList:
+                    self.sexualWords = self.sexualWords + 1.0
+                if stem in self.vList:
+                    self.violentWords = self.violentWords + 1.0
+                if stem in self.aList:
+                    self.adultContentWords = self.adultContentWords + 1.0
 
     def calculateRating(self):
-        return (sexualWords/totalWords) + (violentWords/totalWords) + (adultContentWords/totalWords)
+        s = self.sexualWords / self.totalWords
+        v = self.violentWords / self.totalWords
+        a = self.adultContentWords / self.totalWords
+        print s
+        print v
+        print a
+        first = math.pow(1 + s, self.sBase + s)
+        print first
+        second = math.pow(1 + v, self.vBase + v)
+        print second
+        third = math.pow(1 + a, self.aBase + a)
+        print third
+        return first + second + third

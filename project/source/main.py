@@ -1,6 +1,7 @@
 import psycopg2
 import dbModule
 import fileHandler
+import sys
 
 ## Makes connection to the
 connection = psycopg2.connect("host = 'vps.kings-cs.com' user = 'robertlowman' password = 'patriots8' dbname = 'robertlowman'")
@@ -136,22 +137,22 @@ while checker:
     option = input('Enter an options number: ')
     if option == 1:
         name = raw_input('Enter the file name: ')
-        try:
-            theFile = open(name, 'r')
+        theFile = open(name, 'r')
+        # try:
+        #
+        sexualList = db.getSexualWords()
+        violentList = db.getViolentWords()
+        adultList = db.getAdultWords()
+        rater = fileHandler.FileRater(theFile, sexualList, violentList, adultList, 5, 5, 5)
+        rating = rater.calculateRating()
+        print "File Rating: %.10f" % rating
+        #
+        # except IOError:
+        #     print "Could not read file"
+        #     sys.exit()
+        # except:
+        #     print "Unexpected error: ", sys.exc_info()[0]
 
-        except IOError:
-            print "Could not read file"
-            sys.exit()
-        except:
-            print "Unexpected error: ", sys.exc_info()[0]
-
-            with theFile:
-                sexualList = db.getSexualWords()
-                violentList = db.getViolentWords()
-                adultList = db.getAdultWords()
-                rater = FileRater(theFile, sexualList, violentList, adultList)
-                rating = rater.calculateRating()
-                ## print rating
 
     elif option == 2:
         addWord()
